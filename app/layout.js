@@ -1,5 +1,5 @@
 import { Jost, Roboto } from "next/font/google";
-import "./globals.css";
+import "./css/globals.scss";
 
 const jost = Jost({ subsets: ["latin"] });
 const roboto = Roboto({ subsets: ["latin"], weight: "400" });

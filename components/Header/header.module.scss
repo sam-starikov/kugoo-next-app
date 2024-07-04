@@ -1,0 +1,145 @@
+.navTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  padding: 11px 0;
+
+  font-size: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 10px;
+
+  color: var(--gray-600);
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 8.5px;
+
+  & li {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.telNumber {
+  display: inline-flex;
+  gap: 10px;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.body {
+  display: flex;
+  align-items: center;
+  padding: 29px 0 35px;
+}
+
+.logo {
+  margin-right: 35px;
+}
+
+.btn {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--white);
+
+  width: 115px;
+  padding: 19px 12px;
+  margin-right: 20px;
+
+  border: 1.5px solid var(--purple);
+  border-radius: 5px;
+  background-color: var(--purple);
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+
+  padding-left: 4px;
+  margin-right: 47px;
+
+  border: 1.5px solid var(--purple);
+  border-radius: 5px;
+}
+
+.select {
+  height: 40px;
+}
+
+.input {
+  padding: 10px 10px 10px 20px;
+  flex-grow: 1;
+
+  &::placeholder {
+    font-size: 14px;
+    color: var(--gray-600);
+  }
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 45px;
+  background: var(--purple);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  & a {
+    width: 20px;
+  }
+  & li:nth-child(4) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.navBottom {
+  padding: 10px 0;
+  background-color: var(--background);
+
+  & ul {
+    display: flex;
+    gap: 50px;
+
+    & li:nth-child(2) ul {
+      gap: 8px;
+
+      & li:nth-child(2) {
+        padding: 3px 9px;
+
+        font-size: 10px;
+        color: var(--white);
+
+        border-radius: 300px;
+        background-color: var(--purple);
+      }
+    }
+
+    & li:last-child {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+}
