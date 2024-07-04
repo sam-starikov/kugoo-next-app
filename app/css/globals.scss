@@ -21,4 +21,36 @@ a {
   max-width: 1140px;
   padding: 0 15px;
   margin: 0 auto;
+
+  &--large {
+    max-width: 1410px;
+  }
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.swiper-button-next {
+  position: absolute;
+
+  bottom: 30px !important;
+  left: 265px !important;
+  right: unset !important;
+  top: unset !important;
+
+  &::after {
+    content: url("./../../public/slider-btn-next.svg") !important;
+  }
+}
+
+.swiper-button-prev {
+  bottom: 30px !important;
+  left: 135px !important;
+  right: unset !important;
+  top: unset !important;
+
+  &::after {
+    content: url("./../../public/slider-btn-prev.svg") !important;
+  }
 }

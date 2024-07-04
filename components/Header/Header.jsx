@@ -128,7 +128,7 @@ export default function Header() {
             </li>
             <li>
               <Link href="#!">Акции</Link>
-              <Image src={discount} />
+              <Image src={discount} alt="discount" />
             </li>
           </ul>
         </div>

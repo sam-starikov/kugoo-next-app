@@ -42,6 +42,8 @@
 .body {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
   padding: 29px 0 35px;
 }
 
@@ -54,6 +56,7 @@
   font-size: 16px;
   color: var(--white);
 
+  // flex-grow: 1;
   width: 115px;
   padding: 19px 12px;
   margin-right: 20px;
@@ -120,7 +123,9 @@
 
   & ul {
     display: flex;
-    gap: 50px;
+    flex-wrap: wrap;
+    column-gap: 50px;
+    row-gap: 10px;
 
     & li:nth-child(2) ul {
       gap: 8px;
