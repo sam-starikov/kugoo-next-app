@@ -1,0 +1,15 @@
+.btn {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--white);
+
+  width: 115px;
+  padding: 19px 12px;
+  margin-right: 20px;
+
+  border: 1.5px solid var(--purple);
+  border-radius: 5px;
+  background-color: var(--purple);
+
+  // flex-grow: 1;
+}

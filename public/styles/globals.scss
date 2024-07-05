@@ -31,6 +31,10 @@ a {
   flex-grow: 1;
 }
 
+.none {
+  display: none !important;
+}
+
 .swiper-button-next {
   position: absolute;
 
@@ -40,7 +44,7 @@ a {
   top: unset !important;
 
   &::after {
-    content: url("./../../public/slider-btn-next.svg") !important;
+    content: url("/public/img/slider-btn-next.svg") !important;
   }
 }
 
@@ -51,6 +55,6 @@ a {
   top: unset !important;
 
   &::after {
-    content: url("./../../public/slider-btn-prev.svg") !important;
+    content: url("/public/img/slider-btn-prev.svg") !important;
   }
 }

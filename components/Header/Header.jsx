@@ -1,97 +1,105 @@
+"use client";
+import style from "./header.module.scss";
+
+/* next */
 import Link from "next/link";
 import Image from "next/image";
 
-import { Button, Select } from "antd";
-import { UnorderedListOutlined } from "@ant-design/icons";
-
-import style from "./header.module.scss";
-
-import viber from "./../../assets/img/icons/viber.svg";
-import whatsapp from "./../../assets/img/icons/whatsapp.svg";
-import telegram from "./../../assets/img/icons/telegram.svg";
-import addPlus from "./../../assets/img/icons/add-plus.svg";
-import logo from "./../../assets/img/icons/logo.svg";
-import search from "./../../assets/img/icons/search.svg";
-import cart from "./../../assets/img/icons/cart.svg";
-import balance from "./../../assets/img/icons/balance.svg";
-import heart from "./../../assets/img/icons/heart.svg";
-import discount from "./../../assets/img/icons/discount.svg";
-
-export default function Header() {
+export default function Header({ children }) {
   return (
     <header>
       <div className="container">
         <nav className={style.navTop}>
           <ul className={style.navList}>
             <li>
-              <a href="#!">Сервис</a>
+              <Link href="#!">Сервис</Link>
             </li>
             <li>
-              <a href="#!">Сотрудничество</a>
+              <Link href="#!">Сотрудничество</Link>
             </li>
             <li>
-              <a href="#!">Заказать звонок</a>
+              <Link href="#!">Заказать звонок</Link>
             </li>
             <li>
               <ul className={style.socials}>
                 <li>
-                  <a href="#!">
-                    <Image src={viber} alt="viber" />
-                  </a>
+                  <Link href="#!">
+                    <Image
+                      src="/icons/header/viber.svg"
+                      alt="viber"
+                      width={10}
+                      height={10}
+                    />
+                  </Link>
                 </li>
                 <li>
-                  <a href="#!">
-                    <Image src={whatsapp} alt="whatsapp" />
-                  </a>
+                  <Link href="#!">
+                    <Image
+                      src="/icons/header/whatsapp.svg"
+                      alt="whatsapp"
+                      width={10}
+                      height={10}
+                    />
+                  </Link>
                 </li>
                 <li>
-                  <a href="#!">
-                    <Image src={telegram} alt="telegram" />
-                  </a>
+                  <Link href="#!">
+                    <Image
+                      src="/icons/header/telegram.svg"
+                      alt="telegram"
+                      width={10}
+                      height={10}
+                    />
+                  </Link>
                 </li>
               </ul>
             </li>
           </ul>
           <Link className={style.telNumber} href="tel:+7 (800) 505-54-61">
             +7 (800) 505-54-61
-            <Image src={addPlus} alt="plus" />
+            <Image
+              src="/icons/header/add-plus.svg"
+              alt="plus"
+              width={10}
+              height={10}
+            />
           </Link>
         </nav>
       </div>
 
       <div className="container">
         <div className={style.body}>
-          <Link href="/">
-            <Image className={style.logo} src={logo} alt="logo" />
-          </Link>
-          <Button className={style.btn} title="Каталог">
-            <UnorderedListOutlined /> Каталог
-          </Button>
-          <form className={style.form} action="">
-            <Select className={style.select} placeholder="Везде" />
-            <input
-              className={style.input}
-              type="text"
-              placeholder="Искать самокат KUGO"
-            />
-            <div className={style.search}>
-              <Image width={16} height={16} src={search} alt="search" />
-            </div>
-          </form>
+          {children}
+
           <ul className={style.controls}>
             <li>
               <Link href="#!">
-                <Image src={balance} alt="balance" />
+                <Image
+                  src="/icons/header/balance.svg"
+                  alt="balance"
+                  width={10}
+                  height={10}
+                />
               </Link>
             </li>
             <li>
               <Link href="#!">
-                <Image src={heart} alt="like" />
+                <Image
+                  src="/icons/header/heart.svg"
+                  alt="favourite"
+                  width={10}
+                  height={10}
+                />
               </Link>
             </li>
             <li>
               <Link href="#!">
-                <Image src={cart} alt="cart" />
+                <Image
+                  src="/icons/header/cart.svg"
+                  alt="cart"
+                  width={10}
+                  height={10}
+                />
               </Link>
               <span>Корзина</span>
             </li>
@@ -105,7 +113,6 @@ export default function Header() {
             <li>
               <Link href="#!">О магазине</Link>
             </li>
-
             <li>
               <ul>
                 <li>
@@ -116,7 +123,6 @@ export default function Header() {
                 </li>
               </ul>
             </li>
-
             <li>
               <Link href="#!">Тест-драйв</Link>
             </li>
@@ -128,7 +134,12 @@ export default function Header() {
             </li>
             <li>
               <Link href="#!">Акции</Link>
-              <Image src={discount} alt="discount" />
+              <Image
+                src="/icons/header/discount.svg"
+                alt="discount"
+                width={10}
+                height={10}
+              />
             </li>
           </ul>
         </div>

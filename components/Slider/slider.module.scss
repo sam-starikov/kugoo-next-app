@@ -7,7 +7,7 @@
   padding: 40px 0 30px 135px;
   height: 421px;
   color: var(--white);
-  background-image: url("./../../public/slide-01.jpg");
+  background-image: url("/img/slide-01.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -81,7 +81,7 @@
     background-color: var(--white);
   }
   &::before {
-    content: url("./../../public/slider-decor-dot.svg");
+    content: url("./slider-decor-dot.svg");
     position: absolute;
     top: 50%;
     left: 97%;
