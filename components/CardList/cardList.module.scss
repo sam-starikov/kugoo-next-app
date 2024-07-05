@@ -1,0 +1,18 @@
+.top {
+  padding-top: 20px;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, auto));
+  align-items: center;
+  gap: 30px;
+
+  padding: 50px 0;
+}
+
+.title {
+  font-size: 35px;
+  font-weight: 600;
+  text-transform: uppercase;
+}

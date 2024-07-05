@@ -1,0 +1,37 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  //   width: 255px;
+  //   height: 492px;
+  //   padding: 10px 25px 20px;
+
+  border-radius: 5px;
+  border: 1px solid var(--gray-200);
+  background-color: var(--card-img-bg);
+}
+
+.top {
+  padding: 10px 13px 22px;
+}
+
+.imgWrap {
+  border-radius: 5px;
+
+  overflow: hidden;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.body {
+  padding: 10px 25px 20px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 600;
+}

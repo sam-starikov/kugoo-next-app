@@ -4,6 +4,9 @@ import style from "./header.module.scss";
 /* next */
 import Link from "next/link";
 import Image from "next/image";
+import Cart from "../Cart/Cart";
+
+import { HeartOutlined, BalanceScaleOutlined } from "@ant-design/icons";
 
 export default function Header({ children }) {
   return (
@@ -27,8 +30,8 @@ export default function Header({ children }) {
                     <Image
                       src="/icons/header/viber.svg"
                       alt="viber"
-                      width={10}
-                      height={10}
+                      width={20}
+                      height={20}
                     />
                   </Link>
                 </li>
@@ -37,8 +40,8 @@ export default function Header({ children }) {
                     <Image
                       src="/icons/header/whatsapp.svg"
                       alt="whatsapp"
-                      width={10}
-                      height={10}
+                      width={20}
+                      height={20}
                     />
                   </Link>
                 </li>
@@ -47,8 +50,8 @@ export default function Header({ children }) {
                     <Image
                       src="/icons/header/telegram.svg"
                       alt="telegram"
-                      width={10}
-                      height={10}
+                      width={20}
+                      height={20}
                     />
                   </Link>
                 </li>
@@ -60,8 +63,8 @@ export default function Header({ children }) {
             <Image
               src="/icons/header/add-plus.svg"
               alt="plus"
-              width={10}
-              height={10}
+              width={18}
+              height={18}
             />
           </Link>
         </nav>
@@ -76,32 +79,19 @@ export default function Header({ children }) {
               <Link href="#!">
                 <Image
                   src="/icons/header/balance.svg"
-                  alt="balance"
-                  width={10}
-                  height={10}
+                  alt="compare"
+                  width={20}
+                  height={20}
                 />
               </Link>
             </li>
             <li>
               <Link href="#!">
-                <Image
-                  src="/icons/header/heart.svg"
-                  alt="favourite"
-                  width={10}
-                  height={10}
-                />
+                <HeartOutlined className={style.favourite} />
               </Link>
             </li>
             <li>
-              <Link href="#!">
-                <Image
-                  src="/icons/header/cart.svg"
-                  alt="cart"
-                  width={10}
-                  height={10}
-                />
-              </Link>
-              <span>Корзина</span>
+              <Cart />
             </li>
           </ul>
         </div>
@@ -137,8 +127,8 @@ export default function Header({ children }) {
               <Image
                 src="/icons/header/discount.svg"
                 alt="discount"
-                width={10}
-                height={10}
+                width={20}
+                height={20}
               />
             </li>
           </ul>

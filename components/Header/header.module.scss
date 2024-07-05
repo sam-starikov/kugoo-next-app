@@ -47,22 +47,18 @@
   padding: 29px 0 35px;
 }
 
-
-
 .controls {
   display: flex;
   align-items: center;
   gap: 25px;
-
-  & a {
-    width: 20px;
-  }
-  & li:nth-child(4) {
-    display: flex;
-    align-items: center;
-  }
 }
 
+.favourite {
+  width: 20px;
+  height: 20px;
+}
+
+/* bottom */
 .navBottom {
   padding: 10px 0;
   background-color: var(--background);
@@ -70,7 +66,7 @@
   & ul {
     display: flex;
     flex-wrap: wrap;
-    column-gap: 50px;
+    column-gap: clamp(10px, -0.565rem + 5.95vw, 50px);
     row-gap: 10px;
 
     & li:nth-child(2) ul {
