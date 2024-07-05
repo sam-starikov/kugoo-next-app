@@ -9,17 +9,18 @@ export default function Card({
   img,
   price,
   discount,
-  // mAh,
-  // power,
-  // kmH,
-  // chargeTime,
+  mAh,
+  power,
+  kmH,
+  charge,
 }) {
   return (
     <article className={style.card}>
       <div className={style.top}>
         <div className={style.imgWrap}>
-          <Image src={img} alt={title} width={255} height={231} />
+          {/* <Image src={img} alt={title} width={255} height={255} /> */}
           {/* <Image src="/img/scooter.svg" alt={title} width={255} height={231} /> */}
+          <img src={img} />
         </div>
       </div>
 
@@ -29,19 +30,19 @@ export default function Card({
           <ul className={style.infoList}>
             <li className={style.infoListItem}>
               {/* <Image src={} alt="icon" /> */}
-              {/* <p className={style.infoDesc}>{mAh}</p> */}
+              <p className={style.infoDesc}>{String(mAh).slice(0, 3)} mAh</p>
             </li>
             <li className={style.infoListItem}>
               {/* <Image  src={}  alt="icon"/> */}
-              {/* <p className={style.infoDesc}>{power}</p> */}
+              <p className={style.infoDesc}>{power} л.с.</p>
             </li>
             <li className={style.infoListItem}>
               {/* <Image  src={} alt="icon"/> */}
-              {/* <p className={style.infoDesc}>{kmH}</p> */}
+              <p className={style.infoDesc}>{kmH} км/ч</p>
             </li>
             <li className={style.infoListItem}>
               {/* <Image  src={} alt="icon" /> */}
-              {/* <p className={style.infoDesc}>{chargeTime}</p> */}
+              <p className={style.infoDesc}>{charge} часов</p>
             </li>
           </ul>
           <div className={style.controls}>
@@ -54,8 +55,10 @@ export default function Card({
                 {/* <Image src={} alt='like'/> */}
               </button>
             </div>
-            <Button type="primary">Купить в один клик</Button>
           </div>
+          <Button type="primary" className={style.btnBuy}>
+            Купить в один клик
+          </Button>
         </div>
       </div>
     </article>

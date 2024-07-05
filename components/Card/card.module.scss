@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
-  //   width: 255px;
+  // width: 255px;
   //   height: 492px;
   //   padding: 10px 25px 20px;
 
@@ -13,18 +13,26 @@
 }
 
 .top {
-  padding: 10px 13px 22px;
+  padding: 10px 10px 20px;
 }
 
 .imgWrap {
+  display: flex;
   border-radius: 5px;
-
   overflow: hidden;
+
+  & img {
+    flex-grow: 1;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 .title {
   font-size: 18px;
   font-weight: 600;
+
+  margin-bottom: 20px;
 }
 
 .body {
@@ -34,4 +42,37 @@
 .price {
   font-size: 20px;
   font-weight: 600;
+}
+
+.infoList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 16px;
+  column-gap: 24px;
+
+  margin-bottom: 40px;
+
+  font-family: var(--second-family);
+  font-size: 14px;
+  color: var(--gray-600);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+
+  margin-bottom: 16px;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btnBuy {
+  padding: 10px 65px;
+
+  font-size: 12px;
+  font-family: var(--font-family);
 }

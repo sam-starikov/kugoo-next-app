@@ -57,16 +57,18 @@ export default function Header({ children }) {
                 </li>
               </ul>
             </li>
+            <li>
+              <Link className={style.telNumber} href="tel:+7 (800) 505-54-61">
+                +7 (800) 505-54-61
+                <Image
+                  src="/icons/header/add-plus.svg"
+                  alt="plus"
+                  width={18}
+                  height={18}
+                />
+              </Link>
+            </li>
           </ul>
-          <Link className={style.telNumber} href="tel:+7 (800) 505-54-61">
-            +7 (800) 505-54-61
-            <Image
-              src="/icons/header/add-plus.svg"
-              alt="plus"
-              width={18}
-              height={18}
-            />
-          </Link>
         </nav>
       </div>
 
