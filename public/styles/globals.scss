@@ -4,58 +4,58 @@
 /* general */
 html,
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
 
-  line-height: 1.3;
-  overflow-x: hidden;
+    line-height: 1.3;
+    overflow-x: hidden;
 }
 
 a {
-  color: currentColor;
+    color: currentColor;
 }
 
 .container {
-  width: 100%;
-  max-width: 1140px;
-  padding: 0 15px;
-  margin: 0 auto;
+    width: 100%;
+    max-width: 1140px;
+    padding: 0 15px;
+    margin: 0 auto;
 
-  &--large {
-    max-width: 1410px;
-  }
+    &--large {
+        max-width: 1410px;
+    }
 }
 
 .main {
-  flex-grow: 1;
+    flex-grow: 1;
 }
 
 .none {
-  display: none !important;
+    display: none !important;
 }
 
 .swiper-button-next {
-  position: absolute;
+    position: absolute;
 
-  bottom: 30px !important;
-  left: 265px !important;
-  right: unset !important;
-  top: unset !important;
+    bottom: 30px !important;
+    left: 265px !important;
+    right: unset !important;
+    top: unset !important;
 
-  &::after {
-    content: url("/public/img/slider-btn-next.svg") !important;
-  }
+    &::after {
+        content: url("/icons/slider/slider-btn-next.svg") !important;
+    }
 }
 
 .swiper-button-prev {
-  bottom: 30px !important;
-  left: 135px !important;
-  right: unset !important;
-  top: unset !important;
+    bottom: 30px !important;
+    left: 135px !important;
+    right: unset !important;
+    top: unset !important;
 
-  &::after {
-    content: url("/public/img/slider-btn-prev.svg") !important;
-  }
+    &::after {
+        content: url("/icons/slider/slider-btn-prev.svg") !important;
+    }
 }

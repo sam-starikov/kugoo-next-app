@@ -1,17 +1,14 @@
-import Card from "@/components/Card/Card";
-import Header from "@/components/Header/Header";
-
-
-
+import Catalogue from '@/components/Catalogue/Catalogue';
+import Header from '@/components/Header';
+import Search from '@/components/Search/Search';
 
 export default function CartPage() {
-
-    return (
-
-        <>
-            <Header />
-            {/* <Cart /> */}
-        </>
-
-    )
+  return (
+    <Header>
+      <>
+        <Catalogue />
+        <Search />
+      </>
+    </Header>
+  );
 }
