@@ -10,6 +10,7 @@ import CardList from "@/components/CardList/CardList";
 
 /* react */
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Home() {
   /* hooks */
@@ -28,14 +29,13 @@ export default function Home() {
     <>
       <Header>
         <>
-          <Logo />
           <Catalogue />
           <Search />
         </>
       </Header>
       <main className="main">
         {/* <Slider  /> */}
-        <CardList items={cards} />
+        <CardList cards={cards} />
       </main>
     </>
   );

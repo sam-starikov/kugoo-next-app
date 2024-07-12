@@ -2,7 +2,7 @@ import style from "./cardList.module.scss";
 
 import Card from "../Card/Card";
 
-export default function CardList({ items }) {
+export default function CardList({ cards }) {
   return (
     <section>
       <div className="container">
@@ -12,7 +12,7 @@ export default function CardList({ items }) {
         </div>
 
         <div className={style.body}>
-          {items.map((obj) => (
+          {cards.map((obj) => (
             <Card key={obj.id} {...obj} />
           ))}
         </div>
