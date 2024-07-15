@@ -13,6 +13,7 @@ import Search from '@/components/Search/Search';
 import Header from '@/components/Header';
 import Slider from '@/components/Slider';
 import Link from 'next/link';
+import { Button } from 'antd';
 
 export default function Home() {
   /* hooks */
@@ -32,8 +33,8 @@ export default function Home() {
   }, []);
 
   return (
-    <main className='main'>
-      <Header countValue={count}>
+    <main className='main main--p'>
+      {/*  <Header countValue={count}>
         <>
           <Catalogue />
           <Search />
@@ -63,6 +64,20 @@ export default function Home() {
           </div>
         </div>
       </section>
+ */}
+      <div className='container container--large'>
+        <section className={style.delivery}>
+          <div className='container'>
+            <div className={style.deliveryBody}>
+              <div className={style.deliveryInfo}>
+                <div className={style.deliverySticker}>Акция</div>
+                <h1 className={style.deliveryTitle}>Бесплатная доставка электросамокатов по России до 01.09</h1>
+                <Button className={style.deliveryBtn}>Подробнее</Button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }
