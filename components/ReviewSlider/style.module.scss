@@ -37,5 +37,86 @@
 
 .slideImg {
   height: 284px;
+  transition: filter 0.2s ease-in;
+}
 
+.slide {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  &:hover {
+    .slideImg {
+      filter: blur(5px);
+    }
+    .review {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+}
+
+.review {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  padding: 30px 22px 22px;
+
+  color: var(--white);
+
+  opacity: 0.8;
+  transform: translateY(100%);
+  transition: transform 0.2s ease-in;
+
+  p {
+    line-height: 1.2;
+    font-size: 14px;
+  }
+}
+
+.user {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+
+  .avatar {
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  &Info {
+    h3 {
+      font-size: 16px;
+      font-weight: 500;
+    }
+    p {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+  }
+}
+
+.rate {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+
+  p {
+    font-size: 12px;
+    opacity: 0.8;
+  }
+
+  &Count {
+    display: flex;
+  }
 }

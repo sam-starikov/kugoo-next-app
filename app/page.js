@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <main className='main main--p'>
-      {/*  <Header countValue={count}>
+      <Header countValue={count}>
         <>
           <Catalogue />
           <Search />
@@ -41,21 +41,30 @@ export default function Home() {
       </Header>
       <Slider />
       <Benifits />
-      <CardList cards={cards} title={'Электросамокаты'} isSort={true} onChangeCounter={onChangeCounter} />
+      <CardList
+        cards={cards}
+        title={'Электросамокаты'}
+        isSort={true}
+        onChangeCounter={onChangeCounter}
+      />
 
       <section className={style.services}>
         <div className='container'>
           <div className={style.servicesBody}>
             <article className={style.servicesCard}>
               <h3 className={style.servicesTitle}>Подбор модели электросамоката</h3>
-              <p className={style.servicesSubTitle}>Пройдите тест и выберите электросамокат по своим критериям</p>
+              <p className={style.servicesSubTitle}>
+                Пройдите тест и выберите электросамокат по своим критериям
+              </p>
               <Link className={style.servicesLink} href='#!'>
                 Подобрать модель
               </Link>
             </article>
             <article className={style.servicesCard}>
               <h3 className={style.servicesTitle}>Подбор модели электросамоката</h3>
-              <p className={style.servicesSubTitle}>Пройдите тест и выберите электросамокат по своим критериям</p>
+              <p className={style.servicesSubTitle}>
+                Пройдите тест и выберите электросамокат по своим критериям
+              </p>
               <Link className={style.servicesLink} href='#!'>
                 Подобрать модель
               </Link>
@@ -63,22 +72,24 @@ export default function Home() {
           </div>
         </div>
       </section>
- */}
-      {/* <div className='container container--large'>
+
+      <div className='container container--large'>
         <section className={style.delivery}>
           <div className='container'>
             <div className={style.deliveryBody}>
               <div className={style.deliveryInfo}>
                 <div className={style.deliverySticker}>Акция</div>
-                <h1 className={style.deliveryTitle}>Бесплатная доставка электросамокатов по России до 01.09</h1>
+                <h1 className={style.deliveryTitle}>
+                  Бесплатная доставка электросамокатов по России до 01.09
+                </h1>
                 <Button className={style.deliveryBtn}>Подробнее</Button>
               </div>
             </div>
           </div>
         </section>
-      </div> */}
+      </div>
 
-      {/* <ReviewSlider /> */}
+      <ReviewSlider />
       <Subscribe />
       <Footer />
     </main>
