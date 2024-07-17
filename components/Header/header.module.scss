@@ -1,121 +1,120 @@
 .navTop {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
 
-    padding: 11px 0;
+  padding: 11px 0;
 
-    font-size: 12px;
-    border-bottom: 1px solid var(--border-color);
+  font-size: 12px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .navList {
-    width: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 8px;
+
+  color: var(--gray-600);
+
+  & li:last-child {
+    flex: 1;
     display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    column-gap: 30px;
-    row-gap: 8px;
 
-    color: var(--gray-600);
-
-    & li:last-child {
-        flex: 1;
-        display: flex;
-
-        @media (max-width: 560px) {
-            flex: 1 0 auto;
-        }
+    @media (max-width: 560px) {
+      flex: 1 0 auto;
     }
+  }
 
-    @media (max-width: 380px) {
-        justify-content: space-between;
-    }
+  @media (max-width: 380px) {
+    justify-content: space-between;
+  }
 }
 
 .socials {
-    display: flex;
-    align-items: center;
-    gap: 8.5px;
+  display: flex;
+  align-items: center;
+  gap: 8.5px;
 
-    & li {
-        width: 12px;
-        height: 12px;
-    }
+  & li {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 .telNumber {
-    flex: 1;
-    display: inline-flex;
-    justify-content: end;
-    gap: 10px;
+  flex: 1;
+  display: inline-flex;
+  justify-content: end;
+  gap: 10px;
 
-    line-height: 1.7;
-    font-weight: 500;
-    color: var(--black);
+  line-height: 1.7;
+  font-weight: 500;
+  color: var(--black);
 
-    @media (max-width: 560px) {
-        justify-content: unset;
-    }
+  @media (max-width: 560px) {
+    justify-content: unset;
+  }
 }
 
 .body {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding: clamp(20px, 1.089rem + 0.8vw, 29px) 0
-        clamp(20px, 0.982rem + 1.34vw, 35px);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: clamp(20px, 1.089rem + 0.8vw, 29px) 0 clamp(20px, 0.982rem + 1.34vw, 35px);
 }
 
 .controls {
-    display: flex;
-    align-items: center;
-    gap: 25px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
 }
 
 .favourite {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .navBottom {
-    padding: 10px 0;
-    background-color: var(--background);
+  padding: 10px 0;
+  background-color: var(--background-gray);
 
-    & li {
-        transition: opacity 0.2s ease-in;
-        &:hover {
-            opacity: 0.8;
-        }
+  & li {
+    transition: opacity 0.2s ease-in;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  & ul {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: clamp(10px, -0.565rem + 5.95vw, 50px);
+    row-gap: 10px;
+
+    & li:nth-child(2) ul {
+      gap: 8px;
+
+      & li:nth-child(2) {
+        padding: 3px 9px;
+
+        font-size: 10px;
+        color: var(--white);
+
+        border-radius: 300px;
+        background-color: var(--purple);
+      }
     }
 
-    & ul {
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: clamp(10px, -0.565rem + 5.95vw, 50px);
-        row-gap: 10px;
-
-        & li:nth-child(2) ul {
-            gap: 8px;
-
-            & li:nth-child(2) {
-                padding: 3px 9px;
-
-                font-size: 10px;
-                color: var(--white);
-
-                border-radius: 300px;
-                background-color: var(--purple);
-            }
-        }
-
-        & li:last-child {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+    & li:last-child {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
+  }
 }

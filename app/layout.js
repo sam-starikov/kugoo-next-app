@@ -1,4 +1,4 @@
-import '/public/styles/globals.scss';
+import './styles/globals.scss';
 
 import { Jost, Roboto } from 'next/font/google';
 

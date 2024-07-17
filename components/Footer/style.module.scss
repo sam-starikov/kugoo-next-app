@@ -1,0 +1,97 @@
+.footer {
+  background-color: var(--background-gray);
+  padding-top: 46px;
+  padding-bottom: 95px;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 115px;
+  border-bottom: 1px solid #5d6c7b17;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 17px;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--gray-600);
+  }
+}
+
+.catalogue {
+  margin-right: 125px;
+}
+
+.forCustomers {
+  margin-right: 110px;
+  &Body {
+    display: flex;
+
+    gap: 45px;
+  }
+}
+
+.contacts {
+  margin-right: 75px;
+  &Body {
+    display: flex;
+
+    justify-content: space-between;
+    gap: 40px;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+
+      li {
+        font-size: 12px;
+        color: var(--gray-600);
+
+        a {
+          font-size: 16px;
+          font-weight: 500;
+          color: var(--black);
+        }
+
+        span {
+          color: var(--black);
+        }
+      }
+    }
+  }
+}
+
+.link {
+  font-size: 12px;
+  color: var(--purple);
+  transition: opacity 0.2s ease-in;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.bottom {
+  padding-top: 36px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.store {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+
+  img {
+    border-radius: 5px;
+    height: 45px;
+  }
+}

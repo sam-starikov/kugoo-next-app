@@ -1,0 +1,41 @@
+.reviews {
+}
+
+.reviewsTitle {
+  font-size: 35px;
+  font-weight: 600;
+  color: var(--black);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 17px;
+}
+
+.reviewsLink {
+  display: block;
+  position: relative;
+
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--purple);
+  text-align: center;
+  margin-bottom: 57px;
+
+  &:hover::after {
+    transform: translate(100%, -50%);
+  }
+
+  &::after {
+    content: url('/icons/arrow.svg');
+    position: absolute;
+    top: 6px;
+
+    height: 11px;
+    transform: translate(50%, -50%);
+    transition: transform 0.2s ease-in;
+  }
+}
+
+.slideImg {
+  height: 284px;
+
+}

@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Cart from '../Cart';
 
 import { HeartOutlined } from '@ant-design/icons';
-import Logo from '../Logo/Logo';
+import Logo from '../Logo';
 
 export default function Header({ children, countValue }) {
   return (
