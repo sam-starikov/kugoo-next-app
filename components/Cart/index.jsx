@@ -1,5 +1,3 @@
-'use client';
-
 import { Avatar, Badge } from 'antd';
 
 export default function Cart({ countValue }) {

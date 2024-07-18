@@ -1,26 +1,28 @@
 'use client';
-import style from './page.module.scss';
-
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { Button } from 'antd';
 
 import CardList from '@/components/CardList';
 import Benifits from '@/components/Benefits';
-import Catalogue from '@/components/Catalogue/Catalogue';
+
 import Search from '@/components/Search/Search';
 import Header from '@/components/Header';
 import Slider from '@/components/Slider';
 import ReviewSlider from '@/components/ReviewSlider';
 import Footer from '@/components/Footer';
 import Subscribe from '@/components/Subscribe';
+import Services from '@/components/Services';
+import Catalogue from '@/components/Catalogue';
 
 export default function Home() {
   const [cards, setCards] = useState([]);
   const [count, setCount] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
   const onChangeCounter = () => {
     setCount(count + 1);
+  };
+  const openCatalogue = () => {
+    setIsOpen(!isOpen);
   };
 
   useEffect(() => {
@@ -32,14 +34,15 @@ export default function Home() {
   }, []);
 
   return (
-    <main className='main main--p'>
-      <Header countValue={count}>
+    <main className='main'>
+      <Header countValue={count} openCatalogue={openCatalogue}>
         <>
-          <Catalogue />
           <Search />
+          <Catalogue isOpen={isOpen} />
         </>
       </Header>
-      <Slider />
+
+      {/* <Slider />
       <Benifits />
       <CardList
         cards={cards}
@@ -47,32 +50,8 @@ export default function Home() {
         isSort={true}
         onChangeCounter={onChangeCounter}
       />
-
-      <section className={style.services}>
-        <div className='container'>
-          <div className={style.servicesBody}>
-            <article className={style.servicesCard}>
-              <h3 className={style.servicesTitle}>Подбор модели электросамоката</h3>
-              <p className={style.servicesSubTitle}>
-                Пройдите тест и выберите электросамокат по своим критериям
-              </p>
-              <Link className={style.servicesLink} href='#!'>
-                Подобрать модель
-              </Link>
-            </article>
-            <article className={style.servicesCard}>
-              <h3 className={style.servicesTitle}>Подбор модели электросамоката</h3>
-              <p className={style.servicesSubTitle}>
-                Пройдите тест и выберите электросамокат по своим критериям
-              </p>
-              <Link className={style.servicesLink} href='#!'>
-                Подобрать модель
-              </Link>
-            </article>
-          </div>
-        </div>
-      </section>
-
+      <Services /> */}
+      {/* 
       <div className='container container--large'>
         <section className={style.delivery}>
           <div className='container'>
@@ -87,11 +66,11 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </div>
+      </div> */}
 
-      <ReviewSlider />
+      {/* <ReviewSlider />
       <Subscribe />
-      <Footer />
+      <Footer /> */}
     </main>
   );
 }

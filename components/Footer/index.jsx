@@ -27,9 +27,7 @@ export default function Footer() {
                   <Link href='#!'>Робот-пылесосы</Link>
                 </li>
                 <li>
-                  <Link href='#!' k>
-                    Весы
-                  </Link>
+                  <Link href='#!'>Весы</Link>
                 </li>
               </ul>
             </section>
@@ -99,10 +97,10 @@ export default function Footer() {
           <Logo />
           <div className={s.store}>
             <Link href='#!'>
-              <Image src='/img/google-play.jpg' width={151} height={45} />
+              <Image src='/img/google-play.jpg' width={151} height={45} alt='google play' />
             </Link>
             <Link href='#!'>
-              <Image src='/img/app-store.jpg' width={151} height={45} />
+              <Image src='/img/app-store.jpg' width={151} height={45} alt='app store' />
             </Link>
           </div>
         </section>

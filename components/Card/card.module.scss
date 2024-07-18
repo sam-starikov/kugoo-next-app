@@ -1,158 +1,169 @@
 .card {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    height: 490px;
-    width: 255px;
+  height: 490px;
+  width: 255px;
 
-    overflow: hidden;
+  overflow: hidden;
 
-    border-radius: 5px;
-    border: 1.5px solid var(--gray-200);
+  border-radius: 5px;
+  border: 1.5px solid var(--gray-200);
 }
 
 .top {
-    position: relative;
-    display: flex;
-    padding: 15px;
+  position: relative;
+  display: flex;
+  padding: 15px;
 
-    background: var(--card-img-bg);
+  background: var(--card-img-bg);
 
-    & img {
-        user-select: none;
-        object-fit: cover;
-        object-position: center;
-    }
+  & img {
+    user-select: none;
+    object-fit: cover;
+    object-position: center;
+  }
 
-    .trend,
-    .new {
-        position: absolute;
-        top: 10px;
+  .trend,
+  .new {
+    position: absolute;
+    top: 10px;
 
-        padding: 5px 10px;
+    padding: 5px 10px;
 
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-        font-size: 12px;
-        font-weight: 500;
-        color: var(--white);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--white);
 
-        border-radius: 5px;
-    }
+    border-radius: 5px;
+  }
 
-    .trend {
-        left: 10px;
-        text-transform: uppercase;
-        background-color: var(--orange-primary);
-    }
+  .trend {
+    left: 10px;
+    text-transform: uppercase;
+    background-color: var(--orange-primary);
+  }
 
-    .new {
-        right: 10px;
-        text-transform: capitalize;
-        background-color: var(--green);
-    }
+  .new {
+    right: 10px;
+    text-transform: capitalize;
+    background-color: var(--green);
+  }
 
-    .balance {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-    }
+  .balance {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
 }
 
 .title {
-    font-size: 18px;
-    font-weight: 600;
-    text-transform: capitalize;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: capitalize;
 
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .body {
-    display: flex;
-    flex-direction: column;
-    padding: 20px 25px 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 25px 20px;
 }
 
 .infoList {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 25px;
-    row-gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 25px;
+  row-gap: 16px;
 
-    margin-bottom: 27px;
+  margin-bottom: 27px;
 
-    font-family: var(--second-family);
-    font-size: 14px;
-    color: var(--gray-600);
+  font-family: var(--second-family);
+  font-size: 14px;
+  color: var(--gray-600);
 
-    & li {
-        display: flex;
-        align-items: center;
-        column-gap: 10px;
-    }
+  & li {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+  }
 }
 
 .totalPrice {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .price {
-    font-size: 20px;
-    font-weight: 600;
+  font-size: 20px;
+  font-weight: 600;
 }
 .discount {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--gray-600);
-    text-decoration: line-through;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-600);
+  text-decoration: line-through;
 }
 
 .bottom {
-    display: flex;
-    align-items: center;
-    gap: 26px;
+  display: flex;
+  align-items: center;
+  gap: 26px;
 
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 }
 
 .controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .btnBuy {
-    padding: 10px 65px;
+  padding: 10px 65px;
 
-    font-size: 12px;
-    font-family: var(--font-family);
-    background-color: var(--purple);
+  font-size: 12px;
+  font-family: var(--font-family);
+  background-color: var(--purple);
 }
 
 .cartBtn,
 .favouriteBtn {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    color: var(--purple);
+  color: var(--purple);
+  border: 2px solid var(--gray-200);
+  border-radius: 50%;
+  transition: background-color 0.2s ease-in;
 
-    border: 2px solid var(--gray-200);
-    border-radius: 50%;
+  &:hover {
+    background-color: var(--gray-200);
+  }
 
-    transition: background-color 0.2s ease-in;
+  svg {
+    width: 18px;
+    height: 18px;
 
     &:hover {
-        background-color: var(--gray-200);
+      path {
+        fill: var(--purple);
+      }
     }
 
-    & span svg {
-        font-size: 18px;
+    path {
+      stroke: var(--purple);
+      fill: transparent;
+      transition: fill 0.2s ease-in;
     }
+  }
 }

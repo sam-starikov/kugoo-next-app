@@ -1,11 +1,12 @@
 .form {
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex: 1;
 
   margin-right: clamp(0px, -3.357rem + 6.99vw, 47px);
-
   border: 1.5px solid var(--purple);
   border-radius: 5px;
 
@@ -15,11 +16,14 @@
 }
 
 .select {
-  height: 40px;
+  div {
+    background-color: var(--background-gray) !important;
+    border: none !important;
+  }
 }
 
 .input {
-  padding: 10px 10px 10px 20px;
+  padding: 8px 50px 8px 20px;
   flex-grow: 1;
 
   &::placeholder {
@@ -29,11 +33,15 @@
 }
 
 .searchBtn {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 14px;
 
-  width: 40px;
-  height: 45px;
   background: var(--purple);
 }

@@ -1,15 +1,16 @@
 'use client';
 import style from './header.module.scss';
 
-/* next */
 import Link from 'next/link';
 import Image from 'next/image';
-import Cart from '../Cart';
 
-import { HeartOutlined } from '@ant-design/icons';
+import Cart from '../Cart';
 import Logo from '../Logo';
 
-export default function Header({ children, countValue }) {
+import { HeartOutlined, UnorderedListOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
+
+export default function Header({ children, countValue, openCatalogue }) {
   return (
     <header>
       <div className='container'>
@@ -56,6 +57,9 @@ export default function Header({ children, countValue }) {
       <div className='container'>
         <div className={style.body}>
           <Logo />
+          <Button className={style.btn} onClick={openCatalogue}>
+            <UnorderedListOutlined /> Каталог
+          </Button>
           {children}
           <ul className={style.controls}>
             <li>
