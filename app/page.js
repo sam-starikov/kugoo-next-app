@@ -1,4 +1,6 @@
 'use client';
+import style from './page.module.scss';
+
 import { useEffect, useState } from 'react';
 
 import CardList from '@/components/CardList';
@@ -12,6 +14,7 @@ import Footer from '@/components/Footer';
 import Subscribe from '@/components/Subscribe';
 import Services from '@/components/Services';
 import Catalogue from '@/components/Catalogue';
+import { Button } from 'antd';
 
 export default function Home() {
   const [cards, setCards] = useState([]);
@@ -42,7 +45,7 @@ export default function Home() {
         </>
       </Header>
 
-      {/* <Slider />
+      <Slider />
       <Benifits />
       <CardList
         cards={cards}
@@ -50,8 +53,8 @@ export default function Home() {
         isSort={true}
         onChangeCounter={onChangeCounter}
       />
-      <Services /> */}
-      {/* 
+      <Services />
+
       <div className='container container--large'>
         <section className={style.delivery}>
           <div className='container'>
@@ -66,11 +69,11 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </div> */}
+      </div>
 
-      {/* <ReviewSlider />
+      <ReviewSlider />
       <Subscribe />
-      <Footer /> */}
+      <Footer />
     </main>
   );
 }
