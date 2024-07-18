@@ -97,8 +97,8 @@ export default function ReviewSlider() {
         spaceBetween={18}
         slidesPerView={'auto'}
         autoplay={{
-          delay: 0,
-          reverseDirection: true,
+          delay: 2500,
+          disableOnInteraction: false,
         }}
         speed={10000}>
         {!!reviews.length &&
@@ -137,7 +137,9 @@ export default function ReviewSlider() {
         spaceBetween={18}
         slidesPerView={'auto'}
         autoplay={{
-          delay: 0,
+          delay: 2500,
+          disableOnInteraction: false,
+          reverseDirection: true,
         }}
         speed={10000}>
         {!!reviews.length &&
