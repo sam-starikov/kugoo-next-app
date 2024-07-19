@@ -43,27 +43,21 @@ a {
 /* end */
 
 /* swiper */
-.swiper-button-next {
-  position: absolute;
-
-  bottom: 30px !important;
-  left: 265px !important;
-  right: unset !important;
-  top: unset !important;
-
-  &::after {
-    content: url('/icons/slider/slider-btn-next.svg') !important;
-  }
+.swiper-button-next,
+.swiper-button-prev {
+  height: 26px;
+  width: 26px;
+  // &::after {
+  //   content: url('/icons/slider/slider-btn-next.svg') !important;
+  // }
 }
 
 .swiper-button-prev {
-  bottom: 30px !important;
-  left: 135px !important;
-  right: unset !important;
-  top: unset !important;
-
-  &::after {
-    content: url('/icons/slider/slider-btn-prev.svg') !important;
-  }
+  // height: 26px;
+  // width: 26px;
+  // &::after {
+  //   content: url('/icons/slider/slider-btn-prev.svg') !important;
+  // }
 }
+
 /* end */

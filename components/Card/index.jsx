@@ -22,7 +22,13 @@ export default function Card({
   return (
     <article className={style.card}>
       <div className={style.top}>
-        <Image src={'/img/scooter-01.jpg'} alt='scooter' width={255} height={231} />
+        <Image
+          className={style.img}
+          src={'/img/scooter-01.jpg'}
+          alt='scooter'
+          width={255}
+          height={231}
+        />
         <button className={style.balance}>
           <Image src={'/icons/card/balance.svg'} alt='balance' width={35} height={35} />
         </button>

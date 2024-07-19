@@ -6,13 +6,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y, FreeMode } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+/* end */
 
-/* antd */
 import { Button } from 'antd';
 
-/* next */
 import Image from 'next/image';
 
 const images = [
@@ -34,26 +31,17 @@ export default function Slider() {
   return (
     <div className={style.slider}>
       <div className='container container--large'>
-        <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y, FreeMode]}
-          navigation
-          // pagination={ { clickable: true } }
-          // scrollbar={ { draggable: true } }
-          spaceBetween={50}
-          slidesPerView={1}
-          // onSlideChange={ () => console.log("slide change") }
-          // onSwiper={ (swiper) => console.log(swiper) }
-        >
+        <Swiper modules={[Navigation]} spaceBetween={50} slidesPerView={1}>
           {images.map(img => (
             <SwiperSlide key={img.id}>
               <div className={style.slide}>
                 <img className={style.slideBg} src={img.src} />
-                <Button ghost className={style.btnNew}>
-                  Новинка
-                </Button>
                 <div className={style.body}>
-                  <p className={style.title}>Электросамокаты Kugoo Kirin от официального дилера</p>
-                  <p className={style.subTitle}>с бесплатной доставкой по РФ от 1 дня</p>
+                  <Button ghost className={style.btnNew}>
+                    Новинка
+                  </Button>
+                  <h1>Электросамокаты Kugoo Kirin от официального дилера</h1>
+                  <p>с бесплатной доставкой по РФ от 1 дня</p>
                   <Button className={style.btnCatalogue}>Перейти в каталог</Button>
                 </div>
                 <Button className={style.btnTestDrive} ghost>

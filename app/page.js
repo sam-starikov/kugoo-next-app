@@ -1,5 +1,4 @@
 'use client';
-import style from './page.module.scss';
 
 import { useEffect, useState } from 'react';
 
@@ -14,7 +13,7 @@ import Footer from '@/components/Footer';
 import Subscribe from '@/components/Subscribe';
 import Services from '@/components/Services';
 import Catalogue from '@/components/Catalogue';
-import { Button } from 'antd';
+import Delivery from '@/components/Delivery';
 
 export default function Home() {
   const [cards, setCards] = useState([]);
@@ -41,10 +40,9 @@ export default function Home() {
       <Header countValue={count} openCatalogue={openCatalogue}>
         <>
           <Search />
-          <Catalogue isOpen={isOpen} />
+          <Catalogue isOpen={isOpen} close={openCatalogue} />
         </>
       </Header>
-
       <Slider />
       <Benifits />
       <CardList
@@ -54,23 +52,9 @@ export default function Home() {
         onChangeCounter={onChangeCounter}
       />
       <Services />
-
       <div className='container container--large'>
-        <section className={style.delivery}>
-          <div className='container'>
-            <div className={style.deliveryBody}>
-              <div className={style.deliveryInfo}>
-                <div className={style.deliverySticker}>Акция</div>
-                <h1 className={style.deliveryTitle}>
-                  Бесплатная доставка электросамокатов по России до 01.09
-                </h1>
-                <Button className={style.deliveryBtn}>Подробнее</Button>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Delivery />
       </div>
-
       <ReviewSlider />
       <Subscribe />
       <Footer />

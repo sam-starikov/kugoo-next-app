@@ -85,23 +85,25 @@
   padding: 10px 0;
   background-color: var(--background-gray);
 
-  & li {
+  li {
     transition: opacity 0.2s ease-in;
     &:hover {
       opacity: 0.8;
     }
   }
 
-  & ul {
+  ul {
     display: flex;
     flex-wrap: wrap;
-    column-gap: clamp(10px, -0.565rem + 5.95vw, 50px);
+    column-gap: clamp(0.938rem, -0.104rem + 5.21vw, 3.125rem);
     row-gap: 10px;
+    color: var(--black);
+    font-weight: 500;
 
-    & li:nth-child(2) ul {
+    li:nth-child(2) ul {
       gap: 8px;
 
-      & li:nth-child(2) {
+      li:nth-child(2) {
         padding: 3px 9px;
 
         font-size: 10px;
@@ -112,7 +114,7 @@
       }
     }
 
-    & li:last-child {
+    li:last-child {
       display: flex;
       align-items: center;
       gap: 8px;

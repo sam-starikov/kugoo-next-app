@@ -1,21 +1,45 @@
-.root {
-  position: absolute;
-  z-index: 10;
-  top: 140%;
+.overlay {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: rgba(0, 0, 0, 0.5);
 
   display: flex;
-  gap: 45px;
-  padding: 10px 55px 10px 10px;
-  border-radius: 5px;
-  background-color: var(--white);
-  opacity: 0;
-  visibility: hidden;
+  align-items: center;
+  justify-content: center;
 
   transition: all 0.2s ease-in;
+  opacity: 0;
+  visibility: hidden;
 
   &.active {
     opacity: 1;
     visibility: visible;
+  }
+}
+
+.root {
+  display: flex;
+  gap: 45px;
+  padding: 10px 55px 10px 10px;
+
+  border-radius: 5px;
+  background-color: var(--white);
+
+  @media (max-width: 660px) {
+    padding: 30px;
+    .options {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+  @media (max-width: 500px) {
+    padding: 20px;
+    flex-direction: column;
   }
 }
 
