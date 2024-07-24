@@ -18,6 +18,12 @@ a {
   color: currentColor;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .container {
   width: 100%;
   max-width: 1140px;
@@ -26,6 +32,11 @@ a {
 
   &--large {
     max-width: 1410px;
+  }
+  &--right {
+    max-width: unset;
+    padding-left: calc((100% - 1140px) / 2);
+    padding-right: unset;
   }
 }
 

@@ -1,18 +1,18 @@
+'use client';
 import style from './cardList.module.scss';
 
-import Card from '../Card';
-import TabsSort from '../TabsSort';
 import { useState } from 'react';
 import { Button, Flex } from 'antd';
 
-export default function CardList({ cards, title, isSort, onChangeCounter }) {
+import Card from '../Card';
+import TabsSort from '../TabsSort';
+
+export default function CardList({ cards, title, isSort }) {
   const [showAll, setShowAll] = useState(false);
 
   const visibleItems = showAll ? cards : cards.slice(0, 8);
 
-  const handleShowMore = () => {
-    setShowAll(true);
-  };
+  const handleShowMore = () => setShowAll(true);
 
   return (
     <section>
@@ -24,11 +24,14 @@ export default function CardList({ cards, title, isSort, onChangeCounter }) {
 
         <div className={style.body}>
           {visibleItems.map(obj => (
-            <Card key={obj.id} {...obj} onChangeCounter={onChangeCounter} />
+            <Card key={obj.id} {...obj} />
           ))}
         </div>
         <Flex align='center' justify='center'>
-          <Button disabled={showAll ? true : false} className={style.showMoreBtn} onClick={handleShowMore}>
+          <Button
+            disabled={showAll ? true : false}
+            className={style.showMoreBtn}
+            onClick={handleShowMore}>
             Смотреть все
           </Button>
         </Flex>

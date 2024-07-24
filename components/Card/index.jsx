@@ -1,10 +1,12 @@
+'use client';
 import style from './card.module.scss';
 
 import { Button } from 'antd';
-
 import Image from 'next/image';
+import useStore from '../../app/store';
 
 export default function Card({
+  id,
   title,
   img,
   price,
@@ -15,10 +17,13 @@ export default function Card({
   power,
   kmH,
   charge,
-  onChangeCounter,
 }) {
+  const { products, addProduct, removeProduct } = useStore();
+  const handleAddProduct = () => {
+    const newProduct = { id, title, img, price }; // Пример товара
+    addProduct(newProduct);
+  };
   const setDiscount = () => price - (price * 10) / 100;
-
   return (
     <article className={style.card}>
       <div className={style.top}>
@@ -61,7 +66,7 @@ export default function Card({
             <strong className={style.price}>{setDiscount()}₽</strong>
           </div>
           <div className={style.controls}>
-            <button className={style.cartBtn} onClick={onChangeCounter}>
+            <button className={style.cartBtn} onClick={handleAddProduct}>
               <svg
                 width='18px'
                 height='18px'

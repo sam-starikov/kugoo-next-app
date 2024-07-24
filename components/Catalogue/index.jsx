@@ -1,81 +1,52 @@
-import Link from 'next/link';
+'use client';
 import style from './catalogue.module.scss';
 
+import Link from 'next/link';
 import Image from 'next/image';
 
-export default function Catalogue({ isOpen, close }) {
+export default function Catalogue({ isOpen, toggleCatalogue }) {
+  const categories = [
+    { name: 'Электросамокаты', icon: '/icons/catalogue/scooter.svg' },
+    { name: 'Электроскутеры', icon: '/icons/catalogue/electric-scooter.svg' },
+    { name: 'Электровелосипеды', icon: '/icons/catalogue/bike.svg' },
+    { name: 'Робот-пылесосы', icon: '/icons/catalogue/vacuum-cleaner.svg' },
+    { name: 'Весы', icon: '/icons/catalogue/weighing-scale.svg' },
+  ];
+
+  const features = ['Внедорожный', 'Городской', 'Зимний', 'С сиденьем', 'Без сиденья'];
+
+  const ageGroups = ['Для детей и подростков', 'Для взрослых', 'Для пенсионеров'];
+
   return (
-    <div className={`${style.overlay} ${isOpen ? style.active : ''}`} onClick={close}>
+    <div className={`${style.overlay} ${isOpen ? style.active : ''}`} onClick={toggleCatalogue}>
       <section className={style.root}>
         <div className={style.itemList}>
           <ul>
-            <li>
-              <Link href='#!'>
-                <Image src='/icons/catalogue/scooter.svg' width={16} height={16} alt='scooter' />
-                Электросамокаты
-              </Link>
-            </li>
-            <li>
-              <Link href='#!'>
-                <Image
-                  src='/icons/catalogue/electric-scooter.svg'
-                  width={16}
-                  height={16}
-                  alt='scooter'
-                />
-                Электроскутеры
-              </Link>
-            </li>
-            <li>
-              <Link href='#!'>
-                <Image src='/icons/catalogue/bike.svg' width={16} height={16} alt='scooter' />
-                Электровелосипеды
-              </Link>
-            </li>
-            <li>
-              <Link href='#!'>
-                <Image
-                  src='/icons/catalogue/vacuum-cleaner.svg'
-                  width={16}
-                  height={16}
-                  alt='scooter'
-                />
-                Робот-пылесосы
-              </Link>
-            </li>
-            <li>
-              <Link href='#!'>
-                <Image
-                  src='/icons/catalogue/weighing-scale.svg'
-                  width={16}
-                  height={16}
-                  alt='scooter'
-                />
-                Весы
-              </Link>
-            </li>
+            {categories.map(({ name, icon }) => (
+              <li key={name}>
+                <Link href='#!'>
+                  <Image src={icon} width={16} height={16} alt={name} />
+                  {name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div className={style.options}>
           <ul>
             <h3>Особенности</h3>
-            <li>Внедорожный</li>
-            <li>Городской</li>
-            <li>Зимний</li>
-            <li>С сиденьем</li>
-            <li>Без сиденья</li>
+            {features.map(feature => (
+              <li key={feature}>{feature}</li>
+            ))}
           </ul>
           <ul>
             <h3>Для кого</h3>
-            <li>Для детей и подростков</li>
-            <li>Для взрослых</li>
-            <li>Для пенсионеров</li>
+            {ageGroups.map(ageGroup => (
+              <li key={ageGroup}>{ageGroup}</li>
+            ))}
           </ul>
         </div>
       </section>
     </div>
   );
-}
-
-{
 }
