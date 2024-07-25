@@ -1,0 +1,20 @@
+.root {
+  font-family: var(--font-family);
+  a,
+  .price {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--black);
+    text-transform: capitalize;
+  }
+
+  img {
+    border-radius: 10px;
+  }
+}
+
+.alert {
+  padding: 5px;
+  font-size: 12px;
+  color: var(--gray-600);
+}

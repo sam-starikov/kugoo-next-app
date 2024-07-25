@@ -10,7 +10,7 @@ import 'swiper/css/autoplay';
 import 'swiper/css/free-mode';
 /* end */
 import Card from '../Card';
-import useStore from '@/app/store';
+import useStore from '../store';
 
 export default function RecomendationSlider() {
   const { allProducts } = useStore();

@@ -9,7 +9,7 @@ import ReviewSlider from '@/components/ReviewSlider';
 import Subscribe from '@/components/Subscribe';
 import Services from '@/components/Services';
 import Delivery from '@/components/Delivery';
-import useStore from './store';
+import useStore from '@/components/store';
 
 export default function Home() {
   const { allProducts, fetchProducts } = useStore();

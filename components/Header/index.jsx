@@ -63,7 +63,9 @@ export default function Header() {
 
       <div className='container'>
         <div className={style.body}>
-          <Logo />
+          <Link href='/'>
+            <Logo />
+          </Link>
           <Button className={style.btn} onClick={toggleCatalogue}>
             <UnorderedListOutlined /> Каталог
           </Button>

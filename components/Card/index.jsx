@@ -3,7 +3,7 @@ import style from './card.module.scss';
 
 import { Button } from 'antd';
 import Image from 'next/image';
-import useStore from '../../app/store';
+import useStore from '../store';
 
 export default function Card({
   id,
