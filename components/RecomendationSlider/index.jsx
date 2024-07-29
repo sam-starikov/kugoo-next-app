@@ -1,19 +1,19 @@
-'use client';
-import s from './style.module.scss';
+'use client'
+import s from './style.module.scss'
 
 /* swiper */
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, FreeMode } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, FreeMode } from 'swiper/modules'
 
-import 'swiper/css';
-import 'swiper/css/autoplay';
-import 'swiper/css/free-mode';
+import 'swiper/css'
+import 'swiper/css/autoplay'
+import 'swiper/css/free-mode'
 /* end */
-import Card from '../Card';
-import useStore from '../store';
+import Card from '../Card'
+import useStore from '../../app/data/store'
 
 export default function RecomendationSlider() {
-  const { allProducts } = useStore();
+  const { allProducts } = useStore()
 
   return (
     <section className={s.root}>
@@ -32,5 +32,5 @@ export default function RecomendationSlider() {
         </div>
       </div>
     </section>
-  );
+  )
 }

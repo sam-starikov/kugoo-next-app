@@ -1,0 +1,13 @@
+.badge {
+  width: 20px;
+  height: 20px;
+  background-image: url('/icons/header/cart.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  margin-right: 10px;
+
+  span {
+    background: none;
+  }
+}

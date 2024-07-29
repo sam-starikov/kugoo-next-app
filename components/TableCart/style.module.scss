@@ -1,6 +1,7 @@
 .root {
   font-family: var(--font-family);
-  a,
+
+  .title,
   .price {
     font-size: 24px;
     font-weight: 500;
@@ -11,10 +12,60 @@
   img {
     border-radius: 10px;
   }
+
+  .deleteBtn {
+    .deleteIcon {
+      font-size: 22px;
+      color: var(--gray-600);
+
+      &:hover {
+        color: var(--orange-primary);
+      }
+    }
+  }
 }
 
 .alert {
   padding: 5px;
   font-size: 12px;
   color: var(--gray-600);
+  background-color: transparent;
+  border: none;
+}
+
+.counter {
+  display: inline-flex;
+  align-items: center;
+
+  font-size: 16px;
+  font-family: var(--font-family);
+  color: var(--black);
+
+  border-radius: 5px;
+  background-color: var(--background-gray);
+}
+
+.btnCount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 38px;
+  padding: 8px 18px;
+  border-radius: 5px;
+
+  &:active {
+    background-color: var(--gray-200);
+  }
+}
+
+.options {
+  padding: 35px 10px 40px;
+  border: 1px solid #5d6c7b1e;
+  border-radius: 5px;
+}
+
+.custom-expanded-row {
+  color: aqua;
+  background-color: transparent;
 }

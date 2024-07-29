@@ -1,8 +1,13 @@
-import style from './logo.module.scss';
-import LogoImg from './logo.svg';
+import style from './logo.module.scss'
 
-import Image from 'next/image';
+import Link from 'next/link'
+import Image from 'next/image'
+import LogoImg from './logo.svg'
 
 export default function Logo() {
-  return <Image className={style.logo} src={LogoImg} alt='Kugoo logo' />;
+  return (
+    <Link href='/'>
+      <Image className={style.logo} src={LogoImg} alt='Kugoo logo' />
+    </Link>
+  )
 }

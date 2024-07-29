@@ -1,22 +1,22 @@
-'use client';
-import style from './header.module.scss';
+'use client'
+import style from './header.module.scss'
 
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from 'next/link'
+import Image from 'next/image'
 
-import Cart from '../Cart';
-import Logo from '../Logo';
-import Search from '../Search';
-import Catalogue from '../Catalogue';
+import Logo from '../Logo'
+import Search from '../Search'
+import Catalogue from '../Catalogue'
 
-import { HeartOutlined, UnorderedListOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
-import { useState } from 'react';
+import { HeartOutlined, UnorderedListOutlined } from '@ant-design/icons'
+import { Button } from 'antd'
+import { useState } from 'react'
+import CartBadge from '../CartBadge'
 
 export default function Header() {
-  const [isCatalogueOpen, setIsCatalogueOpen] = useState(false);
+  const [isCatalogueOpen, setIsCatalogueOpen] = useState(false)
 
-  const toggleCatalogue = () => setIsCatalogueOpen(!isCatalogueOpen);
+  const toggleCatalogue = () => setIsCatalogueOpen(!isCatalogueOpen)
 
   return (
     <header>
@@ -60,12 +60,9 @@ export default function Header() {
           </ul>
         </div>
       </nav>
-
       <div className='container'>
         <div className={style.body}>
-          <Link href='/'>
-            <Logo />
-          </Link>
+          <Logo />
           <Button className={style.btn} onClick={toggleCatalogue}>
             <UnorderedListOutlined /> Каталог
           </Button>
@@ -84,7 +81,8 @@ export default function Header() {
             </li>
             <li>
               <Link href='/cart'>
-                <Cart />
+                <CartBadge />
+                <span className={style.cartLink}> Корзина</span>
               </Link>
             </li>
           </ul>
@@ -126,5 +124,5 @@ export default function Header() {
         </div>
       </nav>
     </header>
-  );
+  )
 }

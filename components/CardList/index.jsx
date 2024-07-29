@@ -1,18 +1,18 @@
-'use client';
-import style from './cardList.module.scss';
+'use client'
+import style from './cardList.module.scss'
 
-import { useState } from 'react';
-import { Button, Flex } from 'antd';
+import { useState } from 'react'
+import { Button, Flex } from 'antd'
 
-import Card from '../Card';
-import TabsSort from '../TabsSort';
+import Card from '../Card'
+import TabsSort from '../TabsSort'
 
 export default function CardList({ cards, title, isSort }) {
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, setShowAll] = useState(false)
 
-  const visibleItems = showAll ? cards : cards.slice(0, 8);
+  const visibleItems = showAll ? cards : cards.slice(0, 8)
 
-  const handleShowMore = () => setShowAll(true);
+  const handleShowMore = () => setShowAll(true)
 
   return (
     <section>
@@ -37,5 +37,5 @@ export default function CardList({ cards, title, isSort }) {
         </Flex>
       </div>
     </section>
-  );
+  )
 }

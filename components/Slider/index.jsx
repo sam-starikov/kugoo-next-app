@@ -1,16 +1,16 @@
-'use client';
-import style from './slider.module.scss';
+'use client'
+import style from './slider.module.scss'
 
 /* swiper */
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y, FreeMode } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Autoplay } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
 /* end */
 
-import { Button } from 'antd';
+import { Button } from 'antd'
 
-import Image from 'next/image';
+import Image from 'next/image'
 
 const images = [
   {
@@ -25,13 +25,19 @@ const images = [
     id: 3,
     src: '/img/slide-03.jpg',
   },
-];
+]
 
 export default function Slider() {
   return (
     <div className={style.slider}>
       <div className='container container--large'>
-        <Swiper modules={[Navigation]} spaceBetween={50} slidesPerView={1}>
+        <Swiper
+          modules={[Navigation, Autoplay]}
+          spaceBetween={50}
+          slidesPerView={1}
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          speed={1000}
+          loop={true}>
           {images.map(img => (
             <SwiperSlide key={img.id}>
               <div className={style.slide}>
@@ -54,5 +60,5 @@ export default function Slider() {
         </Swiper>
       </div>
     </div>
-  );
+  )
 }

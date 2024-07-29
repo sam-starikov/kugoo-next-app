@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
       <body className={jost.className}>
         <div className='wrapper'>
           <Header />
-          {children}
+          <main className='main'>{children}</main>
           <Footer />
         </div>
       </body>

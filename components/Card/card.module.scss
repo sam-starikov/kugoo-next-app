@@ -9,6 +9,7 @@
 
   border-radius: 5px;
   border: 1.5px solid var(--gray-200);
+  transition: box-shadow 0.2s ease-in;
 
   @media (max-width: 666px) {
     flex-direction: row;
@@ -18,6 +19,10 @@
   @media (max-width: 500px) {
     flex-direction: column;
     height: auto;
+  }
+
+  &:hover {
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
   }
 }
 
@@ -168,17 +173,5 @@
   svg {
     width: 18px;
     height: 18px;
-
-    &:hover {
-      path {
-        fill: var(--purple);
-      }
-    }
-
-    path {
-      stroke: var(--purple);
-      fill: transparent;
-      transition: fill 0.2s ease-in;
-    }
   }
 }
