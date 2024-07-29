@@ -23,7 +23,7 @@ export default function Cart() {
             <p>Добавьте в нее товары из каталога</p>
             <Button>Перейти в каталог</Button>
           </div>
-          {/* <TableCart /> */}
+          <TableCart cartProducts={cartItems} />
         </div>
       </section>
       {/* <RecomendationSlider /> */}

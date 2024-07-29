@@ -23,13 +23,12 @@ export default function Card({
   addProductToCart,
 }) {
   const addToCart = useStore(state => state.addToCart)
-  console.log(addToCart)
+
   const handleAddProduct = () => {
     const newProduct = { id, title, img, price }
 
-    // addProductToCart(newProduct)
+    addToCart(newProduct)
     setIsAdded(!isAdded)
-    console.log(newProduct)
   }
   const [isAdded, setIsAdded] = useState(false)
   const [isFavourite, setIsFavourite] = useState(false)
