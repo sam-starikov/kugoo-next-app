@@ -3,19 +3,13 @@ import style from './header.module.scss'
 
 import Link from 'next/link'
 import Image from 'next/image'
-
-import Logo from '../Logo'
-import Search from '../Search'
-import Catalogue from '../Catalogue'
-
+import { useState } from 'react'
 import { HeartOutlined, UnorderedListOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
-import { useState } from 'react'
-import CartBadge from '../CartBadge'
+import { Logo, Search, Catalogue, CartBadge } from '../index'
 
-export default function Header() {
+export function Header() {
   const [isCatalogueOpen, setIsCatalogueOpen] = useState(false)
-
   const toggleCatalogue = () => setIsCatalogueOpen(!isCatalogueOpen)
 
   return (

@@ -1,8 +1,8 @@
-import style from './style.module.scss';
+import style from './style.module.scss'
 
-import Link from 'next/link';
+import Link from 'next/link'
 
-export default function Services() {
+export function Services() {
   return (
     <section className={style.root}>
       <div className='container'>
@@ -28,5 +28,5 @@ export default function Services() {
         </div>
       </div>
     </section>
-  );
+  )
 }

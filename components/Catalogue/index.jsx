@@ -1,21 +1,19 @@
-'use client';
-import style from './catalogue.module.scss';
+'use client'
+import style from './catalogue.module.scss'
 
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from 'next/link'
+import Image from 'next/image'
 
-export default function Catalogue({ isOpen, toggleCatalogue }) {
+export function Catalogue({ isOpen, toggleCatalogue }) {
   const categories = [
     { name: 'Электросамокаты', icon: '/icons/catalogue/scooter.svg' },
     { name: 'Электроскутеры', icon: '/icons/catalogue/electric-scooter.svg' },
     { name: 'Электровелосипеды', icon: '/icons/catalogue/bike.svg' },
     { name: 'Робот-пылесосы', icon: '/icons/catalogue/vacuum-cleaner.svg' },
     { name: 'Весы', icon: '/icons/catalogue/weighing-scale.svg' },
-  ];
-
-  const features = ['Внедорожный', 'Городской', 'Зимний', 'С сиденьем', 'Без сиденья'];
-
-  const ageGroups = ['Для детей и подростков', 'Для взрослых', 'Для пенсионеров'];
+  ]
+  const features = ['Внедорожный', 'Городской', 'Зимний', 'С сиденьем', 'Без сиденья']
+  const ageGroups = ['Для детей и подростков', 'Для взрослых', 'Для пенсионеров']
 
   return (
     <div className={`${style.overlay} ${isOpen ? style.active : ''}`} onClick={toggleCatalogue}>
@@ -48,5 +46,5 @@ export default function Catalogue({ isOpen, toggleCatalogue }) {
         </div>
       </section>
     </div>
-  );
+  )
 }

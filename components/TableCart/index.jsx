@@ -1,10 +1,11 @@
 'use client'
 import s from './style.module.scss'
 
-import { Space, Table, Image as AntdImage, Flex, Alert, Select } from 'antd'
+import { Table, Image as AntdImage, Flex, Alert, Select } from 'antd'
 import { DeleteOutlined } from '@ant-design/icons'
+import { useStore } from '@/app/data/store'
 
-export default function TableCart({ cartProducts }) {
+export function TableCart({ cartProducts }) {
   const dataSource = cartProducts.map(obj => {
     return { ...obj, key: obj.id }
   })
@@ -30,15 +31,15 @@ export default function TableCart({ cartProducts }) {
       title: 'Количество',
       dataIndex: 'count',
       key: 'count',
-      render: _ => {
+      render: count => {
         return (
           <div className={s.counter}>
             <button className={s.btnCount}>
               <img src='/icons/minus.svg' alt='minus' />
             </button>
-            <div>1</div>
+            <div></div>
             <button className={s.btnCount}>
-              <img src='/icons/plus.svg' alt='minus' />
+              <img src='/icons/plus.svg' alt='plus' />
             </button>
           </div>
         )
@@ -49,8 +50,8 @@ export default function TableCart({ cartProducts }) {
       dataIndex: 'price',
       key: 'price',
       sorter: (a, b) => a.price - b.price,
-      render: text => {
-        return <span className={s.price}>{text} ₽</span>
+      render: price => {
+        return <span className={s.price}>{price} ₽</span>
       },
     },
     {

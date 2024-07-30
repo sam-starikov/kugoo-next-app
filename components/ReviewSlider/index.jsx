@@ -1,34 +1,34 @@
-'use client';
-import style from './style.module.scss';
+'use client'
+import style from './style.module.scss'
 
 /* swiper */
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, FreeMode } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, FreeMode } from 'swiper/modules'
 
-import 'swiper/css';
-import 'swiper/css/autoplay';
-import 'swiper/css/free-mode';
+import 'swiper/css'
+import 'swiper/css/autoplay'
+import 'swiper/css/free-mode'
 /* end */
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import Link from 'next/link'
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
-export default function ReviewSlider() {
-  const [reviews, setReviews] = useState([]);
+export function ReviewSlider() {
+  const [reviews, setReviews] = useState([])
 
   useEffect(() => {
     try {
       const fetchReviews = async () => {
-        const response = await fetch('https://649009021e6aa71680ca6400.mockapi.io/reviews');
-        const reviewsData = await response.json();
-        setReviews(reviewsData);
-      };
-      fetchReviews();
+        const response = await fetch('https://649009021e6aa71680ca6400.mockapi.io/reviews')
+        const reviewsData = await response.json()
+        setReviews(reviewsData)
+      }
+      fetchReviews()
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
-  }, []);
+  }, [])
 
   const slides = [
     { id: 1, src: '/img/slides/slide-01.jpg' },
@@ -45,7 +45,7 @@ export default function ReviewSlider() {
     { id: 12, src: '/img/slides/slide-05.jpg' },
     { id: 13, src: '/img/slides/slide-06.jpg' },
     { id: 14, src: '/img/slides/slide-07.jpg' },
-  ];
+  ]
 
   return (
     <section className={style.reviews}>
@@ -129,5 +129,5 @@ export default function ReviewSlider() {
         ))}
       </Swiper>
     </section>
-  );
+  )
 }

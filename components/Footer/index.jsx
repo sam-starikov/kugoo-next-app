@@ -1,11 +1,11 @@
-import s from './style.module.scss';
+import s from './style.module.scss'
 
-import Link from 'next/link';
-import Logo from '../Logo';
-import Subscribe from '../Subscribe';
-import Image from 'next/image';
+import Link from 'next/link'
+import Image from 'next/image'
 
-export default function Footer() {
+import { Logo } from '../index'
+
+export function Footer() {
   return (
     <footer className={s.footer}>
       <div className='container'>
@@ -105,5 +105,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }

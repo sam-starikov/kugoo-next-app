@@ -8,9 +8,8 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 /* end */
 
-import { Button } from 'antd'
-
 import Image from 'next/image'
+import { Button } from 'antd'
 
 const images = [
   {
@@ -27,7 +26,7 @@ const images = [
   },
 ]
 
-export default function Slider() {
+export function Slider() {
   return (
     <div className={style.slider}>
       <div className='container container--large'>

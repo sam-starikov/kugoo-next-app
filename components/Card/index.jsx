@@ -1,14 +1,13 @@
 'use client'
 import style from './card.module.scss'
 
-import { Button, Image as AntdImage } from 'antd'
-import { ShoppingOutlined, ShoppingFilled, HeartOutlined, HeartFilled } from '@ant-design/icons'
-
 import Image from 'next/image'
 import { useState } from 'react'
 import { useStore } from '@/app/data/store'
 
-export default function Card({
+import { Button, Image as AntdImage } from 'antd'
+import { ShoppingOutlined, ShoppingFilled, HeartOutlined, HeartFilled } from '@ant-design/icons'
+export function Card({
   id,
   title,
   img,
@@ -20,18 +19,18 @@ export default function Card({
   power,
   kmH,
   charge,
-  addProductToCart,
+  added,
 }) {
   const addToCart = useStore(state => state.addToCart)
 
+  const [isAdded, setIsAdded] = useState(added)
+  const [isFavourite, setIsFavourite] = useState(false)
+
   const handleAddProduct = () => {
     const newProduct = { id, title, img, price }
-
     addToCart(newProduct)
     setIsAdded(!isAdded)
   }
-  const [isAdded, setIsAdded] = useState(false)
-  const [isFavourite, setIsFavourite] = useState(false)
 
   const setDiscount = () => price - (price * 10) / 100
   return (

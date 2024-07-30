@@ -1,8 +1,8 @@
-import s from './style.module.scss';
+import s from './style.module.scss'
 
-import { Button, Input } from 'antd';
+import { Button, Input } from 'antd'
 
-export default function Subscribe() {
+export function Subscribe() {
   return (
     <section className={s.root}>
       <div className='container'>
@@ -15,5 +15,5 @@ export default function Subscribe() {
         </div>
       </div>
     </section>
-  );
+  )
 }

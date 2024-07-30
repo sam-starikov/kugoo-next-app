@@ -4,11 +4,12 @@ import style from './cardList.module.scss'
 import { useState } from 'react'
 import { Button, Flex } from 'antd'
 
-import Card from '../Card'
-import TabsSort from '../TabsSort'
+import { Card, TabsSort } from '../index'
+import { useStore } from '@/app/data/store'
 
-export default function CardList({ cards, title, isSort }) {
+export function CardList({ cards, title, isSort }) {
   const [showAll, setShowAll] = useState(false)
+  const cartItems = useStore(state => state.cartItems)
 
   const visibleItems = showAll ? cards : cards.slice(0, 8)
 
@@ -24,7 +25,7 @@ export default function CardList({ cards, title, isSort }) {
 
         <div className={style.body}>
           {visibleItems.map(obj => (
-            <Card key={obj.id} {...obj} />
+            <Card key={obj.id} added={cartItems.some(item => item.id === obj.id)} {...obj} />
           ))}
         </div>
         <Flex align='center' justify='center'>

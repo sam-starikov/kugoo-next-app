@@ -9,10 +9,11 @@ import 'swiper/css'
 import 'swiper/css/autoplay'
 import 'swiper/css/free-mode'
 /* end */
-import Card from '../Card'
-import useStore from '../../app/data/store'
 
-export default function RecomendationSlider() {
+import { useStore } from '@/app/data/store'
+import { Card } from '../index'
+
+export function RecomendationSlider() {
   const { allProducts } = useStore()
 
   return (

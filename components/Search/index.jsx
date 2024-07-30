@@ -1,10 +1,10 @@
-import style from './search.module.scss';
-import SearchImg from './search.svg';
+import style from './search.module.scss'
+import SearchImg from './search.svg'
 
-import Image from 'next/image';
-import { Select, Input } from 'antd';
+import Image from 'next/image'
+import { Select, Input } from 'antd'
 
-export default function Search() {
+export function Search() {
   return (
     <form className={style.form} action=''>
       <Select className={style.select} defaultValue='Везде' />
@@ -13,5 +13,5 @@ export default function Search() {
         <Image width={16} height={16} src={SearchImg} alt='search' />
       </button>
     </form>
-  );
+  )
 }
