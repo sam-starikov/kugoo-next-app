@@ -53,22 +53,33 @@ a {
 }
 /* end */
 
-/* swiper */
-.swiper-button-next,
-.swiper-button-prev {
-  height: 26px;
-  width: 26px;
-  // &::after {
-  //   content: url('/icons/slider/slider-btn-next.svg') !important;
-  // }
-}
+.btn {
+  padding: 10px 20px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in, box-shadow 0.2s ease-in, color 0.2s ease-in;
 
-.swiper-button-prev {
-  // height: 26px;
-  // width: 26px;
-  // &::after {
-  //   content: url('/icons/slider/slider-btn-prev.svg') !important;
-  // }
-}
+  &--purple {
+    background-color: var(--purple);
+    color: var(--white);
 
-/* end */
+    &:hover {
+      box-shadow: 0 0 0 1.3px var(--purple);
+      color: var(--purple);
+      background-color: var(--white);
+    }
+  }
+
+  &--white {
+    background-color: var(--white);
+    color: var(--purple);
+    font-size: 16px;
+
+    &:hover {
+      box-shadow: 0 0 0 1.3px var(--white);
+      color: var(--white);
+      background-color: var(--purple);
+    }
+  }
+}

@@ -3,7 +3,7 @@ import s from './style.module.scss'
 
 import { Table, Image as AntdImage, Flex, Alert, Select } from 'antd'
 import { DeleteOutlined } from '@ant-design/icons'
-import { useStore } from '@/app/data/store'
+import { useStore } from '@/app/store/store'
 
 export function TableCart({ cartProducts }) {
   const dataSource = cartProducts.map(obj => {

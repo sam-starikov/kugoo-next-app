@@ -1,4 +1,5 @@
 import style from './style.module.scss'
+
 import Image from 'next/image'
 
 export function Benefits() {
@@ -7,15 +8,15 @@ export function Benefits() {
       <div className='container'>
         <div className={style.body}>
           <div className={style.benefit}>
-            <p className={style.title}>Гарантия 1 год</p>
+            <h3 className={style.title}>Гарантия 1 год</h3>
             <p className={style.subTile}>на весь ассортимент</p>
           </div>
           <div className={style.benefit}>
-            <p className={style.title}>Рассрочка</p>
+            <h3 className={style.title}>Рассрочка</h3>
             <p className={style.subTile}>от 6 месяцев</p>
           </div>
           <div className={style.benefit}>
-            <p className={style.title}>Подарки</p>
+            <h3 className={style.title}>Подарки</h3>
             <p className={style.subTile}>и бонусам к покупкам </p>
           </div>
           <div className={style.benefit}>

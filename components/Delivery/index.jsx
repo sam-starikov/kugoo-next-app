@@ -9,7 +9,7 @@ export function Delivery() {
         <div className={style.body}>
           <div className={style.info}>
             <div className={style.sticker}>Акция</div>
-            <h2>Бесплатная доставка электросамокатов по России до 01.09</h2>
+            <div>Бесплатная доставка электросамокатов по России до 01.09</div>
             <Button className={style.deliveryBtn}>Подробнее</Button>
           </div>
         </div>

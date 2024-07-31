@@ -7,7 +7,11 @@ import LogoImg from './logo.svg'
 export function Logo() {
   return (
     <Link href='/'>
-      <Image className={style.logo} src={LogoImg} alt='Kugoo logo' />
+      <Image
+        className={style.logo}
+        src={LogoImg}
+        alt='Kugoo logo'
+      />
     </Link>
   )
 }

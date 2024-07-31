@@ -4,9 +4,16 @@ import style from './header.module.scss'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
+import { Button, Flex } from 'antd'
 import { HeartOutlined, UnorderedListOutlined } from '@ant-design/icons'
-import { Button } from 'antd'
 import { Logo, Search, Catalogue, CartBadge } from '../index'
+
+import PlusImg from '/public/icons/header/add-plus.svg'
+import ViberImg from '/public/icons/header/viber.svg'
+import WhatsAppImg from '/public/icons/header/whatsapp.svg'
+import TelegramImg from '/public/icons/header/telegram.svg'
+import BalanceImg from '/public/icons/header/balance.svg'
+import FavouriteImg from '/public/icons/header/favourite.svg'
 
 export function Header() {
   const [isCatalogueOpen, setIsCatalogueOpen] = useState(false)
@@ -14,7 +21,7 @@ export function Header() {
 
   return (
     <header>
-      <nav className={style.navTop}>
+      <nav className={style.headerTop}>
         <div className='container'>
           <ul className={style.navList}>
             <li>
@@ -27,28 +34,42 @@ export function Header() {
               <Link href='/call-me'>Заказать звонок</Link>
             </li>
             <li>
-              <ul className={style.socials}>
+              <ul className={style.socialsIcons}>
                 <li>
                   <Link href='https://viber.com/'>
-                    <Image src='/icons/header/viber.svg' alt='viber' width={20} height={20} />
+                    <Image
+                      src={ViberImg}
+                      alt='viber'
+                    />
                   </Link>
                 </li>
                 <li>
                   <Link href='https://whatsapp.com/'>
-                    <Image src='/icons/header/whatsapp.svg' alt='whatsapp' width={20} height={20} />
+                    <Image
+                      src={WhatsAppImg}
+                      alt='whatsapp'
+                    />
                   </Link>
                 </li>
                 <li>
                   <Link href='https://telegram.org/'>
-                    <Image src='/icons/header/telegram.svg' alt='telegram' width={20} height={20} />
+                    <Image
+                      src={TelegramImg}
+                      alt='telegram'
+                    />
                   </Link>
                 </li>
               </ul>
             </li>
             <li>
-              <Link className={style.telNumber} href='tel:+78005055461'>
+              <Link
+                className={style.telNumber}
+                href='tel:+78005055461'>
                 +7 (800) 505-54-61
-                <Image src='/icons/header/add-plus.svg' alt='plus' width={18} height={18} />
+                <Image
+                  src={PlusImg}
+                  alt='plus'
+                />
               </Link>
             </li>
           </ul>
@@ -57,33 +78,41 @@ export function Header() {
       <div className='container'>
         <div className={style.body}>
           <Logo />
-          <Button className={style.btn} onClick={toggleCatalogue}>
+          <Button
+            className={style.catalogueBtn}
+            onClick={toggleCatalogue}>
             <UnorderedListOutlined /> Каталог
           </Button>
-          <Catalogue isOpen={isCatalogueOpen} toggleCatalogue={toggleCatalogue} />
+          <Catalogue
+            isOpen={isCatalogueOpen}
+            toggleCatalogue={toggleCatalogue}
+          />
           <Search />
-          <ul className={style.controls}>
+          <ul className={style.linkIcons}>
             <li>
               <Link href='/compare'>
-                <Image src='/icons/header/balance.svg' alt='compare' width={20} height={20} />
+                <Image
+                  src={BalanceImg}
+                  alt='balance'
+                />
               </Link>
             </li>
             <li>
               <Link href='/favourites'>
-                <HeartOutlined className={style.favourite} />
+                <HeartOutlined />
               </Link>
             </li>
             <li>
               <Link href='/cart'>
                 <CartBadge />
-                <span className={style.cartLink}> Корзина</span>
+                {/* <span className={style.cartLink}> Корзина</span> */}
               </Link>
             </li>
           </ul>
         </div>
       </div>
 
-      <nav className={style.navBottom}>
+      <nav className={style.headerBottom}>
         <div className='container'>
           <ul>
             <li>
@@ -110,7 +139,12 @@ export function Header() {
             </li>
             <li>
               <Link href='/stock'>
-                <Image src='/icons/header/discount.svg' alt='discount' width={20} height={20} />
+                <Image
+                  src='/icons/header/discount.svg'
+                  alt='discount'
+                  width={20}
+                  height={20}
+                />
                 Акции
               </Link>
             </li>

@@ -50,7 +50,9 @@ export function ReviewSlider() {
   return (
     <section className={style.reviews}>
       <h2 className={style.reviewsTitle}>Отзывы и фото реальных покупателей</h2>
-      <Link className={style.reviewsLink} href='#!'>
+      <Link
+        className={style.reviewsLink}
+        href='#!'>
         Читать отзывы на Яндекс
       </Link>
 
@@ -62,13 +64,22 @@ export function ReviewSlider() {
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         speed={10000}>
         {reviews.map((review, index) => (
-          <SwiperSlide key={review.id} style={{ width: 'auto' }}>
+          <SwiperSlide
+            key={review.id}
+            style={{ width: 'auto' }}>
             <div className={style.slide}>
-              <img className={style.slideImg} src={slides[index].src} alt='alt' />
+              <img
+                className={style.slideImg}
+                src={slides[index].src}
+                alt='alt'
+              />
               <div className={style.review}>
                 <div className={style.user}>
                   <div className={style.avatar}>
-                    <img src={review.avatar} alt='alt' />
+                    <img
+                      src={review.avatar}
+                      alt='alt'
+                    />
                   </div>
                   <div className={style.userInfo}>
                     <h3>{review.name}</h3>
@@ -77,11 +88,36 @@ export function ReviewSlider() {
                 </div>
                 <div className={style.rate}>
                   <div className={style.rateCount}>
-                    <Image width={14} height={14} src='/icons/star.svg' alt='alt' />
-                    <Image width={14} height={14} src='/icons/star.svg' alt='alt' />
-                    <Image width={14} height={14} src='/icons/star.svg' alt='alt' />
-                    <Image width={14} height={14} src='/icons/star.svg' alt='alt' />
-                    <Image width={14} height={14} src='/icons/star.svg' alt='alt' />
+                    <Image
+                      width={14}
+                      height={14}
+                      src='/icons/star.svg'
+                      alt='alt'
+                    />
+                    <Image
+                      width={14}
+                      height={14}
+                      src='/icons/star.svg'
+                      alt='alt'
+                    />
+                    <Image
+                      width={14}
+                      height={14}
+                      src='/icons/star.svg'
+                      alt='alt'
+                    />
+                    <Image
+                      width={14}
+                      height={14}
+                      src='/icons/star.svg'
+                      alt='alt'
+                    />
+                    <Image
+                      width={14}
+                      height={14}
+                      src='/icons/star.svg'
+                      alt='alt'
+                    />
                   </div>
                   <p>{review.createdAt}</p>
                 </div>
@@ -99,13 +135,22 @@ export function ReviewSlider() {
         autoplay={{ delay: 2500, disableOnInteraction: false, reverseDirection: true }}
         speed={10000}>
         {reviews.map((review, index) => (
-          <SwiperSlide key={review.id} style={{ width: 'auto' }}>
+          <SwiperSlide
+            key={review.id}
+            style={{ width: 'auto' }}>
             <div className={style.slide}>
-              <img className={style.slideImg} src={slides[index].src} alt='alt' />
+              <img
+                className={style.slideImg}
+                src={slides[index].src}
+                alt='alt'
+              />
               <div className={style.review}>
                 <div className={style.user}>
                   <div className={style.avatar}>
-                    <img src={review.avatar} alt='alt' />
+                    <img
+                      src={review.avatar}
+                      alt='alt'
+                    />
                   </div>
                   <div className={style.userInfo}>
                     <h3>{review.name}</h3>
@@ -114,11 +159,36 @@ export function ReviewSlider() {
                 </div>
                 <div className={style.rate}>
                   <div className={style.rateCount}>
-                    <Image width={14} height={14} src='/icons/star.svg' alt='alt' />
-                    <Image width={14} height={14} src='/icons/star.svg' alt='alt' />
-                    <Image width={14} height={14} src='/icons/star.svg' alt='alt' />
-                    <Image width={14} height={14} src='/icons/star.svg' alt='alt' />
-                    <Image width={14} height={14} src='/icons/star.svg' alt='alt' />
+                    <Image
+                      width={14}
+                      height={14}
+                      src='/icons/star.svg'
+                      alt='alt'
+                    />
+                    <Image
+                      width={14}
+                      height={14}
+                      src='/icons/star.svg'
+                      alt='alt'
+                    />
+                    <Image
+                      width={14}
+                      height={14}
+                      src='/icons/star.svg'
+                      alt='alt'
+                    />
+                    <Image
+                      width={14}
+                      height={14}
+                      src='/icons/star.svg'
+                      alt='alt'
+                    />
+                    <Image
+                      width={14}
+                      height={14}
+                      src='/icons/star.svg'
+                      alt='alt'
+                    />
                   </div>
                   <p>{review.createdAt}</p>
                 </div>

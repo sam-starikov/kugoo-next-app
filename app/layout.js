@@ -1,7 +1,6 @@
 import './styles/globals.scss'
 
 import { Jost, Roboto } from 'next/font/google'
-import { Header, Footer } from '@/components'
 
 const jost = Jost({ subsets: ['latin'] })
 const roboto = Roboto({ subsets: ['latin'], weight: '400' })
@@ -15,11 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang='ru'>
       <body className={jost.className}>
-        <div className='wrapper'>
-          <Header />
-          <main className='main'>{children}</main>
-          <Footer />
-        </div>
+        <div className='wrapper'>{children}</div>
       </body>
     </html>
   )

@@ -1,15 +1,17 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useStore } from './data/store'
+import { useStore } from './store/store'
 import {
   CardList,
   Benefits,
-  Slider,
+  BannerSlider,
   ReviewSlider,
   Subscribe,
   Services,
   Delivery,
+  Header,
+  Footer,
 } from '@/components/index'
 
 export default function Home() {
@@ -24,15 +26,23 @@ export default function Home() {
 
   return (
     <>
-      <Slider />
-      <Benefits />
-      <CardList cards={allProducts} title={'Электросамокаты'} isSort={true} />
-      <Services />
-      <div className='container container--large'>
-        <Delivery />
-      </div>
-      <ReviewSlider />
-      <Subscribe />
+      <Header />
+      <main className='main'>
+        <BannerSlider />
+        <Benefits />
+        <CardList
+          cards={allProducts}
+          title={'Электросамокаты'}
+          isSort={true}
+        />
+        <Services />
+        <div className='container container--large'>
+          <Delivery />
+        </div>
+        <ReviewSlider />
+        <Subscribe />
+      </main>
+      <Footer />
     </>
   )
 }

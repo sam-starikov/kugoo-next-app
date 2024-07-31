@@ -11,7 +11,7 @@ export function Footer() {
       <div className='container'>
         <nav className={s.nav}>
           <div className={s.catalogue}>
-            <h3>Каталог товаров</h3>
+            <h5>Каталог товаров</h5>
             <ul>
               <li>
                 <Link href='#!'>Электросамокаты</Link>
@@ -31,7 +31,7 @@ export function Footer() {
             </ul>
           </div>
           <div className={s.forCustomers}>
-            <h3>Покупателям</h3>
+            <h5>Покупателям</h5>
             <div className={s.forCustomersBody}>
               <ul>
                 <li>
@@ -65,7 +65,7 @@ export function Footer() {
           </div>
 
           <div className={s.contacts}>
-            <h3>Контакты</h3>
+            <h5>Контакты</h5>
             <div className={s.contactsBody}>
               <ul>
                 <li>
@@ -87,7 +87,9 @@ export function Footer() {
               </ul>
             </div>
           </div>
-          <Link href='#!' className={s.link}>
+          <Link
+            href='#!'
+            className={s.link}>
             Заказать звонок
           </Link>
         </nav>
@@ -96,10 +98,20 @@ export function Footer() {
           <Logo />
           <div className={s.store}>
             <Link href='#!'>
-              <Image src='/img/google-play.jpg' width={151} height={45} alt='google play' />
+              <Image
+                src='/img/google-play.jpg'
+                width={151}
+                height={45}
+                alt='google play'
+              />
             </Link>
             <Link href='#!'>
-              <Image src='/img/app-store.jpg' width={151} height={45} alt='app store' />
+              <Image
+                src='/img/app-store.jpg'
+                width={151}
+                height={45}
+                alt='app store'
+              />
             </Link>
           </div>
         </div>

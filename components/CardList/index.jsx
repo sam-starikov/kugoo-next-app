@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { Button, Flex } from 'antd'
 
 import { Card, TabsSort } from '../index'
-import { useStore } from '@/app/data/store'
+import { useStore } from '@/app/store/store'
 
 export function CardList({ cards, title, isSort }) {
   const [showAll, setShowAll] = useState(false)
@@ -19,16 +19,22 @@ export function CardList({ cards, title, isSort }) {
     <section>
       <div className='container'>
         <div className={style.top}>
-          <h1 className={style.title}>{title}</h1>
+          <h2 className={style.title}>{title}</h2>
           {isSort && <TabsSort />}
         </div>
 
         <div className={style.body}>
           {visibleItems.map(obj => (
-            <Card key={obj.id} added={cartItems.some(item => item.id === obj.id)} {...obj} />
+            <Card
+              key={obj.id}
+              added={cartItems.some(item => item.id === obj.id)}
+              {...obj}
+            />
           ))}
         </div>
-        <Flex align='center' justify='center'>
+        <Flex
+          align='center'
+          justify='center'>
           <Button
             disabled={showAll ? true : false}
             className={style.showMoreBtn}

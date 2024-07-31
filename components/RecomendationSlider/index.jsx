@@ -10,7 +10,7 @@ import 'swiper/css/autoplay'
 import 'swiper/css/free-mode'
 /* end */
 
-import { useStore } from '@/app/data/store'
+import { useStore } from '@/app/store/store'
 import { Card } from '../index'
 
 export function RecomendationSlider() {

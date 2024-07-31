@@ -16,14 +16,21 @@ export function Catalogue({ isOpen, toggleCatalogue }) {
   const ageGroups = ['Для детей и подростков', 'Для взрослых', 'Для пенсионеров']
 
   return (
-    <div className={`${style.overlay} ${isOpen ? style.active : ''}`} onClick={toggleCatalogue}>
+    <div
+      className={`${style.overlay} ${isOpen ? style.active : ''}`}
+      onClick={toggleCatalogue}>
       <section className={style.root}>
         <div className={style.itemList}>
           <ul>
             {categories.map(({ name, icon }) => (
               <li key={name}>
                 <Link href='#!'>
-                  <Image src={icon} width={16} height={16} alt={name} />
+                  <Image
+                    src={icon}
+                    width={16}
+                    height={16}
+                    alt={name}
+                  />
                   {name}
                 </Link>
               </li>

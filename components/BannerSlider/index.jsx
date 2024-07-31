@@ -10,6 +10,7 @@ import 'swiper/css/navigation'
 
 import Image from 'next/image'
 import { Button } from 'antd'
+import Link from 'next/link'
 
 const images = [
   {
@@ -26,7 +27,7 @@ const images = [
   },
 ]
 
-export function Slider() {
+export function BannerSlider() {
   return (
     <div className={style.slider}>
       <div className='container container--large'>
@@ -40,17 +41,29 @@ export function Slider() {
           {images.map(img => (
             <SwiperSlide key={img.id}>
               <div className={style.slide}>
-                <img className={style.slideBg} src={img.src} />
+                <img
+                  className={style.slideBg}
+                  src={img.src}
+                />
                 <div className={style.body}>
-                  <Button ghost className={style.btnNew}>
-                    Новинка
-                  </Button>
+                  <div className={style.label}>Новинка</div>
                   <h1>Электросамокаты Kugoo Kirin от официального дилера</h1>
                   <p>с бесплатной доставкой по РФ от 1 дня</p>
-                  <Button className={style.btnCatalogue}>Перейти в каталог</Button>
+                  <Link
+                    href='#!'
+                    className='btn btn--white'>
+                    Перейти в каталог
+                  </Link>
                 </div>
-                <Button className={style.btnTestDrive} ghost>
-                  <Image src='/icons/slider/lightning.svg' alt='lightning' width={22} height={22} />
+                <Button
+                  className={style.btnTestDrive}
+                  ghost>
+                  <Image
+                    src='/icons/slider/lightning.svg'
+                    alt='lightning'
+                    width={22}
+                    height={22}
+                  />
                   <div>Тест-драйв и обучение</div>
                 </Button>
               </div>
