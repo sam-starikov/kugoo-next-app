@@ -15,13 +15,19 @@ import {
 } from '@/components/index'
 
 export default function Home() {
-  const fetchProducts = useStore(state => state.fetchProducts)
-  const allProducts = useStore(state => state.allProducts)
+  const { fetchProducts, allProducts, reviews, fetchReviews } = useStore()
 
   useEffect(() => {
     if (allProducts.length === 0) {
       fetchProducts()
     }
+    if (reviews.length === 0) {
+      fetchReviews()
+    }
+    window.scrollTo({
+      behavior: 'smooth',
+      top: 0,
+    })
   }, [])
 
   return (

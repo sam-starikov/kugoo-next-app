@@ -25,6 +25,12 @@
   background-size: cover;
   background-repeat: no-repeat;
 
+  transition: box-shadow 0.2s ease-in;
+
+  &:hover {
+    box-shadow: 0 0 15px 5px rgb(0 0 0 / 10%);
+  }
+
   &:last-child {
     background-image: url('/img/bg-services.jpg');
   }
@@ -78,17 +84,24 @@
   font-weight: 500;
   color: var(--purple);
 
-  &:hover::after {
-    right: -15px;
-  }
-
   &::after {
     content: url('/icons/arrow.svg');
     position: absolute;
     top: 8px;
-    right: -10px;
+    right: -18px;
     height: 11px;
     transform: translate(50%, -50%);
-    transition: right 0.2s ease-in;
+
+    animation: flatPulse 1s infinite alternate-reverse;
+  }
+
+  @keyframes flatPulse {
+    0% {
+      transform: translate(0, -50%);
+    }
+
+    100% {
+      transform: translate(100%, -50%);
+    }
   }
 }

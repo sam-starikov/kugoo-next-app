@@ -1,6 +1,7 @@
 .reviews {
   padding: clamp(2.5rem, 0.417rem + 10.42vw, 6.875rem) 0
     clamp(2.5rem, -1.518rem + 20.09vw, 10.938rem);
+  text-align: center;
 }
 
 .reviewsTitle {
@@ -13,7 +14,7 @@
 }
 
 .reviewsLink {
-  display: block;
+  display: inline-block;
   position: relative;
 
   font-size: 14px;
@@ -22,18 +23,26 @@
   text-align: center;
   margin-bottom: 57px;
 
-  &:hover::after {
-    transform: translate(100%, -50%);
-  }
-
   &::after {
     content: url('/icons/arrow.svg');
     position: absolute;
     top: 6px;
+    right: -17px;
 
-    height: 11px;
+    height: 10px;
     transform: translate(50%, -50%);
-    transition: transform 0.2s ease-in;
+
+    animation: flatPulse 1s infinite alternate-reverse;
+  }
+
+  @keyframes flatPulse {
+    0% {
+      transform: translate(0, -50%);
+    }
+
+    100% {
+      transform: translate(100%, -50%);
+    }
   }
 }
 

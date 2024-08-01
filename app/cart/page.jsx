@@ -3,9 +3,9 @@ import s from './style.module.scss'
 
 import { useStore } from '@/app/store/store'
 import { FrownOutlined } from '@ant-design/icons'
-import { Button } from 'antd'
+import { Button, Flex } from 'antd'
 
-import { RecomendationSlider, TableCart, Header, Footer } from '@/components'
+import { RecomendationSlider, TableCart, Header, Footer, OrderCard } from '@/components'
 import Link from 'next/link'
 
 export default function Cart() {
@@ -16,9 +16,13 @@ export default function Cart() {
       <Header />
       <section className={s.root}>
         <div className='container'>
-          <h1>Моя корзина</h1>
+          <h1 className={s.title}>Моя корзина</h1>
+          <p className={s.totalCount}>{cartItems.length} товара</p>
           {!!cartItems.length ? (
-            <TableCart cartProducts={cartItems} />
+            <Flex gap={65}>
+              <TableCart className={s.table} />
+              <OrderCard />
+            </Flex>
           ) : (
             <div className={s.body}>
               <FrownOutlined className={s.icon} />

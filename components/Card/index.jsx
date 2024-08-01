@@ -22,7 +22,6 @@ export function Card({
   added,
 }) {
   const addToCart = useStore(state => state.addToCart)
-
   const [isAdded, setIsAdded] = useState(added)
   const [isFavourite, setIsFavourite] = useState(false)
 

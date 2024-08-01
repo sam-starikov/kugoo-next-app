@@ -1,0 +1,55 @@
+.orderCard {
+  flex: 0 1 auto;
+
+  width: 285px;
+  height: 370px;
+  padding: 20px 28px 25px;
+  border-radius: 5px;
+  background-color: var(--background-gray);
+  color: var(--black);
+
+  p {
+    font-size: 12px;
+    margin-bottom: unset;
+  }
+
+  h3 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .top {
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 0 20px;
+    border-bottom: 1px solid var(--gray-200);
+    margin-bottom: 20px;
+
+    .infoList {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--black);
+
+      li {
+        font-size: 12px;
+
+        & span {
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  .bottom {
+    a span {
+      color: var(--purple);
+    }
+  }
+}

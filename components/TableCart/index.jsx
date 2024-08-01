@@ -2,11 +2,12 @@
 import s from './style.module.scss'
 
 import { Table, Image as AntdImage, Flex, Alert, Select } from 'antd'
-import { DeleteOutlined } from '@ant-design/icons'
+import { DeleteOutlined, PlusOutlined, MinusOutlined } from '@ant-design/icons'
 import { useStore } from '@/app/store/store'
 
-export function TableCart({ cartProducts }) {
-  const dataSource = cartProducts.map(obj => {
+export function TableCart() {
+  const { cartItems } = useStore()
+  const dataSource = cartItems.map(obj => {
     return { ...obj, key: obj.id }
   })
 
@@ -17,11 +18,25 @@ export function TableCart({ cartProducts }) {
       key: 'title',
       render: (text, img) => {
         return (
-          <Flex gap={20} align='center'>
-            <AntdImage src='/img/scooter-01.jpg' alt='img' width={75} height={75} />
-            <Flex vertical={true} gap={5}>
+          <Flex
+            gap={20}
+            align='center'>
+            <AntdImage
+              src='/img/scooter-01.jpg'
+              alt='img'
+              width={75}
+              height={75}
+            />
+            <Flex
+              vertical={true}
+              gap={5}>
               <span className={s.title}>{text}</span>
-              <Alert className={s.alert} message='В наличии' type='success' showIcon />
+              <Alert
+                className={s.alert}
+                message='В наличии'
+                type='success'
+                showIcon
+              />
             </Flex>
           </Flex>
         )
@@ -35,11 +50,11 @@ export function TableCart({ cartProducts }) {
         return (
           <div className={s.counter}>
             <button className={s.btnCount}>
-              <img src='/icons/minus.svg' alt='minus' />
+              <MinusOutlined />
             </button>
-            <div></div>
+            <div>1</div>
             <button className={s.btnCount}>
-              <img src='/icons/plus.svg' alt='plus' />
+              <PlusOutlined />
             </button>
           </div>
         )
@@ -76,7 +91,11 @@ export function TableCart({ cartProducts }) {
 
         expandedRowRender: record => {
           return (
-            <Flex className={s.options} gap={15} align='center' wrap={true}>
+            <Flex
+              className={s.options}
+              gap={15}
+              align='center'
+              wrap={true}>
               <Select
                 defaultValue='Комплектация: стандартная'
                 options={[

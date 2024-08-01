@@ -9,8 +9,9 @@ export function CartBadge() {
   return (
     <Badge
       count={cartItems.length}
-      showZero
-      offset={[10, 20]}>
+      size='small'
+      color='#d77036'
+      offset={[0, 20]}>
       <Image
         src={CartImg}
         alt='cart'

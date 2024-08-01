@@ -7,9 +7,14 @@ export const useStore = create(
       allProducts: [],
 
       fetchProducts: async () => {
-        const response = await fetch('https://649009021e6aa71680ca6400.mockapi.io/items')
-        const data = await response.json()
-        set({ allProducts: data })
+        try {
+          const response = await fetch('https://649009021e6aa71680ca6400.mockapi.io/items')
+          const data = await response.json()
+          set({ allProducts: data })
+        } catch (error) {
+          alert('Произошла ошибка при загрузке данных')
+          console.log(error)
+        }
       },
       cartItems: [],
       addToCart: product =>
@@ -26,6 +31,17 @@ export const useStore = create(
             }
           }
         }),
+      reviews: [],
+      fetchReviews: async () => {
+        try {
+          const response = await fetch('https://649009021e6aa71680ca6400.mockapi.io/reviews')
+          const reviewsData = await response.json()
+          set({ reviews: reviewsData })
+        } catch (error) {
+          alert('Произошла ошибка при загрузке данных')
+          console.log(error)
+        }
+      },
     }),
     {
       name: 'my-storage',

@@ -19,11 +19,14 @@ export function RecomendationSlider() {
   return (
     <section className={s.root}>
       <div className='container'>
-        <h1>Рекомендуем вам</h1>
+        <h2>Рекомендуем вам</h2>
       </div>
       <div className={s.body}>
         <div className='container container--right'>
-          <Swiper spaceBetween={50} slidesPerView={4.5} grabCursor={true}>
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={4.5}
+            grabCursor={true}>
             {allProducts.map(product => (
               <SwiperSlide key={product.id}>
                 <Card {...product} />

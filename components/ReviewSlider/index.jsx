@@ -12,23 +12,11 @@ import 'swiper/css/free-mode'
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+
+import { useStore } from '@/app/store/store'
 
 export function ReviewSlider() {
-  const [reviews, setReviews] = useState([])
-
-  useEffect(() => {
-    try {
-      const fetchReviews = async () => {
-        const response = await fetch('https://649009021e6aa71680ca6400.mockapi.io/reviews')
-        const reviewsData = await response.json()
-        setReviews(reviewsData)
-      }
-      fetchReviews()
-    } catch (error) {
-      console.error(error)
-    }
-  }, [])
+  const { reviews } = useStore()
 
   const slides = [
     { id: 1, src: '/img/slides/slide-01.jpg' },
