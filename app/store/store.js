@@ -31,6 +31,8 @@ export const useStore = create(
             }
           }
         }),
+      removeItem: id =>
+        set(state => ({ cartItems: state.cartItems.filter(item => item.id !== id) })),
       reviews: [],
       fetchReviews: async () => {
         try {

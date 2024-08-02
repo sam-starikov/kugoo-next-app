@@ -17,7 +17,7 @@ export default function Cart() {
       <section className={s.root}>
         <div className='container'>
           <h1 className={s.title}>Моя корзина</h1>
-          <p className={s.totalCount}>{cartItems.length} товара</p>
+          {!!cartItems.length && <p className={s.totalCount}>{cartItems.length} товара</p>}
           {!!cartItems.length ? (
             <Flex gap={65}>
               <TableCart className={s.table} />
@@ -26,7 +26,7 @@ export default function Cart() {
           ) : (
             <div className={s.body}>
               <FrownOutlined className={s.icon} />
-              <h2>Ваша корзина пуста</h2>
+              <h3>Ваша корзина пуста</h3>
               <p>Добавьте в нее товары из каталога</p>
               <Link
                 href='/'
@@ -37,7 +37,7 @@ export default function Cart() {
           )}
         </div>
       </section>
-      {/* <RecomendationSlider /> */}
+      <RecomendationSlider />
       <Footer />
     </>
   )

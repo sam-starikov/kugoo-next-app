@@ -7,11 +7,17 @@ import { useStore } from '@/app/store/store'
 export function OrderCard({}) {
   const cartItems = useStore(state => state.cartItems)
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0)
+  const setFormatedPrice = price => {
+    return new Intl.NumberFormat('ru-Ru', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price)
+  }
   return (
     <div className={s.orderCard}>
       <div className={s.top}>
         <p>Итого</p>
-        <h3>{totalPrice} ₽</h3>
+        <h3>{setFormatedPrice(totalPrice)} ₽</h3>
       </div>
       <div className={s.body}>
         <ul className={s.infoList}>

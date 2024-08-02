@@ -4,7 +4,7 @@ import { Jost, Roboto } from 'next/font/google'
 
 const jost = Jost({
   subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  weight: ['400', '500', '600', '700', '800'],
 })
 const roboto = Roboto({ subsets: ['latin'], weight: '400' })
 

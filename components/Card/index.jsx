@@ -7,6 +7,7 @@ import { useStore } from '@/app/store/store'
 
 import { Button, Image as AntdImage } from 'antd'
 import { ShoppingOutlined, ShoppingFilled, HeartOutlined, HeartFilled } from '@ant-design/icons'
+import useFormattedPrice from '@/app/hooks/useFormattedPrice'
 export function Card({
   id,
   title,
@@ -21,6 +22,8 @@ export function Card({
   charge,
   added,
 }) {
+  // const formattedPrice = useFormattedPrice(price)
+
   const addToCart = useStore(state => state.addToCart)
   const [isAdded, setIsAdded] = useState(added)
   const [isFavourite, setIsFavourite] = useState(false)
@@ -31,7 +34,16 @@ export function Card({
     setIsAdded(!isAdded)
   }
 
-  const setDiscount = () => price - (price * 10) / 100
+  const setDiscount = () => {
+    if (price && isDiscount) {
+      const discountedPrice = price - (price * 10) / 100
+      const formattedPrice = useFormattedPrice(discountedPrice)
+      return formattedPrice
+    } else {
+      return useFormattedPrice(price)
+    }
+  }
+
   return (
     <div className={style.card}>
       <div className={style.top}>
@@ -93,7 +105,7 @@ export function Card({
         </ul>
         <div className={style.bottom}>
           <div className={style.totalPrice}>
-            {isDiscount && <span className={style.discount}>{price}₽</span>}
+            {isDiscount && <span className={style.discount}>{setDiscount()}₽</span>}
             <strong className={style.price}>{setDiscount()}₽</strong>
           </div>
           <div className={style.controls}>

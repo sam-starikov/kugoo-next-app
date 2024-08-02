@@ -4,9 +4,11 @@ import s from './style.module.scss'
 import { Table, Image as AntdImage, Flex, Alert, Select } from 'antd'
 import { DeleteOutlined, PlusOutlined, MinusOutlined } from '@ant-design/icons'
 import { useStore } from '@/app/store/store'
+import useFormattedPrice from '@/app/hooks/useFormattedPrice'
 
 export function TableCart() {
-  const { cartItems } = useStore()
+  const { cartItems, removeItem } = useStore()
+
   const dataSource = cartItems.map(obj => {
     return { ...obj, key: obj.id }
   })
@@ -66,14 +68,18 @@ export function TableCart() {
       key: 'price',
       sorter: (a, b) => a.price - b.price,
       render: price => {
+        console.log(price)
+        // const formattedPrice = useFormattedPrice(price)
         return <span className={s.price}>{price} ₽</span>
       },
     },
     {
       title: 'Удалить все',
       key: 'delete',
-      render: (_, record) => (
-        <button className={s.deleteBtn}>
+      render: record => (
+        <button
+          className={s.deleteBtn}
+          onClick={() => removeItem(record.id)}>
           <DeleteOutlined className={s.deleteIcon} />
         </button>
       ),
