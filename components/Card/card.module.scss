@@ -1,10 +1,7 @@
 .card {
   display: flex;
   flex-direction: column;
-
-  height: 490px;
   width: 255px;
-
   overflow: hidden;
 
   border-radius: 5px;
@@ -18,7 +15,9 @@
   }
   @media (max-width: 500px) {
     flex-direction: column;
-    height: auto;
+    .top {
+      max-width: unset;
+    }
   }
 
   &:hover {
@@ -28,13 +27,9 @@
 
 .top {
   position: relative;
-  display: flex;
-  justify-content: center;
-  padding: 15px;
+  max-width: 255px;
 
-  background: var(--card-img-bg);
-
-  & img {
+  img {
     user-select: none;
     object-fit: cover;
     object-position: center;

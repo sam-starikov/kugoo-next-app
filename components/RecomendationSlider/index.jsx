@@ -37,6 +37,23 @@ export function RecomendationSlider() {
             ref={swiperRef}
             loop
             modules={[Navigation, FreeMode]}
+            breakpoints={{
+              320: {
+                slidesPerView: 1.5,
+                spaceBetween: 10,
+              },
+              768: {
+                slidesPerView: 2.5,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 3.5,
+                spaceBetween: 30,
+              },
+              1440: {
+                slidesPerView: 4.5,
+              },
+            }}
             spaceBetween={50}
             slidesPerView={4.5}
             grabCursor={true}>

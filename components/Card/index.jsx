@@ -49,8 +49,10 @@ export function Card({
       <div className={style.top}>
         <AntdImage
           className={style.img}
-          src={'/img/scooter-01.jpg'}
+          src={img}
           alt='scooter'
+          width={'100%'}
+          height={'100%'}
         />
         <button className={style.balance}>
           <Image
