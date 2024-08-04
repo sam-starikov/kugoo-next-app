@@ -10,6 +10,12 @@
 
 .slider {
   position: relative;
+
+  .slide {
+    @media (min-width: 666px) {
+      flex-shrink: 1;
+    }
+  }
 }
 .btnNext {
   position: absolute;

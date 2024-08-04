@@ -8,11 +8,13 @@ import {
   BannerSlider,
   ReviewSlider,
   Subscribe,
-  Services,
-  Delivery,
+  DeliveryBanner,
   Header,
   Footer,
+  ServiceCard,
 } from '@/components/index'
+
+import { Skeleton } from 'antd'
 
 export default function Home() {
   const { fetchProducts, allProducts, reviews, fetchReviews } = useStore()
@@ -21,9 +23,11 @@ export default function Home() {
     if (allProducts.length === 0) {
       fetchProducts()
     }
+
     if (reviews.length === 0) {
       fetchReviews()
     }
+
     window.scrollTo({
       behavior: 'smooth',
       top: 0,
@@ -41,10 +45,27 @@ export default function Home() {
           title={'Электросамокаты'}
           isSort={true}
         />
-        <Services />
-        <div className='container container--large'>
-          <Delivery />
-        </div>
+        <section className='services-cards'>
+          <div className='container'>
+            <div className='services-cards__body'>
+              <ServiceCard
+                title={'Подбор модели электросамоката'}
+                text={'Пройдите тест и выберите электросамокат по своим критериям'}
+                linkText={'Подобрать модель'}
+                imgSrc={'/img/serviceCard/bg-01.jpg'}
+              />
+              <ServiceCard
+                title={'Подбор модели электросамоката'}
+                text={'Пройдите тест и выберите электросамокат по своим критериям'}
+                imgSrc={'/img/serviceCard/bg-02.jpg'}
+              />
+            </div>
+          </div>
+        </section>
+        <DeliveryBanner
+          title={'Бесплатная доставка электросамокатов по России до 01.09'}
+          imgSrc={'/img/deliveryBanner/bg.jpg'}
+        />
         <ReviewSlider />
         <Subscribe />
       </main>

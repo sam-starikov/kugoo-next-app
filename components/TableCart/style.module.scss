@@ -1,10 +1,9 @@
 .root {
-  font-family: var(--font-family);
   flex: 1;
 
   .title,
   .price {
-    font-size: 24px;
+    font-size: clamp(1.125rem, 0.398rem + 1.22vw, 1.5rem);
     font-weight: 500;
     color: var(--black);
     text-transform: capitalize;

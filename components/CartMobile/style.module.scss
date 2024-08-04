@@ -1,0 +1,62 @@
+.root {
+  width: 315px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.top {
+  padding: 17px 20px;
+  background-color: var(--background-gray);
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+}
+.quantity {
+  font-size: 14px;
+}
+
+.body {
+}
+
+.list {
+  height: 250px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.item {
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.img {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.info {
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.price,
+.count {
+  font-size: 12px;
+}
+
+.deleteBtn {
+  font-size: 20px;
+}
+
+.deleteIcon {
+}

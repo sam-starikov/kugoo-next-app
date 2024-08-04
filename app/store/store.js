@@ -7,14 +7,9 @@ export const useStore = create(
       allProducts: [],
 
       fetchProducts: async () => {
-        try {
-          const response = await fetch('https://649009021e6aa71680ca6400.mockapi.io/items')
-          const data = await response.json()
-          set({ allProducts: data })
-        } catch (error) {
-          alert('Произошла ошибка при загрузке данных')
-          console.log(error)
-        }
+        const response = await fetch('https://649009021e6aa71680ca6400.mockapi.io/items')
+        const data = await response.json()
+        set({ allProducts: data })
       },
       cartItems: [],
       addToCart: product =>

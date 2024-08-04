@@ -21,6 +21,7 @@ export function Card({
   kmH,
   charge,
   added,
+  loading,
 }) {
   // const formattedPrice = useFormattedPrice(price)
 
@@ -113,19 +114,22 @@ export function Card({
           <div className={style.controls}>
             <button
               className={style.cartBtn}
-              onClick={handleAddProduct}>
+              onClick={handleAddProduct}
+            >
               {isAdded ? <ShoppingFilled /> : <ShoppingOutlined />}
             </button>
             <button
               className={style.favouriteBtn}
-              onClick={() => setIsFavourite(!isFavourite)}>
+              onClick={() => setIsFavourite(!isFavourite)}
+            >
               {isFavourite ? <HeartFilled /> : <HeartOutlined />}
             </button>
           </div>
         </div>
         <Button
           type='primary'
-          className={style.btnBuy}>
+          className={style.btnBuy}
+        >
           Купить в 1 клик
         </Button>
       </div>

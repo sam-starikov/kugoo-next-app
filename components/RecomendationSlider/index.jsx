@@ -37,28 +37,23 @@ export function RecomendationSlider() {
             ref={swiperRef}
             loop
             modules={[Navigation, FreeMode]}
-            breakpoints={{
-              320: {
-                slidesPerView: 1.5,
-                spaceBetween: 10,
-              },
-              768: {
-                slidesPerView: 2.5,
-                spaceBetween: 20,
-              },
-              1024: {
-                slidesPerView: 3.5,
-                spaceBetween: 30,
-              },
-              1440: {
-                slidesPerView: 4.5,
-              },
-            }}
-            spaceBetween={50}
             slidesPerView={4.5}
+            spaceBetween={30}
+            breakpoints={{
+              320: { slidesPerView: 1.2, spaceBetween: 10 },
+              420: { slidesPerView: 1.5, spaceBetween: 10 },
+              500: { slidesPerView: 1 },
+              667: { slidesPerView: 2.5, spaceBetween: 30 },
+              762: { slidesPerView: 3, spaceBetween: 30 },
+              900: { slidesPerView: 3.5, spaceBetween: 30 },
+              1100: { slidesPerView: 4, spaceBetween: 30 },
+              1300: { slidesPerView: 4.5, spaceBetween: 30 },
+            }}
             grabCursor={true}>
             {allProducts.map(product => (
-              <SwiperSlide key={product.id}>
+              <SwiperSlide
+                key={product.id}
+                className={s.slide}>
                 <Card {...product} />
               </SwiperSlide>
             ))}

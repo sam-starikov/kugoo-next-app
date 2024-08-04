@@ -37,20 +37,20 @@ a {
     max-width: unset;
     padding-left: calc((100% - 1140px) / 2);
     padding-right: unset;
+
+    @media (min-width: 320px) {
+      padding-left: 15px;
+    }
+    @media (min-width: 1180px) {
+      padding-left: calc((100% - 1140px) / 2);
+    }
   }
 }
 
 .main {
   flex-grow: 1;
-
-  &--p {
-    padding: 150px 0 0 0;
-  }
 }
 
-.none {
-  display: none !important;
-}
 /* end */
 
 .btn {
@@ -80,6 +80,22 @@ a {
       box-shadow: 0 0 0 1.3px var(--white);
       color: var(--white);
       background-color: var(--purple);
+    }
+  }
+}
+
+/* service-card */
+.services-cards {
+  padding: clamp(2.5rem, 0.417rem + 10.42vw, 6.875rem) 0;
+
+  &__body {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
     }
   }
 }

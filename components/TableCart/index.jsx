@@ -18,7 +18,7 @@ export function TableCart() {
       title: 'Товар',
       dataIndex: 'title',
       key: 'title',
-      responsive: ['sm'],
+      // responsive: ['sm'],
       render: (text, img) => {
         return (
           <Flex
@@ -49,7 +49,7 @@ export function TableCart() {
       title: 'Количество',
       dataIndex: 'count',
       key: 'count',
-      responsive: ['lg'],
+      // responsive: ['lg'],
       render: count => {
         return (
           <div className={s.counter}>
@@ -68,7 +68,7 @@ export function TableCart() {
       title: 'Сумма',
       dataIndex: 'price',
       key: 'price',
-      responsive: ['lg'],
+      // responsive: ['lg'],
       sorter: (a, b) => a.price - b.price,
       render: price => {
         console.log(price)
@@ -79,7 +79,7 @@ export function TableCart() {
     {
       title: 'Удалить все',
       key: 'delete',
-      responsive: ['sm'],
+      // responsive: ['sm'],
       render: record => (
         <button
           className={s.deleteBtn}
@@ -100,37 +100,37 @@ export function TableCart() {
         defaultExpandAllRows: true,
         responsive: ['sm'],
 
-        // expandedRowRender: record => {
-        //   return (
-        //     <Flex
-        //       className={s.options}
-        //       gap={15}
-        //       align='center'
-        //       wrap={true}>
-        //       <Select
-        //         defaultValue='Комплектация: стандартная'
-        //         options={[
-        //           {
-        //             value: 'стандартная',
-        //             label: 'стандартная',
-        //           },
-        //           {
-        //             value: 'внедорожная',
-        //             label: 'внедорожная',
-        //           },
-        //           {
-        //             value: 'шоссейная',
-        //             label: 'шоссейная',
-        //           },
-        //         ]}
-        //       />
-        //       <Select defaultValue='Подарочная упаковка:' />
-        //       <Select defaultValue='Гарантия: 1 год' />
-        //       <Select defaultValue='Тип покрышки: шоссейная' />
-        //       <Select defaultValue='Доп.услуги: гидроизоляция' />
-        //     </Flex>
-        //   )
-        // },
+        expandedRowRender: record => {
+          return (
+            <Flex
+              className={s.options}
+              gap={15}
+              align='center'
+              wrap={true}>
+              <Select
+                defaultValue='Комплектация: стандартная'
+                options={[
+                  {
+                    value: 'стандартная',
+                    label: 'стандартная',
+                  },
+                  {
+                    value: 'внедорожная',
+                    label: 'внедорожная',
+                  },
+                  {
+                    value: 'шоссейная',
+                    label: 'шоссейная',
+                  },
+                ]}
+              />
+              <Select defaultValue='Подарочная упаковка:' />
+              <Select defaultValue='Гарантия: 1 год' />
+              <Select defaultValue='Тип покрышки: шоссейная' />
+              <Select defaultValue='Доп.услуги: гидроизоляция' />
+            </Flex>
+          )
+        },
       }}
     />
   )

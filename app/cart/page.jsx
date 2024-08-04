@@ -5,7 +5,7 @@ import { useStore } from '@/app/store/store'
 import { FrownOutlined } from '@ant-design/icons'
 import { Button, Flex } from 'antd'
 
-import { RecomendationSlider, TableCart, Header, Footer, OrderCard } from '@/components'
+import { RecomendationSlider, TableCart, Header, Footer, OrderCard, CartMobile } from '@/components'
 import Link from 'next/link'
 
 export default function Cart() {
@@ -19,18 +19,20 @@ export default function Cart() {
           <h1 className={s.title}>Моя корзина</h1>
           {!!cartItems.length && <p className={s.totalCount}>{cartItems.length} товара</p>}
           {!!cartItems.length ? (
-            <Flex gap={65}>
-              <TableCart className={s.table} />
-              <OrderCard />
+            <Flex className={s.info}>
+              {/* <TableCart className={s.table} /> */}
+              <CartMobile />
+              {/* <OrderCard /> */}
             </Flex>
           ) : (
             <div className={s.body}>
               <FrownOutlined className={s.icon} />
               <h3>Ваша корзина пуста</h3>
-              <p>Добавьте в нее товары из каталога</p>
+              <p className={s.text}>Добавьте в нее товары из каталога</p>
               <Link
                 href='/'
-                className='btn btn--purple'>
+                className='btn btn--purple'
+              >
                 Перейти в каталог
               </Link>
             </div>

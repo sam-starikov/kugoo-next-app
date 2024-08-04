@@ -15,15 +15,15 @@ import Link from 'next/link'
 const images = [
   {
     id: 1,
-    src: '/img/slide-01.jpg',
+    src: '/img/bannerSlide/slide-01.jpg',
   },
   {
     id: 2,
-    src: '/img/slide-02.jpg',
+    src: '/img/bannerSlide/slide-02.jpg',
   },
   {
     id: 3,
-    src: '/img/slide-03.jpg',
+    src: '/img/bannerSlide/slide-03.jpg',
   },
 ]
 
@@ -33,31 +33,38 @@ export function BannerSlider() {
       <div className='container container--large'>
         <Swiper
           modules={[Navigation, Autoplay]}
-          spaceBetween={50}
           slidesPerView={1}
+          spaceBetween={20}
           autoplay={{ delay: 2000, disableOnInteraction: false }}
           speed={1000}
-          loop={true}>
+          loop={true}
+        >
           {images.map(img => (
             <SwiperSlide key={img.id}>
               <div className={style.slide}>
-                <img
-                  className={style.slideBg}
+                <Image
+                  fill
                   src={img.src}
+                  alt='scooter Kugoo'
+                  className={style.img}
                 />
                 <div className={style.body}>
                   <div className={style.label}>Новинка</div>
-                  <h1>Электросамокаты Kugoo Kirin от официального дилера</h1>
-                  <p>с бесплатной доставкой по РФ от 1 дня</p>
+                  <h1 className={style.title}>
+                    Электросамокаты Kugoo Kirin от официального дилера
+                  </h1>
+                  <p className={style.subTitle}>с бесплатной доставкой по РФ от 1 дня</p>
                   <Link
                     href='#!'
-                    className='btn btn--white'>
+                    className='btn btn--white'
+                  >
                     Перейти в каталог
                   </Link>
                 </div>
                 <Button
                   className={style.btnTestDrive}
-                  ghost>
+                  ghost
+                >
                   <Image
                     src='/icons/slider/lightning.svg'
                     alt='lightning'

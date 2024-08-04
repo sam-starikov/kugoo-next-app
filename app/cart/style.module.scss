@@ -13,9 +13,21 @@
     margin-bottom: 5px;
   }
 
-  p {
+  .text {
     font-size: 14px;
     margin-bottom: 25px;
+  }
+
+  .info {
+    gap: clamp(1.25rem, -1.964rem + 6.7vw, 4.063rem);
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+    }
+  }
+
+  .ant-table-cell {
+    padding: 10px;
   }
 
   .totalCount {

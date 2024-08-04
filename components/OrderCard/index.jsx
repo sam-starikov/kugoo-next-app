@@ -44,7 +44,9 @@ export function OrderCard({}) {
         vertical
         gap={15}>
         <button className='btn btn--purple'>Оформить заказ</button>
-        <Flex gap={12}>
+        <Flex
+          gap={12}
+          className={s.acceptInfo}>
           <Checkbox />
           <p>
             Нажимая на кнопку, вы соглашаетесь на обработку персональных данных и

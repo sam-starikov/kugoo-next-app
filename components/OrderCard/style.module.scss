@@ -8,15 +8,31 @@
   background-color: var(--background-gray);
   color: var(--black);
 
+  @media (max-width: 425px) {
+    height: auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+      margin-bottom: unset;
+    }
+  }
+
   p {
     font-size: 12px;
     margin-bottom: unset;
   }
 
   h3 {
-    font-size: 25px;
+    font-size: clamp(1.125rem, 0.968rem + 0.59vw, 1.5rem);
     font-weight: 600;
     margin-bottom: 15px;
+
+    @media (max-width: 425px) {
+      margin-bottom: unset;
+    }
   }
 
   .top {
@@ -31,6 +47,9 @@
     border-bottom: 1px solid var(--gray-200);
     margin-bottom: 20px;
 
+    @media (max-width: 425px) {
+      display: none;
+    }
     .infoList {
       display: flex;
       justify-content: space-between;
@@ -45,11 +64,26 @@
           font-weight: 600;
         }
       }
+      @media (max-width: 425px) {
+        display: none;
+      }
+    }
+  }
+  .acceptInfo {
+    @media (max-width: 425px) {
+      display: none;
     }
   }
   .bottom {
     a span {
       color: var(--purple);
     }
+  }
+
+  @media (max-width: 900px) {
+    align-self: flex-end;
+  }
+  @media (max-width: 590px) {
+    width: 100%;
   }
 }

@@ -1,0 +1,56 @@
+.banner {
+  position: relative;
+  height: 420px;
+  color: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.body {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 27px;
+  padding: 67px 0;
+  max-width: 440px;
+}
+
+.sticker {
+  width: 62px;
+  padding: 5px 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+  background-color: var(--orange-primary);
+  border-radius: 5px;
+}
+
+.title {
+  font-size: clamp(1.375rem, 0.795rem + 2.9vw, 2.188rem);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.btn {
+  width: 132px;
+  color: var(--black);
+
+  &:hover {
+    color: var(--white);
+  }
+}
+
+.img {
+  object-fit: cover;
+}
