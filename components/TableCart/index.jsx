@@ -3,7 +3,7 @@ import s from './style.module.scss'
 
 import { useEffect, useState } from 'react'
 import { useStore } from '@/app/store/store'
-import useFormattedPrice from '@/app/hooks/useFormattedPrice'
+// import useFormattedPrice from '@/app/hooks/useFormattedPrice'
 
 import { Table, Image as AntdImage, Flex, Alert, Select } from 'antd'
 import { DeleteOutlined, PlusOutlined, MinusOutlined } from '@ant-design/icons'

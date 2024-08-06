@@ -1,4 +1,4 @@
-'use client'
+/* 'use client'
 import { useMemo } from 'react'
 
 const useFormattedPrice = price => {
@@ -11,3 +11,4 @@ const useFormattedPrice = price => {
 }
 
 export default useFormattedPrice
+ */

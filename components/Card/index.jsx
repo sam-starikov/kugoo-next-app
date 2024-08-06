@@ -4,7 +4,7 @@ import style from './card.module.scss'
 import Image from 'next/image'
 import { useState } from 'react'
 import { useStore } from '@/app/store/store'
-import useFormattedPrice from '@/app/hooks/useFormattedPrice'
+// import useFormattedPrice from '@/app/hooks/useFormattedPrice'
 
 import { Button, Image as AntdImage } from 'antd'
 import { ShoppingOutlined, ShoppingFilled, HeartOutlined, HeartFilled } from '@ant-design/icons'
@@ -37,10 +37,13 @@ export function Card({
   const setDiscount = () => {
     if (price && isDiscount) {
       const discountedPrice = price - (price * 10) / 100
-      const formattedPrice = useFormattedPrice(discountedPrice)
-      return formattedPrice
+      // const formattedPrice = useFormattedPrice(discountedPrice)
+      return price
+
+      // formattedPrice
     } else {
-      return useFormattedPrice(price)
+      return price
+      // useFormattedPrice(price)
     }
   }
 

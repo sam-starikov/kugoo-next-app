@@ -1,15 +1,13 @@
-import Link from 'next/link'
 import s from './style.module.scss'
 
+import Link from 'next/link'
+import { useState } from 'react'
 import { Checkbox, Flex } from 'antd'
 import { useStore } from '@/app/store/store'
 import { Button } from '..'
-import { useState } from 'react'
 
 export function OrderInfo({ orderComplete, setOrderComplete }) {
   const [toggleCheck, setToggleCheck] = useState(true)
-  console.log('OrderInfo', toggleCheck)
-
   const { cartItems, succesOrder } = useStore()
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0)
 
@@ -27,6 +25,7 @@ export function OrderInfo({ orderComplete, setOrderComplete }) {
       maximumFractionDigits: 0,
     }).format(price)
   }
+
   return (
     <div className={s.orderCard}>
       <div className={s.top}>
