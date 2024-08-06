@@ -9,8 +9,8 @@ import 'swiper/css/navigation'
 /* end */
 
 import Image from 'next/image'
-import { Button } from 'antd'
-import Link from 'next/link'
+import { Button as AntdButton } from 'antd'
+import { Button } from '..'
 
 const images = [
   {
@@ -29,13 +29,13 @@ const images = [
 
 export function BannerSlider() {
   return (
-    <div className={style.slider}>
+    <section className={style.slider}>
       <div className='container container--large'>
         <Swiper
           modules={[Navigation, Autoplay]}
           slidesPerView={1}
           spaceBetween={20}
-          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          // autoplay={{ delay: 2000, disableOnInteraction: false }}
           speed={1000}
           loop={true}
         >
@@ -54,14 +54,14 @@ export function BannerSlider() {
                     Электросамокаты Kugoo Kirin от официального дилера
                   </h1>
                   <p className={style.subTitle}>с бесплатной доставкой по РФ от 1 дня</p>
-                  <Link
-                    href='#!'
-                    className='btn btn--white'
+                  <Button
+                    tag='link'
+                    type='white'
                   >
                     Перейти в каталог
-                  </Link>
+                  </Button>
                 </div>
-                <Button
+                <AntdButton
                   className={style.btnTestDrive}
                   ghost
                 >
@@ -72,12 +72,12 @@ export function BannerSlider() {
                     height={22}
                   />
                   <div>Тест-драйв и обучение</div>
-                </Button>
+                </AntdButton>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-    </div>
+    </section>
   )
 }

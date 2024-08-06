@@ -2,9 +2,9 @@
 import style from './cardList.module.scss'
 
 import { useState } from 'react'
-import { Button, Flex, Skeleton } from 'antd'
+import { Flex, Skeleton } from 'antd'
 
-import { Card, TabsSort } from '../index'
+import { Button, Card, TabsSort } from '../index'
 import { useStore } from '@/app/store/store'
 
 export function CardList({ cards, title, isSort, isLoading }) {
@@ -45,8 +45,8 @@ export function CardList({ cards, title, isSort, isLoading }) {
           justify='center'
         >
           <Button
+            type='whiteBorder'
             disabled={showAll ? true : false}
-            className={style.showMoreBtn}
             onClick={handleShowMore}
           >
             Смотреть все

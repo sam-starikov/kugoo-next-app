@@ -1,12 +1,26 @@
 import Link from 'next/link'
 import s from './style.module.scss'
 
-import { Button, Checkbox, Flex } from 'antd'
+import { Checkbox, Flex } from 'antd'
 import { useStore } from '@/app/store/store'
+import { Button } from '..'
+import { useState } from 'react'
 
-export function OrderCard({}) {
-  const cartItems = useStore(state => state.cartItems)
+export function OrderInfo({ orderComplete, setOrderComplete }) {
+  const [toggleCheck, setToggleCheck] = useState(true)
+  console.log('OrderInfo', toggleCheck)
+
+  const { cartItems, succesOrder } = useStore()
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0)
+
+  const handleCheckBox = () => setToggleCheck(prev => !prev)
+
+  const handleOrder = () => {
+    alert('Вы успешно оформили заказ :)')
+    succesOrder()
+    setOrderComplete(!orderComplete)
+  }
+
   const setFormatedPrice = price => {
     return new Intl.NumberFormat('ru-Ru', {
       minimumFractionDigits: 0,
@@ -23,31 +37,42 @@ export function OrderCard({}) {
         <ul className={s.infoList}>
           <li>Стоимость товаров</li>
           <li>
-            <span>58 800 ₽</span>
+            <span>XXX</span>
           </li>
         </ul>
         <ul className={s.infoList}>
           <li>Сумма скидки</li>
           <li>
-            <span> 8 000 ₽</span>
+            <span>XXX</span>
           </li>
         </ul>
         <ul className={s.infoList}>
           <li>Итого без учета доставки</li>
           <li>
-            <span>50 800 ₽</span>
+            <span>XXX</span>
           </li>
         </ul>
       </div>
       <Flex
         className={s.bottom}
         vertical
-        gap={15}>
-        <button className='btn btn--purple'>Оформить заказ</button>
+        gap={15}
+      >
+        <Button
+          type='purple'
+          disabled={toggleCheck}
+          onClick={handleOrder}
+        >
+          Оформить заказ
+        </Button>
         <Flex
           gap={12}
-          className={s.acceptInfo}>
-          <Checkbox />
+          className={s.acceptInfo}
+        >
+          <Checkbox
+            autoFocus
+            onChange={handleCheckBox}
+          />
           <p>
             Нажимая на кнопку, вы соглашаетесь на обработку персональных данных и
             <Link href='#!'>

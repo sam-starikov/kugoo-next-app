@@ -16,9 +16,6 @@
 }
 
 .info {
-  display: flex;
-  flex-direction: column;
-  row-gap: 27px;
   padding: 67px 0;
   max-width: 440px;
 }
@@ -26,6 +23,7 @@
 .sticker {
   width: 62px;
   padding: 5px 15px;
+  margin-bottom: 27px;
 
   display: flex;
   align-items: center;
@@ -40,15 +38,7 @@
   font-size: clamp(1.375rem, 0.795rem + 2.9vw, 2.188rem);
   font-weight: 600;
   text-transform: uppercase;
-}
-
-.btn {
-  width: 132px;
-  color: var(--black);
-
-  &:hover {
-    color: var(--white);
-  }
+  margin-bottom: 27px;
 }
 
 .img {

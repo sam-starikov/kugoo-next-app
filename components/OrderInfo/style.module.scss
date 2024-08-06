@@ -10,7 +10,8 @@
 
   @media (max-width: 425px) {
     height: auto;
-    padding: 20px;
+    padding: 10px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -50,6 +51,7 @@
     @media (max-width: 425px) {
       display: none;
     }
+
     .infoList {
       display: flex;
       justify-content: space-between;
@@ -69,21 +71,21 @@
       }
     }
   }
-  .acceptInfo {
-    @media (max-width: 425px) {
-      display: none;
-    }
-  }
+
   .bottom {
     a span {
       color: var(--purple);
     }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 992px) {
     align-self: flex-end;
   }
-  @media (max-width: 590px) {
+  @media (max-width: 680px) {
     width: 100%;
+  }
+  @media (max-width: 425px) {
+    flex-wrap: wrap;
+    gap: 10px;
   }
 }

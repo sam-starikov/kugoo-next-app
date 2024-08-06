@@ -8,6 +8,7 @@ import { DeleteOutlined } from '@ant-design/icons'
 import { useStore } from '@/app/store/store'
 export function CartMobile() {
   const cartItems = useStore(state => state.cartItems)
+
   return (
     <div className={s.root}>
       <Flex
@@ -16,7 +17,7 @@ export function CartMobile() {
         className={s.top}
       >
         <h4 className={s.title}>В вашей корзине</h4>
-        <span className={s.quantity}>11 товаров</span>
+        <span className={s.quantity}>{cartItems.length} товар</span>
       </Flex>
 
       <div className={s.body}>

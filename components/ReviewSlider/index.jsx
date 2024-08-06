@@ -37,24 +37,29 @@ export function ReviewSlider() {
 
   return (
     <section className={style.reviews}>
-      <h2 className={style.reviewsTitle}>Отзывы и фото реальных покупателей</h2>
-      <Link
-        className={style.reviewsLink}
-        href='#!'>
-        Читать отзывы на Яндекс
-      </Link>
+      <div className='container'>
+        <h2 className={style.reviewsTitle}>Отзывы и фото реальных покупателей</h2>
+        <Link
+          className={style.reviewsLink}
+          href='#!'
+        >
+          Читать отзывы на Яндекс
+        </Link>
+      </div>
 
       <Swiper
-        style={{ marginBottom: 20 }}
+        style={{ marginBottom: 20, paddingTop: 60 }}
         modules={[Autoplay, FreeMode]}
         spaceBetween={18}
         slidesPerView={'auto'}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
-        speed={10000}>
+        speed={10000}
+      >
         {reviews.map((review, index) => (
           <SwiperSlide
             key={review.id}
-            style={{ width: 'auto' }}>
+            style={{ width: 'auto' }}
+          >
             <div className={style.slide}>
               <img
                 className={style.slideImg}
@@ -121,11 +126,13 @@ export function ReviewSlider() {
         spaceBetween={18}
         slidesPerView={'auto'}
         autoplay={{ delay: 2500, disableOnInteraction: false, reverseDirection: true }}
-        speed={10000}>
+        speed={10000}
+      >
         {reviews.map((review, index) => (
           <SwiperSlide
             key={review.id}
-            style={{ width: 'auto' }}>
+            style={{ width: 'auto' }}
+          >
             <div className={style.slide}>
               <img
                 className={style.slideImg}

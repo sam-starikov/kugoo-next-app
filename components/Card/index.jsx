@@ -4,10 +4,11 @@ import style from './card.module.scss'
 import Image from 'next/image'
 import { useState } from 'react'
 import { useStore } from '@/app/store/store'
+import useFormattedPrice from '@/app/hooks/useFormattedPrice'
 
 import { Button, Image as AntdImage } from 'antd'
 import { ShoppingOutlined, ShoppingFilled, HeartOutlined, HeartFilled } from '@ant-design/icons'
-import useFormattedPrice from '@/app/hooks/useFormattedPrice'
+
 export function Card({
   id,
   title,
@@ -23,8 +24,6 @@ export function Card({
   added,
   loading,
 }) {
-  // const formattedPrice = useFormattedPrice(price)
-
   const addToCart = useStore(state => state.addToCart)
   const [isAdded, setIsAdded] = useState(added)
   const [isFavourite, setIsFavourite] = useState(false)

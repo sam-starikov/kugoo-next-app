@@ -4,9 +4,9 @@ import style from './header.module.scss'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
-import { Button, Flex } from 'antd'
+import { Button } from 'antd'
 import { HeartOutlined, UnorderedListOutlined } from '@ant-design/icons'
-import { Logo, Search, Catalogue, CartBadge } from '../index'
+import { Logo, Catalogue, CartBadge, SearchForm } from '../index'
 
 import PlusImg from '/public/icons/header/add-plus.svg'
 import ViberImg from '/public/icons/header/viber.svg'
@@ -64,7 +64,8 @@ export function Header() {
             <li>
               <Link
                 className={style.telNumber}
-                href='tel:+78005055461'>
+                href='tel:+78005055461'
+              >
                 +7 (800) 505-54-61
                 <Image
                   src={PlusImg}
@@ -80,14 +81,16 @@ export function Header() {
           <Logo />
           <Button
             className={style.catalogueBtn}
-            onClick={toggleCatalogue}>
+            onClick={toggleCatalogue}
+          >
             <UnorderedListOutlined /> Каталог
           </Button>
           <Catalogue
             isOpen={isCatalogueOpen}
             toggleCatalogue={toggleCatalogue}
           />
-          <Search />
+          <SearchForm />
+
           <ul className={style.linkIcons}>
             <li>
               <Link href='/compare'>
@@ -105,7 +108,7 @@ export function Header() {
             <li>
               <Link href='/cart'>
                 <CartBadge />
-                {/* <span className={style.cartLink}> Корзина</span> */}
+                <span className={style.cartLink}> Корзина</span>
               </Link>
             </li>
           </ul>

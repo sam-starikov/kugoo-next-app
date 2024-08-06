@@ -1,6 +1,7 @@
 import s from './style.module.scss'
 
-import { Button, Input } from 'antd'
+import { Input } from 'antd'
+import { Button } from '..'
 
 export function Subscribe() {
   return (
@@ -10,8 +11,11 @@ export function Subscribe() {
           <h2 className={s.title}>
             Оставьте свою почту и станьте первым, кто получит скидку на новые самокаты
           </h2>
-          <Input className={s.input} placeholder='Введите Ваш email' />
-          <Button className={s.button}>Подписаться</Button>
+          <Input
+            className={s.input}
+            placeholder='Введите Ваш email'
+          />
+          <Button type='white'>Подписаться</Button>
         </div>
       </div>
     </section>

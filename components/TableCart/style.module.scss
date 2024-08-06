@@ -57,6 +57,10 @@
   &:active {
     background-color: var(--gray-200);
   }
+  &:disabled {
+    background-color: transparent;
+    opacity: 0.3;
+  }
 }
 
 .options {

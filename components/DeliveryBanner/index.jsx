@@ -2,6 +2,7 @@ import style from './style.module.scss'
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { Button } from '..'
 
 export function DeliveryBanner({ imgSrc, title }) {
   return (
@@ -19,12 +20,12 @@ export function DeliveryBanner({ imgSrc, title }) {
               <div className={style.info}>
                 <div className={style.sticker}>Акция</div>
                 <h2 className={style.title}>{title}</h2>
-                <Link
-                  href='#!'
-                  className={`btn btn--white ${style.btn}`}
+                <Button
+                  tag='link'
+                  type='blackText'
                 >
                   Подробнее
-                </Link>
+                </Button>
               </div>
             </div>
           </div>

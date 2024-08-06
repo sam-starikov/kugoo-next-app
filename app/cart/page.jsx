@@ -2,14 +2,25 @@
 import s from './style.module.scss'
 
 import { useStore } from '@/app/store/store'
-import { FrownOutlined } from '@ant-design/icons'
-import { Button, Flex } from 'antd'
+import { FrownOutlined, SmileOutlined } from '@ant-design/icons'
+import { Flex } from 'antd'
+import { useMediaQuery } from 'react-responsive'
+import {
+  RecomendationSlider,
+  TableCart,
+  Header,
+  Footer,
+  CartMobile,
+  Button,
+  OrderInfo,
+} from '@/components'
 
-import { RecomendationSlider, TableCart, Header, Footer, OrderCard, CartMobile } from '@/components'
-import Link from 'next/link'
+import { useState } from 'react'
 
 export default function Cart() {
   const cartItems = useStore(state => state.cartItems)
+  const isMobile = useMediaQuery({ query: '(max-width: 680px)' })
+  const [orderComplete, setOrderComplete] = useState(false)
 
   return (
     <>
@@ -20,21 +31,30 @@ export default function Cart() {
           {!!cartItems.length && <p className={s.totalCount}>{cartItems.length} товара</p>}
           {!!cartItems.length ? (
             <Flex className={s.info}>
-              {/* <TableCart className={s.table} /> */}
-              <CartMobile />
-              {/* <OrderCard /> */}
+              {isMobile ? <CartMobile /> : <TableCart className={s.table} />}
+              <OrderInfo
+                orderComplete={orderComplete}
+                setOrderComplete={setOrderComplete}
+              />
             </Flex>
           ) : (
             <div className={s.body}>
-              <FrownOutlined className={s.icon} />
-              <h3>Ваша корзина пуста</h3>
-              <p className={s.text}>Добавьте в нее товары из каталога</p>
-              <Link
+              {!orderComplete ? (
+                <FrownOutlined className={s.icon} />
+              ) : (
+                <SmileOutlined className={s.icon} />
+              )}
+              <h3>{!orderComplete ? 'Ваша корзина пуста' : 'Спасибо за покупку!'}</h3>
+              <p className={s.text}>
+                {!orderComplete ? 'Добавьте в нее товары из каталога' : 'Заказ передан в доставку'}
+              </p>
+              <Button
+                link
                 href='/'
-                className='btn btn--purple'
+                type='purple'
               >
                 Перейти в каталог
-              </Link>
+              </Button>
             </div>
           )}
         </div>

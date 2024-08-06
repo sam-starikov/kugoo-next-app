@@ -1,29 +1,55 @@
 'use client'
 import s from './style.module.scss'
 
-import { Table, Image as AntdImage, Flex, Alert, Select } from 'antd'
-import { DeleteOutlined, PlusOutlined, MinusOutlined } from '@ant-design/icons'
+import { useEffect, useState } from 'react'
 import { useStore } from '@/app/store/store'
 import useFormattedPrice from '@/app/hooks/useFormattedPrice'
 
+import { Table, Image as AntdImage, Flex, Alert, Select } from 'antd'
+import { DeleteOutlined, PlusOutlined, MinusOutlined } from '@ant-design/icons'
+
 export function TableCart() {
-  const { cartItems, removeItem } = useStore()
+  const { cartItems, removeItem, incrementProduct, decrementProduct } = useStore()
 
   const dataSource = cartItems.map(obj => {
     return { ...obj, key: obj.id }
   })
+
+  const [renderItems, setRenderItems] = useState([])
+
+  useEffect(() => {
+    const uniqueArray = [...new Set(dataSource)]
+    setRenderItems(uniqueArray)
+  }, [])
+
+  const handleIncrementProduct = obj => {
+    incrementProduct(obj)
+  }
+
+  const handleDecrementProduct = id => {
+    decrementProduct(id)
+    setRenderItems(prevProducts => {
+      const index = prevProducts.findIndex(product => product.id === id)
+
+      if (index !== -1) {
+        return [...prevProducts.slice(0, index), ...prevProducts.slice(index + 1)]
+      }
+      return prevProducts
+    })
+  }
 
   const columns = [
     {
       title: 'Товар',
       dataIndex: 'title',
       key: 'title',
-      // responsive: ['sm'],
+
       render: (text, img) => {
         return (
           <Flex
             gap={20}
-            align='center'>
+            align='center'
+          >
             <AntdImage
               src='/img/scooter-01.jpg'
               alt='img'
@@ -32,7 +58,8 @@ export function TableCart() {
             />
             <Flex
               vertical={true}
-              gap={5}>
+              gap={5}
+            >
               <span className={s.title}>{text}</span>
               <Alert
                 className={s.alert}
@@ -49,15 +76,24 @@ export function TableCart() {
       title: 'Количество',
       dataIndex: 'count',
       key: 'count',
-      // responsive: ['lg'],
-      render: count => {
+
+      render: (_, obj) => {
         return (
           <div className={s.counter}>
-            <button className={s.btnCount}>
+            <button
+              disabled={renderItems.length === 1 ? true : false}
+              onClick={() => handleDecrementProduct(obj.id)}
+              className={s.btnCount}
+            >
               <MinusOutlined />
             </button>
-            <div>1</div>
-            <button className={s.btnCount}>
+            <div></div>
+            <button
+              onClick={() => {
+                handleIncrementProduct(obj)
+              }}
+              className={s.btnCount}
+            >
               <PlusOutlined />
             </button>
           </div>
@@ -68,22 +104,24 @@ export function TableCart() {
       title: 'Сумма',
       dataIndex: 'price',
       key: 'price',
-      // responsive: ['lg'],
+
       sorter: (a, b) => a.price - b.price,
       render: price => {
-        console.log(price)
         // const formattedPrice = useFormattedPrice(price)
+
         return <span className={s.price}>{price} ₽</span>
       },
     },
     {
       title: 'Удалить все',
       key: 'delete',
-      // responsive: ['sm'],
+
       render: record => (
         <button
+          // disabled={renderItems.length === 0 ? true : false}
           className={s.deleteBtn}
-          onClick={() => removeItem(record.id)}>
+          onClick={() => removeItem(record.id)}
+        >
           <DeleteOutlined className={s.deleteIcon} />
         </button>
       ),
@@ -94,7 +132,7 @@ export function TableCart() {
     <Table
       className={s.root}
       columns={columns}
-      dataSource={dataSource}
+      dataSource={renderItems}
       expandable={{
         columnTitle: 'Опции',
         defaultExpandAllRows: true,
@@ -106,7 +144,8 @@ export function TableCart() {
               className={s.options}
               gap={15}
               align='center'
-              wrap={true}>
+              wrap={true}
+            >
               <Select
                 defaultValue='Комплектация: стандартная'
                 options={[
