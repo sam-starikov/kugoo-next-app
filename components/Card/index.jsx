@@ -23,10 +23,8 @@ export function Card({
   kmH,
   charge,
   added,
-  loading,
-  images,
 }) {
-  const { addToCart, saveSlagItemLS } = useStore()
+  const { addToCart } = useStore()
   const [isAdded, setIsAdded] = useState(added)
   const [isFavourite, setIsFavourite] = useState(false)
 
@@ -34,11 +32,6 @@ export function Card({
     const newProduct = { id, title, img, price }
     addToCart(newProduct)
     setIsAdded(!isAdded)
-  }
-
-  const handleDetailLink = () => {
-    const product = { id, images, title }
-    saveSlagItemLS(product)
   }
 
   const setDiscount = () => {
@@ -77,10 +70,7 @@ export function Card({
       </div>
 
       <div className={style.body}>
-        <Link
-          href={`/cart/${id}`}
-          onClick={() => handleDetailLink()}
-        >
+        <Link href={`/cart/${id}`}>
           <h4 className={style.title}>{title}</h4>
           <ul className={style.infoList}>
             <li className={style.infoListItem}>

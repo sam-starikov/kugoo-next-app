@@ -3,17 +3,21 @@
 }
 
 .swiper {
-  width: 570px;
-  height: 690px;
+  max-width: 570px;
+  width: 100%;
+  min-height: 690px;
 
   border-radius: 5px;
-  // overflow: hidden;
+  overflow: hidden;
 
   .slide {
     border-radius: 5px;
     overflow: hidden;
 
     img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       user-select: none;
     }
   }
@@ -21,10 +25,12 @@
 
 .main {
   height: 100vh;
+
   background-color: blueviolet;
 }
 
 .mainSlider {
+  border-radius: 5px;
   margin-bottom: 10px;
 
   .slide {
@@ -32,6 +38,7 @@
   }
 }
 .secondSlider {
+  border-radius: 5px;
   & div {
     row-gap: 10px;
     flex-wrap: wrap;
@@ -40,8 +47,4 @@
     height: 75px;
     width: 75px !important;
   }
-}
-
-.active {
-  border: 2px solid purple;
 }

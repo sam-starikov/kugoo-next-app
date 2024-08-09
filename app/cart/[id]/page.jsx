@@ -1,30 +1,32 @@
 'use client'
 import s from './style.module.scss'
 
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
+
+import { useStore } from '@/app/store/store'
 import { Footer, Header } from '@/components'
 import { Flex } from 'antd'
 
-import React, { useEffect, useRef, useState } from 'react'
-
 import { Swiper, SwiperSlide } from 'swiper/react'
-
-// import 'swiper/css'
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
-import Image from 'next/image'
-import { useStore } from '@/app/store/store'
-
-export default function ProductDetail() {
-  const { productDetail } = useStore()
+export default function ProductDetail({ params }) {
+  const { allProducts } = useStore()
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
+  const [product, setProduct] = useState({})
+
+  useEffect(() => {
+    const product = allProducts.find(obj => obj.id === params.id)
+    setProduct(product)
+  }, [params.id, allProducts])
 
   return (
     <>
       <Header />
-
       <main className='main'>
         <div className='container'>
           <Flex
@@ -44,16 +46,17 @@ export default function ProductDetail() {
                 modules={[FreeMode, Navigation, Thumbs]}
                 className={s.mainSlider}
               >
-                {productDetail &&
-                  productDetail.length > 0 &&
-                  productDetail[0].images.map((img, i) => (
+                {product?.images &&
+                  product.images.length > 0 &&
+                  product.images.map((img, i) => (
                     <SwiperSlide
                       className={s.slide}
                       key={i}
                     >
-                      <Image
+                      {/* Баг с <Image/> next/image */}
+                      <img
                         src={img}
-                        fill
+                        // fill
                         alt='scooter'
                       />
                     </SwiperSlide>
@@ -72,29 +75,30 @@ export default function ProductDetail() {
                 modules={[FreeMode, Navigation, Thumbs]}
                 className={s.secondSlider}
               >
-                {productDetail &&
-                  productDetail.length > 0 &&
-                  productDetail[0].images.map((img, i) => (
+                {product?.images &&
+                  product.images.length > 0 &&
+                  product.images.map((img, i) => (
                     <SwiperSlide
                       className={s.slide}
                       key={i}
                     >
-                      <Image
+                      {/* Баг с <Image/> next/image */}
+                      <img
                         src={img}
-                        fill
+                        // fill
                         alt='scooter'
                       />
                     </SwiperSlide>
                   ))}
               </Swiper>
             </div>
-            <Flex
+            {/* <Flex
               flex={1}
               vertical
               className={s.main}
             >
               MAIN
-            </Flex>
+            </Flex> */}
           </Flex>
         </div>
       </main>
