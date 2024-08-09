@@ -52,6 +52,13 @@ export const useStore = create(
 
       succesOrder: () => set(() => ({ cartItems: [] })),
 
+      productDetail: [],
+      saveSlagItemLS: product => {
+        set(state => {
+          return { productDetail: [product] }
+        })
+      },
+
       reviews: [],
 
       fetchReviews: async () => {

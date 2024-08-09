@@ -1,0 +1,47 @@
+.root {
+  padding-top: 77px;
+}
+
+.swiper {
+  width: 570px;
+  height: 690px;
+
+  border-radius: 5px;
+  // overflow: hidden;
+
+  .slide {
+    border-radius: 5px;
+    overflow: hidden;
+
+    img {
+      user-select: none;
+    }
+  }
+}
+
+.main {
+  height: 100vh;
+  background-color: blueviolet;
+}
+
+.mainSlider {
+  margin-bottom: 10px;
+
+  .slide {
+    height: 505px;
+  }
+}
+.secondSlider {
+  & div {
+    row-gap: 10px;
+    flex-wrap: wrap;
+  }
+  .slide {
+    height: 75px;
+    width: 75px !important;
+  }
+}
+
+.active {
+  border: 2px solid purple;
+}

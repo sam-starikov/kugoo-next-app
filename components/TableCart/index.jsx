@@ -118,7 +118,6 @@ export function TableCart() {
 
       render: record => (
         <button
-          // disabled={renderItems.length === 0 ? true : false}
           className={s.deleteBtn}
           onClick={() => removeItem(record.id)}
         >

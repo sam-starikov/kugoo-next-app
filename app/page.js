@@ -18,8 +18,6 @@ import {
 import { Skeleton } from 'antd'
 
 export default function Home() {
-  console.log('Render Home')
-
   const { fetchProducts, allProducts, reviews, fetchReviews } = useStore()
 
   useEffect(() => {

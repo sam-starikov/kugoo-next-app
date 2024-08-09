@@ -89,7 +89,8 @@ export function Footer() {
           </div>
           <Link
             href='#!'
-            className={s.link}>
+            className={s.link}
+          >
             Заказать звонок
           </Link>
         </nav>
@@ -99,7 +100,7 @@ export function Footer() {
           <div className={s.store}>
             <Link href='#!'>
               <Image
-                src='/img/google-play.jpg'
+                src='/img/footer/google-play.jpg'
                 width={151}
                 height={45}
                 alt='google play'
@@ -107,7 +108,7 @@ export function Footer() {
             </Link>
             <Link href='#!'>
               <Image
-                src='/img/app-store.jpg'
+                src='/img/footer/app-store.jpg'
                 width={151}
                 height={45}
                 alt='app store'

@@ -35,7 +35,7 @@ export function BannerSlider() {
           modules={[Navigation, Autoplay]}
           slidesPerView={1}
           spaceBetween={20}
-          // autoplay={{ delay: 2000, disableOnInteraction: false }}
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
           speed={1000}
           loop={true}
         >

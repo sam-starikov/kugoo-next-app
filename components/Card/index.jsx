@@ -8,6 +8,7 @@ import { useStore } from '@/app/store/store'
 
 import { Button, Image as AntdImage } from 'antd'
 import { ShoppingOutlined, ShoppingFilled, HeartOutlined, HeartFilled } from '@ant-design/icons'
+import Link from 'next/link'
 
 export function Card({
   id,
@@ -23,8 +24,9 @@ export function Card({
   charge,
   added,
   loading,
+  images,
 }) {
-  const addToCart = useStore(state => state.addToCart)
+  const { addToCart, saveSlagItemLS } = useStore()
   const [isAdded, setIsAdded] = useState(added)
   const [isFavourite, setIsFavourite] = useState(false)
 
@@ -32,6 +34,11 @@ export function Card({
     const newProduct = { id, title, img, price }
     addToCart(newProduct)
     setIsAdded(!isAdded)
+  }
+
+  const handleDetailLink = () => {
+    const product = { id, images, title }
+    saveSlagItemLS(product)
   }
 
   const setDiscount = () => {
@@ -68,46 +75,53 @@ export function Card({
         {isTrend && <span className={style.trend}>Trend</span>}
         {isNew && <span className={style.new}>New</span>}
       </div>
+
       <div className={style.body}>
-        <h4 className={style.title}>{title}</h4>
-        <ul className={style.infoList}>
-          <li className={style.infoListItem}>
-            <Image
-              src={'/icons/card/accumulator.svg'}
-              alt='accumulator'
-              width={18}
-              height={18}
-            />
-            <p className={style.infoDesc}>{String(mAh).slice(0, 3)} mAh</p>
-          </li>
-          <li className={style.infoListItem}>
-            <Image
-              src={'/icons/card/power.svg'}
-              alt='power'
-              width={18}
-              height={18}
-            />
-            <p className={style.infoDesc}>{power} л.с.</p>
-          </li>
-          <li className={style.infoListItem}>
-            <Image
-              src={'/icons/card/speedometer.svg'}
-              alt='speedometer'
-              width={18}
-              height={18}
-            />
-            <p className={style.infoDesc}>{kmH} км/ч</p>
-          </li>
-          <li className={style.infoListItem}>
-            <Image
-              src={'/icons/card/timer.svg'}
-              alt='timer'
-              width={18}
-              height={18}
-            />
-            <p className={style.infoDesc}>{charge} часов</p>
-          </li>
-        </ul>
+        <Link
+          href={`/cart/${id}`}
+          onClick={() => handleDetailLink()}
+        >
+          <h4 className={style.title}>{title}</h4>
+          <ul className={style.infoList}>
+            <li className={style.infoListItem}>
+              <Image
+                src={'/icons/card/accumulator.svg'}
+                alt='accumulator'
+                width={18}
+                height={18}
+              />
+              <p className={style.infoDesc}>{String(mAh).slice(0, 3)} mAh</p>
+            </li>
+            <li className={style.infoListItem}>
+              <Image
+                src={'/icons/card/power.svg'}
+                alt='power'
+                width={18}
+                height={18}
+              />
+              <p className={style.infoDesc}>{power} л.с.</p>
+            </li>
+            <li className={style.infoListItem}>
+              <Image
+                src={'/icons/card/speedometer.svg'}
+                alt='speedometer'
+                width={18}
+                height={18}
+              />
+              <p className={style.infoDesc}>{kmH} км/ч</p>
+            </li>
+            <li className={style.infoListItem}>
+              <Image
+                src={'/icons/card/timer.svg'}
+                alt='timer'
+                width={18}
+                height={18}
+              />
+              <p className={style.infoDesc}>{charge} часов</p>
+            </li>
+          </ul>
+        </Link>
+
         <div className={style.bottom}>
           <div className={style.totalPrice}>
             {isDiscount && <span className={style.discount}>{setDiscount()}₽</span>}

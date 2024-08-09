@@ -13,7 +13,6 @@ import ViberImg from '/public/icons/header/viber.svg'
 import WhatsAppImg from '/public/icons/header/whatsapp.svg'
 import TelegramImg from '/public/icons/header/telegram.svg'
 import BalanceImg from '/public/icons/header/balance.svg'
-import FavouriteImg from '/public/icons/header/favourite.svg'
 
 export function Header() {
   const [isCatalogueOpen, setIsCatalogueOpen] = useState(false)
