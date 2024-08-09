@@ -9,7 +9,7 @@ import { Footer, Header } from '@/components'
 import { Flex } from 'antd'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
+import { Thumbs } from 'swiper/modules'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
@@ -41,9 +41,8 @@ export default function ProductDetail({ params }) {
                 }}
                 loop={true}
                 spaceBetween={10}
-                navigation={true}
                 thumbs={{ swiper: thumbsSwiper }}
-                modules={[FreeMode, Navigation, Thumbs]}
+                modules={[Thumbs]}
                 className={s.mainSlider}
               >
                 {product?.images &&
@@ -72,7 +71,7 @@ export default function ProductDetail({ params }) {
                 slidesPerView={4}
                 freeMode={true}
                 watchSlidesProgress={true}
-                modules={[FreeMode, Navigation, Thumbs]}
+                modules={[Thumbs]}
                 className={s.secondSlider}
               >
                 {product?.images &&
