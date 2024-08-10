@@ -2,11 +2,14 @@
 import s from './style.module.scss'
 
 import { useEffect, useState } from 'react'
+
 import Image from 'next/image'
+// import ImageSrc from '/icons/balance.svg'
 
 import { useStore } from '@/app/store/store'
 import { Footer, Header } from '@/components'
-import { Flex } from 'antd'
+import { Flex, Tooltip } from 'antd'
+import { QuestionCircleOutlined } from '@ant-design/icons'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Thumbs } from 'swiper/modules'
@@ -30,8 +33,8 @@ export default function ProductDetail({ params }) {
       <main className='main'>
         <div className='container'>
           <Flex
+            gap={20}
             className={s.root}
-            gap={65}
           >
             <div className={s.swiper}>
               <Swiper
@@ -91,13 +94,90 @@ export default function ProductDetail({ params }) {
                   ))}
               </Swiper>
             </div>
-            {/* <Flex
-              flex={1}
+
+            {/* main */}
+            <Flex
               vertical
               className={s.main}
             >
-              MAIN
-            </Flex> */}
+              <h1 className={s.title}>Kugoo Kirin M4</h1>
+
+              <Flex className={s.info}>
+                <span>Просмотров 350</span>
+                <span>Купили 196 раз</span>
+                <span>Артикул: 2200000000026</span>
+              </Flex>
+
+              <Flex className={s.controls}>
+                <span>В наличии</span>
+                <button>
+                  <Image
+                    src={'/icons/balance.svg'}
+                    alt='balance'
+                    width={20}
+                    height={20}
+                  />
+                  Сравнить
+                </button>
+                <button>
+                  <Image
+                    src={'/icons/share.svg'}
+                    alt='share'
+                    width={20}
+                    height={20}
+                  />
+                  Поделиться
+                </button>
+              </Flex>
+
+              <Flex
+                className={s.priceWrapper}
+                justify='space-between'
+                gap={10}
+              >
+                <Flex
+                  vertical
+                  justify='center'
+                  className={s.price}
+                >
+                  <span>39 900 ₽</span>
+                  <span>29 900 ₽</span>
+                </Flex>
+                <Flex
+                  vertical
+                  className={s.credit}
+                >
+                  <span>Рассрочка:</span>
+                  <span>1 760 ₽ в месяц / 24 месяца</span>
+                </Flex>
+              </Flex>
+
+              <Flex
+                vertical
+                gap={6}
+              >
+                <Flex
+                  className={s.equipment}
+                  gap={6}
+                >
+                  <span>Комплектация</span>
+                  <Tooltip
+                    title='prompt text'
+                    color={'#75d14a'}
+                  >
+                    <QuestionCircleOutlined style={{ fontSize: 16 }} />
+                  </Tooltip>
+                </Flex>
+                <Flex
+                  wrap
+                  gap={20}
+                >
+                  <button className={s.button}>Базовая</button>
+                  <button className={s.button}>Версия MAX</button>
+                  <button className={s.button}>VIP-версия</button>
+                </Flex>
+              </Flex>
+            </Flex>
           </Flex>
         </div>
       </main>

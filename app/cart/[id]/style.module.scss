@@ -1,7 +1,13 @@
 .root {
   padding-top: 77px;
-}
+  justify-content: space-between;
 
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+/* swiper */
 .swiper {
   max-width: 570px;
   width: 100%;
@@ -18,15 +24,10 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       user-select: none;
     }
   }
-}
-
-.main {
-  height: 100vh;
-
-  background-color: blueviolet;
 }
 
 .mainSlider {
@@ -47,4 +48,125 @@
     height: 75px;
     width: 75px !important;
   }
+}
+/* end */
+
+/* main */
+.main {
+  max-width: 475px;
+  width: 100%;
+  height: 100vh;
+
+  flex-shrink: 1;
+  flex-grow: 1;
+
+  background-color: rgba(170, 170, 170, 0.181);
+}
+
+.title {
+  font-size: 35px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.info {
+  font-size: 12px;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.controls {
+  font-size: 14px;
+  gap: 40px;
+  margin-bottom: 30px;
+
+  span {
+    position: relative;
+    padding-left: 20px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--green);
+      transform: translateY(-50%);
+    }
+  }
+
+  & button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 10px;
+  }
+}
+
+.priceWrapper {
+  margin-bottom: 30px;
+}
+
+.price {
+  span {
+    &:first-child {
+      font-size: 12px;
+      color: var(--gray-600);
+      text-decoration: line-through;
+    }
+    &:last-child {
+      font-size: 25px;
+      font-weight: 600;
+    }
+  }
+}
+
+.credit {
+  position: relative;
+  padding: 7px 15px 7px 50px;
+  border-radius: 5px;
+  background-color: var(--gray-200);
+
+  span {
+    &:first-child {
+      font-size: 12px;
+      color: var(--gray-600);
+    }
+    &:last-child {
+      font-size: 14px;
+    }
+  }
+
+  &::before {
+    content: url('/img/credit-card.png');
+    position: absolute;
+    top: 50%;
+    left: 23px;
+
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+
+    user-select: none;
+  }
+}
+
+.equipment {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  max-width: 100%;
+  width: 227px;
+
+  border-radius: 10px;
+  border: 1.5px solid var(--purple);
 }
