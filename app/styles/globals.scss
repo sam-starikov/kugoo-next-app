@@ -18,13 +18,17 @@ a {
   overflow-x: hidden;
 }
 
+.overflow {
+  overflow: hidden;
+}
+
 .main {
   flex-grow: 1;
 }
 
 .container {
   width: 100%;
-  max-width: 1140px;
+  max-width: 1205px;
   padding: 0 15px;
   margin: 0 auto;
 

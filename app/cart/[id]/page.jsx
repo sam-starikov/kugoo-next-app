@@ -1,15 +1,16 @@
 'use client'
 import s from './style.module.scss'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 import Image from 'next/image'
-// import ImageSrc from '/icons/balance.svg'
 
 import { useStore } from '@/app/store/store'
-import { Footer, Header } from '@/components'
-import { Flex, Tooltip } from 'antd'
-import { QuestionCircleOutlined } from '@ant-design/icons'
+import { Button, Footer, Header, Subscribe } from '@/components'
+import { Divider, Flex, Tooltip } from 'antd'
+import { QuestionCircleOutlined, HeartOutlined } from '@ant-design/icons'
+
+import ImgSrc from '@/public/icons/delivery-truck.svg'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Thumbs } from 'swiper/modules'
@@ -22,10 +23,24 @@ export default function ProductDetail({ params }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const [product, setProduct] = useState({})
 
+  console.log(product)
+
+  const buttonRef = useRef(null)
+  const handleFocus = () => {
+    if (buttonRef.current) {
+      buttonRef.current.focus()
+    }
+  }
+
   useEffect(() => {
     const product = allProducts.find(obj => obj.id === params.id)
     setProduct(product)
   }, [params.id, allProducts])
+  useEffect(() => {
+    if (buttonRef.current) {
+      buttonRef.current.focus()
+    }
+  }, [])
 
   return (
     <>
@@ -100,7 +115,7 @@ export default function ProductDetail({ params }) {
               vertical
               className={s.main}
             >
-              <h1 className={s.title}>Kugoo Kirin M4</h1>
+              <h1 className={s.title}>{product?.title}</h1>
 
               <Flex className={s.info}>
                 <span>Просмотров 350</span>
@@ -140,8 +155,8 @@ export default function ProductDetail({ params }) {
                   justify='center'
                   className={s.price}
                 >
-                  <span>39 900 ₽</span>
-                  <span>29 900 ₽</span>
+                  <span>{product?.price}₽</span>
+                  <span>{product?.price - (product?.price * 10) / 100}₽</span>
                 </Flex>
                 <Flex
                   vertical
@@ -153,14 +168,12 @@ export default function ProductDetail({ params }) {
               </Flex>
 
               <Flex
+                className={s.equipment}
                 vertical
                 gap={6}
               >
-                <Flex
-                  className={s.equipment}
-                  gap={6}
-                >
-                  <span>Комплектация</span>
+                <Flex gap={6}>
+                  <h2>Комплектация</h2>
                   <Tooltip
                     title='prompt text'
                     color={'#75d14a'}
@@ -169,17 +182,234 @@ export default function ProductDetail({ params }) {
                   </Tooltip>
                 </Flex>
                 <Flex
-                  wrap
+                  justify='space-between'
                   gap={20}
+                  wrap
                 >
-                  <button className={s.button}>Базовая</button>
+                  <button
+                    ref={buttonRef}
+                    className={s.button}
+                  >
+                    Базовая
+                  </button>
                   <button className={s.button}>Версия MAX</button>
                   <button className={s.button}>VIP-версия</button>
+                </Flex>
+              </Flex>
+
+              <Flex
+                vertical
+                gap={8}
+                className={s.tyres}
+              >
+                <span>Покрышки</span>
+                <Flex
+                  align='center'
+                  justify='space-between'
+                  className={s.text}
+                >
+                  <Flex vertical>
+                    <h2>Внедорожная шипованная</h2>
+                    <p>+ установка (с доп.комплектом базовых покрышек)</p>
+                  </Flex>
+                  <button>Изменить</button>
+                </Flex>
+                <span className={s.price}>7600 руб.</span>
+              </Flex>
+
+              <Flex
+                className={s.warranty}
+                vertical
+                gap={20}
+              >
+                <h3>Гарантия</h3>
+                <Flex
+                  gap={20}
+                  justify='center'
+                >
+                  <button className={s.button}>
+                    <span>Стандартная 1 год</span>
+                    <span>Бесплатно</span>
+                  </button>
+                  <button className={s.button}>
+                    <span>Расширенная 2 года</span>
+                    <span>2 990 руб.</span>
+                  </button>
+                </Flex>
+              </Flex>
+
+              <Flex
+                vertical
+                gap={20}
+                className={s.services}
+              >
+                <h3>Дополнительные услуги</h3>
+
+                <Flex
+                  justify='center'
+                  gap={20}
+                >
+                  <button className={s.button}>Нет</button>
+                  <button className={s.button}>
+                    <span>Настройка</span>
+                    <span>1 520 руб.</span>
+                  </button>
+                </Flex>
+                <Flex
+                  justify='center'
+                  gap={20}
+                >
+                  <button className={s.button}>
+                    <span>Гидроизоляция</span>
+                    <span>3 850 руб.</span>
+                  </button>
+                  <button className={s.button}>
+                    <span>Гидроизоляция и настройка</span>
+                    <span>3 409 руб. (-30%)</span>
+                  </button>
+                </Flex>
+              </Flex>
+
+              <Flex
+                vertical
+                gap={30}
+                className={s.packing}
+              >
+                <Flex
+                  className={s.info}
+                  justify='space-between'
+                >
+                  <h3>Подарочная упаковка</h3>
+                  <Flex
+                    className={s.promo}
+                    gap={8}
+                  >
+                    <span>До конца акции</span>
+                    <span>06:34:23:02</span>
+                  </Flex>
+                </Flex>
+                <Flex
+                  className={s.gifts}
+                  vertical
+                >
+                  <h4>2 подарка при покупке</h4>
+                  <Flex
+                    className={s.books}
+                    gap={30}
+                  >
+                    <Flex
+                      className={s.book}
+                      gap={18}
+                    >
+                      <Image
+                        src={'/icons/detailProduct.png'}
+                        width={46}
+                        height={46}
+                        alt='icon'
+                      />
+                      <p>
+                        Книга «6 вопросов об электротранспорте, на которые вы должны знать ответ».
+                      </p>
+                    </Flex>
+                    <Flex
+                      className={s.book}
+                      gap={18}
+                    >
+                      <Image
+                        src={'/icons/detailProduct-02.png'}
+                        width={46}
+                        height={46}
+                        alt='icon'
+                      />
+                      <p>Универсальный держатель для телефона</p>
+                    </Flex>
+                  </Flex>
+                </Flex>
+                <Flex
+                  gap={20}
+                  justify='center'
+                >
+                  <button className={s.button}>
+                    <span>Нет</span>
+                  </button>
+                  <button className={s.button}>
+                    <Image
+                      src='/icons/pink.svg'
+                      width={45}
+                      height={45}
+                      alt='pink'
+                    />
+                    <span>Розовый</span>
+                  </button>
+                </Flex>
+                <Flex
+                  gap={20}
+                  justify='center'
+                >
+                  <button className={s.button}>
+                    <Image
+                      src='/icons/blue.svg'
+                      width={45}
+                      height={45}
+                      alt='blue'
+                    />
+                    <span>Синий</span>
+                  </button>
+                  <button className={s.button}>
+                    <Image
+                      src='/icons/red.svg'
+                      width={45}
+                      height={45}
+                      alt='red'
+                    />
+                    <span>Красный</span>
+                  </button>
+                </Flex>
+
+                <Flex
+                  className={s.order}
+                  vertical
+                >
+                  <Flex
+                    justify='space-between'
+                    align='center'
+                    flex={1}
+                  >
+                    <h2 className={s.title}>{product?.price - (product?.price * 10) / 100}₽</h2>
+                    <button className={s.like}>
+                      <HeartOutlined />
+                    </button>
+                  </Flex>
+                  <Divider style={{ marginBottom: 30 }} />
+                  <Flex
+                    className={s.orderInfo}
+                    gap={17}
+                  >
+                    <Image
+                      src={ImgSrc}
+                      width={22}
+                      height={22}
+                      alt='deliveri truck'
+                    />
+                    <p>
+                      Бесплатная доставка по РФ <br />
+                      <span>от 1 дня при заказе до 01.09</span>
+                    </p>
+                  </Flex>
+                  <Flex
+                    align='center'
+                    gap={20}
+                    className={s.orderBtns}
+                  >
+                    <Button type={'purple'}>Купить в 1 клик</Button>
+                    <Button type={'whiteBorder'}>Добавить в корзину</Button>
+                  </Flex>
                 </Flex>
               </Flex>
             </Flex>
           </Flex>
         </div>
+        <Subscribe />
       </main>
       <Footer />
     </>

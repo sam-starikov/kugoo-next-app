@@ -16,7 +16,10 @@ import BalanceImg from '/public/icons/header/balance.svg'
 
 export function Header() {
   const [isCatalogueOpen, setIsCatalogueOpen] = useState(false)
-  const toggleCatalogue = () => setIsCatalogueOpen(!isCatalogueOpen)
+  const toggleCatalogue = () => {
+    setIsCatalogueOpen(!isCatalogueOpen)
+    document.body.classList.toggle('overflow')
+  }
 
   return (
     <header>

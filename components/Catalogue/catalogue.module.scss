@@ -30,6 +30,9 @@
   border-radius: 5px;
   background-color: var(--white);
 
+  overflow-y: scroll;
+  max-height: 400px;
+
   @media (max-width: 660px) {
     padding: 30px;
     .options {
