@@ -191,7 +191,7 @@
     border: 1.5px solid var(--gray-200);
 
     &:focus {
-      border: 1.5px solid var(--purple);
+      box-shadow: 0 0 0 2px var(--purple);
     }
 
     @media (max-width: 1015px) {
@@ -285,6 +285,7 @@
 }
 
 .services {
+  padding-top: 30px;
   h3 {
     font-weight: 500;
   }

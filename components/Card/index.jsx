@@ -29,22 +29,16 @@ export function Card({
   const [isFavourite, setIsFavourite] = useState(false)
 
   const handleAddProduct = () => {
-    const newProduct = { id, title, img, price }
+    const newProduct = { id, title, img, price, isDiscount }
     addToCart(newProduct)
     setIsAdded(!isAdded)
   }
 
-  const setDiscount = () => {
-    if (price && isDiscount) {
-      const discountedPrice = price - (price * 10) / 100
-      // const formattedPrice = useFormattedPrice(discountedPrice)
-      return price
-
-      // formattedPrice
-    } else {
-      return price
-      // useFormattedPrice(price)
-    }
+  const setFormatedPrice = price => {
+    return new Intl.NumberFormat('ru-Ru', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price)
   }
 
   return (
@@ -114,8 +108,10 @@ export function Card({
 
         <div className={style.bottom}>
           <div className={style.totalPrice}>
-            {isDiscount && <span className={style.discount}>{setDiscount()}₽</span>}
-            <strong className={style.price}>{setDiscount()}₽</strong>
+            {isDiscount && <span className={style.discount}>{setFormatedPrice(price)} ₽</span>}
+            <strong className={style.price}>
+              {setFormatedPrice(isDiscount ? price - (price / 100) * 10 : price)} ₽
+            </strong>
           </div>
           <div className={style.controls}>
             <button

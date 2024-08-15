@@ -32,6 +32,7 @@ export function BannerSlider() {
     <section className={style.slider}>
       <div className='container container--large'>
         <Swiper
+          className={style.swiper}
           modules={[Navigation, Autoplay]}
           slidesPerView={1}
           spaceBetween={20}

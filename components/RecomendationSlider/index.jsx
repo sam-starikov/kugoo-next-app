@@ -16,7 +16,7 @@ import { useStore } from '@/app/store/store'
 import { Card } from '../index'
 
 export function RecomendationSlider() {
-  const { allProducts } = useStore()
+  const { allProducts, cartItems } = useStore()
 
   const swiperRef = useRef(null)
   const handleNext = () => {
@@ -49,17 +49,23 @@ export function RecomendationSlider() {
               1100: { slidesPerView: 4, spaceBetween: 30 },
               1300: { slidesPerView: 4.5, spaceBetween: 30 },
             }}
-            grabCursor={true}>
+            grabCursor={true}
+          >
             {allProducts.map(product => (
               <SwiperSlide
                 key={product.id}
-                className={s.slide}>
-                <Card {...product} />
+                className={s.slide}
+              >
+                <Card
+                  {...product}
+                  added={cartItems.some(item => item.id === product.id)}
+                />
               </SwiperSlide>
             ))}
             <button
               className={s.btnNext}
-              onClick={handleNext}>
+              onClick={handleNext}
+            >
               <RightOutlined />
             </button>
           </Swiper>

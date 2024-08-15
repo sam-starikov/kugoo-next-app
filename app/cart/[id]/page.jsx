@@ -23,24 +23,17 @@ export default function ProductDetail({ params }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const [product, setProduct] = useState({})
 
-  console.log(product)
-
-  const buttonRef = useRef(null)
-  const handleFocus = () => {
-    if (buttonRef.current) {
-      buttonRef.current.focus()
-    }
+  const setFormatedPrice = price => {
+    return new Intl.NumberFormat('ru-Ru', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price)
   }
 
   useEffect(() => {
     const product = allProducts.find(obj => obj.id === params.id)
     setProduct(product)
   }, [params.id, allProducts])
-  useEffect(() => {
-    if (buttonRef.current) {
-      buttonRef.current.focus()
-    }
-  }, [])
 
   return (
     <>
@@ -70,10 +63,8 @@ export default function ProductDetail({ params }) {
                       className={s.slide}
                       key={i}
                     >
-                      {/* Баг с <Image/> next/image */}
                       <img
                         src={img}
-                        // fill
                         alt='scooter'
                       />
                     </SwiperSlide>
@@ -99,10 +90,8 @@ export default function ProductDetail({ params }) {
                       className={s.slide}
                       key={i}
                     >
-                      {/* Баг с <Image/> next/image */}
                       <img
                         src={img}
-                        // fill
                         alt='scooter'
                       />
                     </SwiperSlide>
@@ -155,8 +144,8 @@ export default function ProductDetail({ params }) {
                   justify='center'
                   className={s.price}
                 >
-                  <span>{product?.price}₽</span>
-                  <span>{product?.price - (product?.price * 10) / 100}₽</span>
+                  <span>{setFormatedPrice(product?.price)} ₽</span>
+                  <span>{setFormatedPrice(product?.price - (product?.price * 10) / 100)} ₽</span>
                 </Flex>
                 <Flex
                   vertical
@@ -186,12 +175,7 @@ export default function ProductDetail({ params }) {
                   gap={20}
                   wrap
                 >
-                  <button
-                    ref={buttonRef}
-                    className={s.button}
-                  >
-                    Базовая
-                  </button>
+                  <button className={s.button}>Базовая</button>
                   <button className={s.button}>Версия MAX</button>
                   <button className={s.button}>VIP-версия</button>
                 </Flex>
@@ -375,7 +359,7 @@ export default function ProductDetail({ params }) {
                     align='center'
                     flex={1}
                   >
-                    <h2 className={s.title}>{product?.price - (product?.price * 10) / 100}₽</h2>
+                    <h2 className={s.title}>₽</h2>
                     <button className={s.like}>
                       <HeartOutlined />
                     </button>

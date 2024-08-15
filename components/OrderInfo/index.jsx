@@ -9,7 +9,24 @@ import { Button } from '..'
 export function OrderInfo({ orderComplete, setOrderComplete }) {
   const [toggleCheck, setToggleCheck] = useState(true)
   const { cartItems, succesOrder } = useStore()
+
+  const totalDiscountPrice = cartItems.reduce((acc, item) => {
+    if (item.isDiscount) {
+      return acc + item.price - (item.price * 10) / 100
+    } else {
+      return acc + item.price
+    }
+  }, 0)
+
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0)
+
+  const totalDiscount = cartItems.reduce((acc, item) => {
+    if (item.isDiscount) {
+      return acc + (item.price * 10) / 100
+    } else {
+      return acc
+    }
+  }, 0)
 
   const handleCheckBox = () => setToggleCheck(prev => !prev)
 
@@ -30,25 +47,25 @@ export function OrderInfo({ orderComplete, setOrderComplete }) {
     <div className={s.orderCard}>
       <div className={s.top}>
         <p>Итого</p>
-        <h3>{setFormatedPrice(totalPrice)} ₽</h3>
+        <h3>{setFormatedPrice(totalDiscountPrice)} ₽</h3>
       </div>
       <div className={s.body}>
         <ul className={s.infoList}>
           <li>Стоимость товаров</li>
           <li>
-            <span>XXX</span>
+            <span>{setFormatedPrice(totalPrice)} ₽</span>
           </li>
         </ul>
         <ul className={s.infoList}>
           <li>Сумма скидки</li>
           <li>
-            <span>XXX</span>
+            <span>{setFormatedPrice(totalDiscount)} ₽</span>
           </li>
         </ul>
         <ul className={s.infoList}>
           <li>Итого без учета доставки</li>
           <li>
-            <span>XXX</span>
+            <span>{setFormatedPrice(totalPrice - totalDiscount)} ₽</span>
           </li>
         </ul>
       </div>

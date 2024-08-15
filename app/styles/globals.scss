@@ -71,3 +71,36 @@ a {
   border: 2px solid var(--purple);
 }
 /* end */
+
+/* antd table */
+.ant-table-container {
+  font-family: var(--font-family) !important;
+  font-size: 12px;
+}
+
+.ant-table-cell {
+  padding: 10px !important;
+  background-color: transparent !important;
+
+  &:last-child {
+    text-align: center;
+  }
+
+  @media (max-width: 400px) {
+    padding: 5px !important;
+  }
+}
+
+.ant-table-cell-row-hover {
+  background-color: transparent !important;
+}
+
+.ant-table-thead > tr > th {
+  background-color: var(--background-gray) !important;
+
+  &:last-child {
+    color: var(--gray-600);
+  }
+}
+
+/* end */

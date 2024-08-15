@@ -1,7 +1,9 @@
 .card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 255px;
+  min-height: 492px;
 
   overflow: hidden;
 
@@ -11,13 +13,14 @@
 
   @media (max-width: 666px) {
     flex-direction: row;
-    height: unset;
+    min-height: unset;
     width: 100%;
   }
   @media (max-width: 500px) {
     flex-direction: column;
     .top {
       max-width: unset;
+      height: unset;
     }
   }
 
@@ -29,6 +32,7 @@
 .top {
   position: relative;
   height: 230px;
+  flex-grow: 1;
 
   img {
     user-select: none;
@@ -111,8 +115,10 @@
 }
 
 .totalPrice {
+  height: 47px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
 }
 
 .price {
@@ -128,7 +134,7 @@
 
 .bottom {
   display: flex;
-  align-items: flex-end;
+  justify-content: space-between;
   gap: 26px;
 
   margin-bottom: 16px;

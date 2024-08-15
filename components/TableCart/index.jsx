@@ -3,10 +3,13 @@ import s from './style.module.scss'
 
 import { useEffect, useState } from 'react'
 import { useStore } from '@/app/store/store'
+
 // import useFormattedPrice from '@/app/hooks/useFormattedPrice'
 
 import { Table, Image as AntdImage, Flex, Alert, Select } from 'antd'
 import { DeleteOutlined, PlusOutlined, MinusOutlined } from '@ant-design/icons'
+import Image from 'next/image'
+import Link from 'next/link'
 
 export function TableCart() {
   const { cartItems, removeItem, incrementProduct, decrementProduct } = useStore()
@@ -18,9 +21,18 @@ export function TableCart() {
   const [renderItems, setRenderItems] = useState([])
 
   useEffect(() => {
-    const uniqueArray = [...new Set(dataSource)]
+    const uniqueIds = new Set()
+    const uniqueArray = dataSource.filter(obj => {
+      if (!uniqueIds.has(obj.id)) {
+        uniqueIds.add(obj.id)
+        return true
+      }
+      return false
+    })
+    uniqueArray.sort((a, b) => a.id - b.id)
+
     setRenderItems(uniqueArray)
-  }, [])
+  }, [cartItems])
 
   const handleIncrementProduct = obj => {
     incrementProduct(obj)
@@ -28,14 +40,18 @@ export function TableCart() {
 
   const handleDecrementProduct = id => {
     decrementProduct(id)
-    setRenderItems(prevProducts => {
-      const index = prevProducts.findIndex(product => product.id === id)
+  }
 
-      if (index !== -1) {
-        return [...prevProducts.slice(0, index), ...prevProducts.slice(index + 1)]
-      }
-      return prevProducts
-    })
+  const countById = cartItems.reduce((acc, product) => {
+    acc[product.id] = (acc[product.id] || 0) + 1
+    return acc
+  }, {})
+
+  const setFormatedPrice = price => {
+    return new Intl.NumberFormat('ru-Ru', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price)
   }
 
   const columns = [
@@ -44,14 +60,14 @@ export function TableCart() {
       dataIndex: 'title',
       key: 'title',
 
-      render: (text, img) => {
+      render: (text, obj) => {
         return (
           <Flex
             gap={20}
             align='center'
           >
             <AntdImage
-              src='/img/scooter-01.jpg'
+              src={obj.img}
               alt='img'
               width={75}
               height={75}
@@ -60,7 +76,9 @@ export function TableCart() {
               vertical={true}
               gap={5}
             >
-              <span className={s.title}>{text}</span>
+              <Link href={`/cart/${obj.id}`}>
+                <span className={s.title}>{text}</span>
+              </Link>
               <Alert
                 className={s.alert}
                 message='В наличии'
@@ -76,25 +94,36 @@ export function TableCart() {
       title: 'Количество',
       dataIndex: 'count',
       key: 'count',
+      responsive: ['sm'],
 
       render: (_, obj) => {
+        const count = countById[obj.id]
         return (
           <div className={s.counter}>
             <button
-              disabled={renderItems.length === 1 ? true : false}
               onClick={() => handleDecrementProduct(obj.id)}
               className={s.btnCount}
             >
-              <MinusOutlined />
+              <Image
+                src='/icons/minus.svg'
+                alt='minus'
+                width={10}
+                height={1.5}
+              />
             </button>
-            <div></div>
+            <div>{count}</div>
             <button
               onClick={() => {
                 handleIncrementProduct(obj)
               }}
               className={s.btnCount}
             >
-              <PlusOutlined />
+              <Image
+                src='/icons/plus.svg'
+                alt='plus'
+                width={10}
+                height={10}
+              />
             </button>
           </div>
         )
@@ -104,12 +133,28 @@ export function TableCart() {
       title: 'Сумма',
       dataIndex: 'price',
       key: 'price',
+      responsive: ['sm'],
 
       sorter: (a, b) => a.price - b.price,
-      render: price => {
-        // const formattedPrice = useFormattedPrice(price)
+      render: (price, obj) => {
+        const count = countById[obj.id] || 0
 
-        return <span className={s.price}>{price} ₽</span>
+        return (
+          <Flex vertical>
+            {obj.isDiscount && (
+              <Flex
+                gap={5}
+                align='center'
+              >
+                <span className={s.discount}>{setFormatedPrice(price * count)} ₽</span>
+                <div className={s.bage}> -10% </div>
+              </Flex>
+            )}
+            <span className={s.price}>
+              {setFormatedPrice((obj.isDiscount ? price - (price / 100) * 10 : price) * count)} ₽
+            </span>
+          </Flex>
+        )
       },
     },
     {
@@ -135,8 +180,6 @@ export function TableCart() {
       expandable={{
         columnTitle: 'Опции',
         defaultExpandAllRows: true,
-        responsive: ['sm'],
-
         expandedRowRender: record => {
           return (
             <Flex
