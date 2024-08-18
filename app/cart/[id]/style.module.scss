@@ -176,28 +176,6 @@
   font-weight: 500;
   padding-bottom: 40px;
   border-bottom: 1px solid var(--gray-200);
-
-  .button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 10px;
-
-    max-width: 227px;
-    width: 100%;
-
-    font-size: 18px;
-    border-radius: 10px;
-    border: 1.5px solid var(--gray-200);
-
-    &:focus {
-      box-shadow: 0 0 0 2px var(--purple);
-    }
-
-    @media (max-width: 1015px) {
-      max-width: 100%;
-    }
-  }
 }
 
 .tyres {
@@ -269,8 +247,7 @@
       &:first-child {
       }
       &:last-child {
-        font-size: 14px;
-        color: var(--gray-600);
+       
       }
     }
 

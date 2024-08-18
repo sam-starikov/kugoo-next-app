@@ -1,12 +1,12 @@
 'use client'
 import s from './style.module.scss'
 
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 
 import Image from 'next/image'
 
 import { useStore } from '@/app/store/store'
-import { Button, Footer, Header, Subscribe } from '@/components'
+import { Button, Footer, Header, RadioButton, Subscribe } from '@/components'
 import { Divider, Flex, Tooltip } from 'antd'
 import { QuestionCircleOutlined, HeartOutlined } from '@ant-design/icons'
 
@@ -19,9 +19,31 @@ import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 
 export default function ProductDetail({ params }) {
-  const { allProducts } = useStore()
+  const { allProducts, cartItems, addToCart } = useStore()
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const [product, setProduct] = useState({})
+  const [checkedWarranty, setCheckedWarranty] = useState(null)
+  const [checkedServices, setCheckedServices] = useState(null)
+
+  console.log(checkedWarranty, checkedServices)
+
+  const isCart = cartItems.some(obj => obj.id === params.id)
+
+  const handleAddToCart = () => {
+    const newProduct = {
+      id: product.id,
+      title: product.title,
+      price:
+        product.price -
+        (product.price * 10) / 100 +
+        Number(checkedWarranty) +
+        Number(checkedServices),
+      img: product.img,
+      isDiscount: product.isDiscount,
+    }
+
+    addToCart(newProduct)
+  }
 
   const setFormatedPrice = price => {
     return new Intl.NumberFormat('ru-Ru', {
@@ -32,6 +54,7 @@ export default function ProductDetail({ params }) {
 
   useEffect(() => {
     const product = allProducts.find(obj => obj.id === params.id)
+
     setProduct(product)
   }, [params.id, allProducts])
 
@@ -99,7 +122,6 @@ export default function ProductDetail({ params }) {
               </Swiper>
             </div>
 
-            {/* main */}
             <Flex
               vertical
               className={s.main}
@@ -175,9 +197,14 @@ export default function ProductDetail({ params }) {
                   gap={20}
                   wrap
                 >
-                  <button className={s.button}>Базовая</button>
-                  <button className={s.button}>Версия MAX</button>
-                  <button className={s.button}>VIP-версия</button>
+                  <RadioButton
+                    name={'equipment'}
+                    checked={true}
+                  >
+                    Базовая
+                  </RadioButton>
+                  <RadioButton name={'equipment'}>Версия MAX</RadioButton>
+                  <RadioButton name={'equipment'}>VIP-версия</RadioButton>
                 </Flex>
               </Flex>
 
@@ -211,14 +238,25 @@ export default function ProductDetail({ params }) {
                   gap={20}
                   justify='center'
                 >
-                  <button className={s.button}>
-                    <span>Стандартная 1 год</span>
+                  <RadioButton
+                    size={'xl'}
+                    name={'warranty'}
+                    checked={true}
+                    value={0}
+                    onChange={setCheckedWarranty}
+                  >
+                    Стандартная 1 год
                     <span>Бесплатно</span>
-                  </button>
-                  <button className={s.button}>
-                    <span>Расширенная 2 года</span>
+                  </RadioButton>
+                  <RadioButton
+                    size={'xl'}
+                    name={'warranty'}
+                    value={2990}
+                    onChange={setCheckedWarranty}
+                  >
+                    Расширенная 2 года
                     <span>2 990 руб.</span>
-                  </button>
+                  </RadioButton>
                 </Flex>
               </Flex>
 
@@ -228,29 +266,48 @@ export default function ProductDetail({ params }) {
                 className={s.services}
               >
                 <h3>Дополнительные услуги</h3>
-
                 <Flex
                   justify='center'
                   gap={20}
                 >
-                  <button className={s.button}>Нет</button>
-                  <button className={s.button}>
-                    <span>Настройка</span>
-                    <span>1 520 руб.</span>
-                  </button>
+                  <RadioButton
+                    size={'xl'}
+                    name={'services'}
+                    checked={true}
+                    value={0}
+                    onChange={setCheckedServices}
+                  >
+                    Нет
+                  </RadioButton>
+                  <RadioButton
+                    size={'xl'}
+                    name={'services'}
+                    value={1520}
+                    onChange={setCheckedServices}
+                  >
+                    Настройка <span>1 520 руб.</span>
+                  </RadioButton>
                 </Flex>
                 <Flex
                   justify='center'
                   gap={20}
                 >
-                  <button className={s.button}>
-                    <span>Гидроизоляция</span>
-                    <span>3 850 руб.</span>
-                  </button>
-                  <button className={s.button}>
-                    <span>Гидроизоляция и настройка</span>
-                    <span>3 409 руб. (-30%)</span>
-                  </button>
+                  <RadioButton
+                    size={'xl'}
+                    name={'services'}
+                    value={3850}
+                    onChange={setCheckedServices}
+                  >
+                    Гидроизоляция <span>3 850 руб.</span>
+                  </RadioButton>
+                  <RadioButton
+                    size={'xl'}
+                    name={'services'}
+                    value={3409}
+                    onChange={setCheckedServices}
+                  >
+                    Гидроизоляция и настройка <span>3 409 руб. (-30%)</span>
+                  </RadioButton>
                 </Flex>
               </Flex>
 
@@ -269,7 +326,7 @@ export default function ProductDetail({ params }) {
                     gap={8}
                   >
                     <span>До конца акции</span>
-                    <span>06:34:23:02</span>
+                    <span>06:34:23</span>
                   </Flex>
                 </Flex>
                 <Flex
@@ -313,41 +370,56 @@ export default function ProductDetail({ params }) {
                   gap={20}
                   justify='center'
                 >
-                  <button className={s.button}>
-                    <span>Нет</span>
-                  </button>
-                  <button className={s.button}>
+                  <RadioButton
+                    size={'xl'}
+                    name={'color'}
+                    checked={true}
+                  >
+                    Нет
+                  </RadioButton>
+
+                  <RadioButton
+                    size={'xl'}
+                    name={'color'}
+                  >
                     <Image
                       src='/icons/pink.svg'
                       width={45}
                       height={45}
                       alt='pink'
                     />
-                    <span>Розовый</span>
-                  </button>
+                    Розовый
+                  </RadioButton>
                 </Flex>
                 <Flex
                   gap={20}
                   justify='center'
                 >
-                  <button className={s.button}>
+                  <RadioButton
+                    size={'xl'}
+                    name={'color'}
+                  >
                     <Image
                       src='/icons/blue.svg'
                       width={45}
                       height={45}
                       alt='blue'
                     />
-                    <span>Синий</span>
-                  </button>
-                  <button className={s.button}>
+                    Синий
+                  </RadioButton>
+
+                  <RadioButton
+                    size={'xl'}
+                    name={'color'}
+                  >
                     <Image
                       src='/icons/red.svg'
                       width={45}
                       height={45}
                       alt='red'
                     />
-                    <span>Красный</span>
-                  </button>
+                    Красный
+                  </RadioButton>
                 </Flex>
 
                 <Flex
@@ -359,7 +431,15 @@ export default function ProductDetail({ params }) {
                     align='center'
                     flex={1}
                   >
-                    <h2 className={s.title}>₽</h2>
+                    <h2 className={s.title}>
+                      {setFormatedPrice(
+                        product?.price -
+                          (product?.price * 10) / 100 +
+                          Number(checkedWarranty) +
+                          Number(checkedServices),
+                      )}
+                      ₽
+                    </h2>
                     <button className={s.like}>
                       <HeartOutlined />
                     </button>
@@ -386,7 +466,13 @@ export default function ProductDetail({ params }) {
                     className={s.orderBtns}
                   >
                     <Button type={'purple'}>Купить в 1 клик</Button>
-                    <Button type={'whiteBorder'}>Добавить в корзину</Button>
+                    <Button
+                      disabled={isCart}
+                      onClick={handleAddToCart}
+                      type={'whiteBorder'}
+                    >
+                      {isCart ? 'Товар уже в корзине' : 'Добавить в корзину'}
+                    </Button>
                   </Flex>
                 </Flex>
               </Flex>

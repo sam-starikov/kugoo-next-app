@@ -23,6 +23,7 @@ export function Card({
   kmH,
   charge,
   added,
+  disabled,
 }) {
   const { addToCart } = useStore()
   const [isAdded, setIsAdded] = useState(added)
@@ -117,6 +118,7 @@ export function Card({
             <button
               className={style.cartBtn}
               onClick={handleAddProduct}
+              disabled={disabled}
             >
               {isAdded ? <ShoppingFilled /> : <ShoppingOutlined />}
             </button>

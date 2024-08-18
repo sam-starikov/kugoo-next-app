@@ -1,6 +1,6 @@
 'use client'
 import s from './style.module.scss'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 /* swiper */
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -43,7 +43,7 @@ export function RecomendationSlider() {
               320: { slidesPerView: 1.2, spaceBetween: 10 },
               420: { slidesPerView: 1.5, spaceBetween: 10 },
               500: { slidesPerView: 1 },
-              667: { slidesPerView: 2.5, spaceBetween: 30 },
+              666: { slidesPerView: 2.5, spaceBetween: 30 },
               762: { slidesPerView: 3, spaceBetween: 30 },
               900: { slidesPerView: 3.5, spaceBetween: 30 },
               1100: { slidesPerView: 4, spaceBetween: 30 },
@@ -58,7 +58,8 @@ export function RecomendationSlider() {
               >
                 <Card
                   {...product}
-                  added={cartItems.some(item => item.id === product.id)}
+                  // added={cartItems.some(item => item.id === product.id)}
+                  disabled={true}
                 />
               </SwiperSlide>
             ))}
