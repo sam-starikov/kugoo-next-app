@@ -25,8 +25,6 @@ export default function ProductDetail({ params }) {
   const [checkedWarranty, setCheckedWarranty] = useState(null)
   const [checkedServices, setCheckedServices] = useState(null)
 
-  console.log(checkedWarranty, checkedServices)
-
   const isCart = cartItems.some(obj => obj.id === params.id)
 
   const handleAddToCart = () => {
